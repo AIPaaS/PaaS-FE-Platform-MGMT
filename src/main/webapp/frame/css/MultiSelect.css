@@ -1,0 +1,15 @@
+.ux-mselect {
+	POSITION: relative; ZOOM: 1; BACKGROUND: white; OVERFLOW: auto
+}
+.ux-mselect-item {
+	BORDER-BOTTOM: #fff 1px solid; BORDER-LEFT: #fff 1px solid; PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; FONT: 12px tahoma, arial, helvetica, sans-serif; WHITE-SPACE: nowrap; BORDER-TOP: #fff 1px solid; CURSOR: pointer; BORDER-RIGHT: #fff 1px solid; PADDING-TOP: 2px
+}
+.ux-mselect-selected {
+	BORDER-BOTTOM: #a3bae9 1px dotted; BORDER-LEFT: #a3bae9 1px dotted; BACKGROUND: #dfe8f6; BORDER-TOP: #a3bae9 1px dotted; CURSOR: pointer; BORDER-RIGHT: #a3bae9 1px dotted
+}
+.x-view-drag-insert-above {
+	BORDER-TOP: #3366cc 1px dotted
+}
+.x-view-drag-insert-below {
+	BORDER-BOTTOM: #3366cc 1px dotted
+}

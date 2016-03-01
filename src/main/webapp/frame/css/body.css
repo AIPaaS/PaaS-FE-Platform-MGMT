@@ -1,0 +1,49 @@
+input{font:normal 12px tahoma, arial, helvetica, sans-serif;}
+
+a:link {
+	font-size: 11px;
+	color: #15428b;
+	text-decoration: none;
+}
+a:visited {
+	font-size: 11px;
+	color: #15428b;
+	text-decoration: none;
+}
+a:hover {
+	font-size: 11px;
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+
+
+/* upload panenl info */
+.upload-progress-table {
+	width: auto;
+    border-collapse: collapse;
+	margin-top: 7px;
+	font: normal 11px tahoma, arial, verdana, sans-serif;
+}
+		
+.upload-progress-table .upload-progress-label {
+   width: 60px;
+   text-align: left;
+   padding: 2px 2px 2px 15px;
+}
+.upload-progress-table .upload-progress-value {
+    width:150;
+}
+
+.ux-cell-icon-clear {
+    background: url(../images/icons/bin_empty.png) no-repeat;
+    height: 16px;
+}
+
+.ux-cell-color-gray {
+	font-style:italic;
+	text-decoration: line-through;
+	color: gray;
+}
+
+

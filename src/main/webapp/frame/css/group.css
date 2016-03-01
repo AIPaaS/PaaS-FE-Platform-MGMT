@@ -1,0 +1,5 @@
+.x-grid-with-col-lines .x-grid3-row td.x-grid3-cell {border-right-color:#d0d0d0;}
+.x-grid3-row {border-top-color:#ffffff;border-bottom-color:#ffffff;}
+.group-total-row {background:#c081ff;}
+.group-sum-row {background:#cebae2;}
+.group-notsum-row{border-bottom-color:#d0d0d0;}

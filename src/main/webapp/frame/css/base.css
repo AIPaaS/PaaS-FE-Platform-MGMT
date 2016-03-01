@@ -1,0 +1,280 @@
+﻿BODY {
+	
+}
+
+IMG {
+	BORDER-RIGHT-WIDTH: 0px;
+	BORDER-TOP-WIDTH: 0px;
+	BORDER-BOTTOM-WIDTH: 0px;
+	BORDER-LEFT-WIDTH: 0px
+}
+
+BODY {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+UL {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+OL {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+LI {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+DL {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+DT {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+DD {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+FORM {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+LABEL {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+IFRAME {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+DIV {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+P {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+SPAN {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+TABLE {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+TH {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+TD {
+	PADDING-BOTTOM: 0px;
+	
+	LIST-STYLE-TYPE: none;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+BODY {
+	FONT-FAMILY: "宋体", sans-serif;
+	FONT-SIZE: 12px
+}
+
+INPUT {
+	FONT-FAMILY: "宋体", sans-serif;
+	FONT-SIZE: 12px
+}
+
+SELECT {
+	FONT-FAMILY: "宋体", sans-serif;
+	FONT-SIZE: 12px
+}
+
+TEXTAREA {
+	FONT-FAMILY: "宋体", sans-serif;
+	FONT-SIZE: 12px
+}
+
+TD {
+	FONT-FAMILY: "宋体", sans-serif;
+	FONT-SIZE: 12px
+}
+
+INPUT {
+	LINE-HEIGHT: 1.2em
+}
+
+CITE {
+	FONT-STYLE: normal
+}
+
+EM {
+	FONT-STYLE: normal
+}
+
+H1 {
+	LINE-HEIGHT: normal;
+	MARGIN: 0px;
+	FONT-WEIGHT: normal
+}
+
+H2 {
+	LINE-HEIGHT: normal;
+	MARGIN: 0px;
+	FONT-WEIGHT: normal
+}
+
+H3 {
+	LINE-HEIGHT: normal;
+	MARGIN: 0px;
+	FONT-WEIGHT: normal
+}
+
+H4 {
+	LINE-HEIGHT: normal;
+	MARGIN: 0px;
+	FONT-WEIGHT: normal
+}
+
+H5 {
+	LINE-HEIGHT: normal;
+	MARGIN: 0px;
+	FONT-WEIGHT: normal
+}
+
+H6 {
+	LINE-HEIGHT: normal;
+	MARGIN: 0px;
+	FONT-WEIGHT: normal
+}
+
+A {
+	
+	WHITE-SPACE: nowrap
+}
+
+LABEL {
+	CURSOR: pointer !important
+}
+
+INPUT[type=button] {
+	CURSOR: pointer !important
+}
+
+INPUT[type=reset] {
+	CURSOR: pointer !important
+}
+
+INPUT[type=submit] {
+	CURSOR: pointer !important
+}
+
+INPUT[type=radio] {
+	CURSOR: pointer !important
+}
+
+INPUT[type=checkbox] {
+	CURSOR: pointer !important
+}
+
+INPUT.deft {
+	FONT-WEIGHT: bold
+}
+
+A {
+	FONT-FAMILY: Verdana !important
+}

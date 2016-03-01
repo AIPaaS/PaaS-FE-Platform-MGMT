@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xmlns:dubbox="http://dubbox.aic.com/schema/rest/client"
+    xsi:schemaLocation="
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://code.alibabatech.com/schema/dubbo
+          http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+          http://dubbox.aic.com/schema/rest/client http://dubbox.aic.com/schema/rest/client/dubbox-rest-client.xsd">
+	
+	
+	<bean id="DubboRestClient_SYS" class="com.binary.framework.dubbo.rest.DubboRestClient">
+		<constructor-arg value="${dubbox.rest.root.sys}" />
+	</bean>
+	<bean id="DubboRestClient_RES" class="com.binary.framework.dubbo.rest.DubboRestClient">
+		<constructor-arg value="${dubbox.rest.root.dep}" />
+	</bean>
+	
+	<dubbox:rest id="DubboxRest_SysFrameSvc" interface="com.aic.paas.frame.cross.rest.SysFrameSvc" client="DubboRestClient_SYS" />
+	<dubbox:rest id="DubboxRest_MerchentSvc" interface="com.aic.paas.frame.cross.rest.MerchentSvc" client="DubboRestClient_SYS" />
+	
+	<dubbox:rest id="DubboxRest_PcCompRoomSvc" interface="com.aic.paas.console.rest.PcCompRoomSvc" client="DubboRestClient_RES" />
+	<dubbox:rest id="DubboxRest_PcComputerSvc" interface="com.aic.paas.console.rest.PcComputerSvc" client="DubboRestClient_RES" />
+	<dubbox:rest id="DubboxRest_PcDataCenterSvc" interface="com.aic.paas.console.rest.PcDataCenterSvc" client="DubboRestClient_RES" />
+	<dubbox:rest id="DubboxRest_PcImageRepositorySvc" interface="com.aic.paas.console.rest.PcImageRepositorySvc" client="DubboRestClient_RES" />
+	<dubbox:rest id="DubboxRest_PcNetZoneSvc" interface="com.aic.paas.console.rest.PcNetZoneSvc" client="DubboRestClient_RES" />
+	<dubbox:rest id="DubboxRest_PcResCenterSvc" interface="com.aic.paas.console.rest.PcResCenterSvc" client="DubboRestClient_RES" />
+	<dubbox:rest id="DubboxRest_PsMntResApplySvc" interface="com.aic.paas.console.rest.PsMntResApplySvc" client="DubboRestClient_RES" />
+	<dubbox:rest id="DubboxRest_PsMntResSvc" interface="com.aic.paas.console.rest.PsMntResSvc" client="DubboRestClient_RES" />
+	<dubbox:rest id="DubboxRest_PsResCenterResSvc" interface="com.aic.paas.console.rest.PsResCenterResSvc" client="DubboRestClient_RES" />
+	
+	
+	
+		
+</beans>
+
+
+

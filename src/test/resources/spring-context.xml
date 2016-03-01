@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+          http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+	<context:property-placeholder location="classpath:project.properties" order="1" />
+	
+	<bean class="com.binary.framework.util.FrameworkProperties">
+		<constructor-arg>
+			<map>
+				<entry key="Single_Web_Root" value="" />
+				<entry key="Primary_Key_Batch" value="" />
+				<entry key="Project_Local_Space" value="" />
+				
+				<entry key="charset" value="UTF-8"/>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	
+	
+	<import resource="classpath:spring-dubbo-client.xml" />
+	<import resource="classpath:spring-sso-client.xml" />
+	<import resource="classpath:spring/spring-paas-frame.xml" />
+	<import resource="classpath:spring/spring-paas-cdep.xml" />
+	
+			
+	
+	
+	
+</beans>
+
+
