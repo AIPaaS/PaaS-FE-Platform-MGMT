@@ -46,6 +46,7 @@ String ContextPath = request.getContextPath();
 							<tr>
 								<th class="text-center">数据中心代码</th>
 								<th class="text-center">数据中心名称</th>
+								<th class="text-center">是否有效</th>
 								<th class="text-left">描述</th>
 							</tr>
 						</thead>
@@ -89,6 +90,13 @@ String ContextPath = request.getContextPath();
 		<tr>
 			<td class="text-center"><a href="<%=ContextPath%>/dispatch/mc/020201?id={{= row.id}}&pageNum={{= pageNum}}">{{= row.code}}</a></td>
 			<td class="text-center">{{= row.name}}</td>
+			<td class="text-center">
+				{{if row.status==1}}
+					是
+				{{else}}
+					否
+				{{/if}}
+			</td>
 			<td class="text-left">{{= row.remark}}</td>
 		</tr>
 {{/each}}

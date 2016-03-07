@@ -51,6 +51,7 @@ String ContextPath = request.getContextPath();
 								<th class="text-center">机房联系电话</th>
 								<th class="text-center">机房联系电话2</th>
 								<th class="text-center">机房联系邮箱</th>
+								<th class="text-center">是否有效</th>
 								<th class="text-center">机房描述</th>
 							</tr>
 						</thead>
@@ -99,6 +100,13 @@ String ContextPath = request.getContextPath();
 			<td class="text-center">{{= row.contactPhone}}</td>
 			<td class="text-center">{{= row.contactPhone2}}</td>
 			<td class="text-center">{{= row.contactEmail}}</td>
+			<td class="text-center">
+				{{if row.status==1}}
+					是
+				{{else}}
+					否
+				{{/if}}
+			</td>
 			<td class="text-center">{{= row.remark}}</td>
 		</tr>
 {{/each}}

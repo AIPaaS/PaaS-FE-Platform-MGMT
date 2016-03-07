@@ -19,7 +19,7 @@ String ContextPath = request.getContextPath();
 					<input type="text" id="code" name="code" class="form-control" required pattern="([0-9]|[a-zA-Z]|[_]|[-]){1,40}" placeholder="必填">
 				</div>
 				<div class="col-lg-5">
-					<span>1-40位数字字母下划线的组合</span>
+					<span>1-40位数字字母下划线或中线的组合</span>
 				</div>
 			</div>
 			<div class="form-group">
@@ -77,7 +77,7 @@ String ContextPath = request.getContextPath();
 					<input type="text" name="cpuCount" required class="form-control" pattern="^\d{1,8}$" maxlength="8" id="cpuCount" placeholder="必填">
 				</div>
 				<div class="col-lg-5">
-					<span>可保留小数点两位</span>
+					<span></span>
 				</div>
 			</div>
 			<div class="form-group">

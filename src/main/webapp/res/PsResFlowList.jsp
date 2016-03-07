@@ -87,11 +87,11 @@ String ContextPath = request.getContextPath();
 				{{/if}}
 				，
 				{{if row.afterMemSize>row.beforeMemSize}}
-					<font color="#008800">M: D: {{= CU.toMegaByteUnit(row.afterMemSize)}}</font>
+					<font color="#008800">M: {{= CU.toMegaByteUnit(row.afterMemSize)}}</font>
 				{{else row.afterMemSize<row.beforeMemSize}}
-					<font color="#FF0000">M: D: {{= CU.toMegaByteUnit(row.afterMemSize)}}</font>
+					<font color="#FF0000">M: {{= CU.toMegaByteUnit(row.afterMemSize)}}</font>
 				{{else}}
-					M: D: {{= CU.toMegaByteUnit(row.afterMemSize)}}
+					M: {{= CU.toMegaByteUnit(row.afterMemSize)}}
 				{{/if}}				
 				，
 				{{if row.afterDiskSize>row.beforeDiskSize}}

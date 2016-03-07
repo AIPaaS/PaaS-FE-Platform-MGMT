@@ -39,7 +39,7 @@ String ContextPath = request.getContextPath();
 					<input type="text" name="zoneCode" class="form-control" id="zoneCode" required pattern="([0-9]|[a-zA-Z]|[_]|[-]){1,40}" placeholder="必填">
 				</div>
 				<div class="col-lg-5">
-					<span>1-40位数字字母下划线的组合</span>
+					<span>1-40位数字字母下划线或中线的组合</span>
 				</div>
 			</div>
 			<div class="form-group">

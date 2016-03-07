@@ -14,29 +14,29 @@ String ContextPath = request.getContextPath();
 			<div class="filter-block pull-left">
 				<div class="pull-left">
 					<div class="form-group pull-left">
-						&nbsp;&nbsp;&nbsp;&nbsp;服务器编号:
+						&nbsp;&nbsp;编号:
 					</div>
 					<div class="form-group pull-left">
-						<input type="text" name="code" id="code" class="form-control" style="width:120px;">
+						<input type="text" name="code" id="code" class="form-control" style="width:110px;">
 					</div>
 					<div class="form-group pull-left">
-						服务器IP:
+						IP:
 					</div>
 					<div class="form-group pull-left">
-						<input type="text" name="ip" id="ip" class="form-control" style="width:120px;">
+						<input type="text" name="ip" id="ip" class="form-control" style="width:110px;">
 					</div>
 					<div class="form-group pull-left">
 						所属机房:
 					</div>
 					<div class="form-group pull-left">
-						<select id="sel_compRoom" class="form-control" style="width:160px;">
+						<select id="sel_compRoom" class="form-control" style="width:110px;">
 						</select>
 					</div>
 					<div class="form-group pull-left">
 						所属区域:
 					</div>
 					<div class="form-group pull-left">
-						<input type="text" name="forcenter" id="forcenter" class="form-control" style="width:120px;" readOnly >
+						<input type="text" name="forcenter" id="forcenter" class="form-control" style="width:110px;" readOnly >
 					</div>
 				</div>
 				<button class="btn btn-primary pull-left" id="btn_query"><i class="fa fa-search fa-lg"></i> 查询</button>
@@ -67,6 +67,7 @@ String ContextPath = request.getContextPath();
 								<th class="text-center">内存大小</th>
 								<th class="text-center">硬盘大小</th>
 								<th class="text-center">操作系统</th>
+								<th class="text-center">是否有效</th>
 								<th class="text-center">标签</th>
 							</tr>
 						</thead>
@@ -171,6 +172,13 @@ String ContextPath = request.getContextPath();
 			<td class="text-center">{{= CU.toMegaByteUnit(row.memSize)}}</td>
 			<td class="text-center">{{= CU.toMegaByteUnit(row.diskSize)}}</td>
 			<td class="text-center">{{= row.osName}}</td>
+			<td class="text-center">
+				{{if row.status==1}}
+					是
+				{{else}}
+					否
+				{{/if}}
+			</td>
 			<td class="text-center">
 				<a id="a_comp_tags_{{= row.id}}" href="###" class="table-link" title="标签详情">
 					<span class="fa-stack">

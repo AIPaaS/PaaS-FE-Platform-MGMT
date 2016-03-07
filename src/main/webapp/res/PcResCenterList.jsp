@@ -17,20 +17,20 @@ String ContextPath = request.getContextPath();
 						&nbsp;&nbsp;&nbsp;所属数据中心:
 					</div>
 					<div class="form-group pull-left">
-						<select id="sel_dataCenter" class="form-control" style="width:160px;">
+						<select id="sel_dataCenter" class="form-control" style="width:120px;">
 						</select>
 					</div>
 					<div class="form-group pull-left">
 						&nbsp;&nbsp;&nbsp;资源中心代码:
 					</div>
 					<div class="form-group pull-left">
-						<input type="text" name="resCode" id="resCode" class="form-control">
+						<input type="text" name="resCode" id="resCode" class="form-control" style="width:120px;">
 					</div>
 					<div class="form-group pull-left">
 						资源中心名称:
 					</div>
 					<div class="form-group pull-left">
-						<input type="text" name="resName" id="resName" class="form-control">
+						<input type="text" name="resName" id="resName" class="form-control" style="width:120px;">
 					</div>
 				</div>
 				<a id="btn_add" href="###" class="btn btn-primary pull-right"> <i class="fa fa-plus-circle fa-lg"></i> 添加</a>
@@ -56,6 +56,7 @@ String ContextPath = request.getContextPath();
 								<th class="text-center">所属数据中心</th>
 								<th class="text-center">环境类型</th>
 								<th class="text-left">镜像库</th>
+								<th class="text-center">是否有效</th>
 								<th class="text-left">描述</th>
 							</tr>
 						</thead>
@@ -108,6 +109,13 @@ String ContextPath = request.getContextPath();
 			<td class="text-left">
 				{{if !CU.isEmpty(row.imageResp)}}
 					{{= row.imageResp.imgRespUrl}}
+				{{/if}}
+			</td>
+			<td class="text-center">
+				{{if row.status==1}}
+					是
+				{{else}}
+					否
 				{{/if}}
 			</td>
 			<td class="text-left">{{= row.resCenter.remark}}</td>

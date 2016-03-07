@@ -55,6 +55,7 @@ String ContextPath = request.getContextPath();
 								<th class="text-center">所属数据中心</th>
 								<th class="text-center">所属资源中心</th>
 								<th class="text-center">网段表达式</th>
+								<th class="text-center">是否有效</th>
 								<th class="text-left">网段描述</th>
 							</tr>
 						</thead>
@@ -105,6 +106,13 @@ String ContextPath = request.getContextPath();
 				{{= PU.getDropValue("DV_RES_CENTER_CODE",row.resCenterId,false)}}
 			</td>
 			<td class="text-center">{{= row.netSegExp}}</td>
+			<td class="text-center">
+				{{if row.status==1}}
+					是
+				{{else}}
+					否
+				{{/if}}
+			</td>
 			<td class="text-left">{{= row.netSegDesc}}</td>
 		</tr>
 {{/each}}

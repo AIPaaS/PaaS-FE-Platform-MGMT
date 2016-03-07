@@ -180,6 +180,42 @@ var CC = {
 		if(CU.isFunction(CC.BSMODEL_SHOWMSG_CALLBACK)) {
 			CC.BSMODEL_SHOWMSG_CALLBACK(t);
 		}
+	},
+	
+	
+	/**
+	 * 对外提供面包线点击事件
+	 * @param moduId 面包线对应模块ID
+	 * @param moduCode 面包线对应模块代码
+	 * @param url 指向跳转页面的URL
+	 * @return boolean||string false表示中断事件, string表示重写url
+	 */
+	onBreadLineClick : function(moduId, moduCode, url) {
+	},
+	
+	clickBreadLine : function() {
+		var moduCode = this.id.substring(this.id.lastIndexOf('_')+1);
+		var s = this.id.substring(0, this.id.lastIndexOf('_'));
+		var moduId = s.substring(s.lastIndexOf('_')+1);
+		
+		var url = ContextPath + "/dispatch/mi/" + moduId;
+		var ba = CC.onBreadLineClick(moduId, moduCode, url);
+		if(ba === false) return ;
+		if(!CU.isEmpty(ba) && typeof(ba)=="string") url = ba;
+		window.location = url;
+	},
+	
+	refreshBreadLineLinks : function() {
+		var links = $("#BS_BREAD_LINE").find("a");
+		if(!CU.isEmpty(links) && links.length>0) {
+			for(var i=0; i<links.length; i++) {
+				var m = $(links[i]);
+				var aid = m.prop("id");
+				if(!CU.isEmpty(aid) && aid.indexOf("BS_BREAD_LINE_LINK_")==0) {
+					m.bind("click", CC.clickBreadLine);
+				}
+			}
+		}
 	}
 };
 
