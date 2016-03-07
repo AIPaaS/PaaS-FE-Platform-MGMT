@@ -9,6 +9,9 @@ var CurrDataMap = {};
 
 var CurrentCheckApply = null;
 
+var ParentLeftWidth = 0;
+var ParentHeaderHeight = 0;
+
 
 function init() {
 	initData(function() {
@@ -23,6 +26,11 @@ function init() {
 
 
 function initData(cb) {
+	ParentLeftWidth = PRQ.get("ParentLeftWidth");
+	ParentHeaderHeight = PRQ.get("ParentHeaderHeight");
+	ParentLeftWidth = CU.isEmpty(ParentLeftWidth) ? 0 : parseInt(ParentLeftWidth, 10);
+	ParentHeaderHeight = CU.isEmpty(ParentHeaderHeight) ? 0 : parseInt(ParentHeaderHeight, 10);
+	
 	var ls = DROP["V_PS_RES_APPLY_CHECK_STATUS"];
 	for(var i=0; i<ls.length; i++) {
 		if(ls[i].code=="9") CU.remove(ls, i);
@@ -72,9 +80,9 @@ function initListener() {
 	
 	$("#forcenter").bind("focus",function(){
 		var sul = $('#sel_forcenter');
-		sul.css("top", $("#forcenter").offset().top-$("#forcenter").height());
-		sul.css("left", $("#forcenter").offset().left-$("#forcenter").width()-90);
-		sul.show(); 
+		sul.css("top", $("#forcenter").offset().top-$("#forcenter").height()+ParentHeaderHeight+10);
+		sul.css("left", $("#forcenter").offset().left-$("#forcenter").width()-90+ParentLeftWidth+5);
+		sul.show();
 	});
 	$("#forcenter").on("blur", function() {
 		if(!mouseenter) $("#sel_forcenter").hide();
