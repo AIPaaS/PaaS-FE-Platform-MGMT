@@ -44,9 +44,8 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function() {
-	if(CU.isFunction(CC.refreshBreadLineLinks)) {
-		CC.refreshBreadLineLinks();
-	}
+	CC.refreshBreadLineLinks();
+	CC.getParentLayoutBorder();
 	init();
 });
 </script>

@@ -11,6 +11,9 @@ var CurrentPageNum = 1;
 
 var GridAddId = 1;
 
+var ParentLeftWidth = 0;
+var ParentHeaderHeight = 0;
+
 function init() {
 	initData(function() {
 		initComponent();
@@ -23,6 +26,10 @@ function init() {
 
 
 function initData(cb) {
+	var pb = CC.getParentLayoutBorder();
+	ParentLeftWidth = pb.width;
+	ParentHeaderHeight = pb.height;
+	
 	CurrentPageNum = PRQ.get("pageNum");
 	if(CU.isEmpty(CurrentPageNum)){
 		CurrentPageNum = 1;
@@ -68,8 +75,8 @@ function initListener() {
 	$("#sel_compRoom").bind("change",function(){query(1);});
 	$("#forcenter").bind("focus",function(){
 		var sul = $('#sel_forcenter');
-		sul.css("top", $("#forcenter").offset().top-$("#forcenter").height());
-		sul.css("left", $("#forcenter").offset().left-$("#forcenter").width()*2-40);
+		sul.css("top", $("#forcenter").offset().top-$("#forcenter").height()+ParentHeaderHeight+10);
+		sul.css("left", $("#forcenter").offset().left-$("#forcenter").width()-140+ParentLeftWidth+5);
 		sul.show(); 
 	});
 	$("#forcenter").on("blur", function() {

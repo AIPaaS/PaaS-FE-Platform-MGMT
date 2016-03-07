@@ -6,6 +6,9 @@ var SelForCenterId = null;
 
 var mouseenter = false;
 
+var ParentLeftWidth = 0;
+var ParentHeaderHeight = 0;
+
 function init() {
 	initData(function() {
 		initComponent();
@@ -18,6 +21,10 @@ function init() {
 
 
 function initData(cb) {
+	var pb = CC.getParentLayoutBorder();
+	ParentLeftWidth = pb.width;
+	ParentHeaderHeight = pb.height;
+	
 	ParamPageNum = PRQ.get("pageNum");
 	if(CU.isEmpty(ParamPageNum)) ParamPageNum = 1;
 	RS.ajax({url:"/res/computer/getComputerRegionDropListMap",ps:{addEmpty:true, addAttr:true},cb:function(result) {
@@ -52,8 +59,8 @@ function initListener() {
 	$("#zoneName").bind("keyup", doCdtTFKeyUp);
 	$("#forcenter").bind("focus",function(){
 		var sul = $('#sel_forcenter');
-		sul.css("top", $("#forcenter").offset().top-$("#forcenter").height());
-		sul.css("left", $("#forcenter").offset().left-$("#forcenter").width()*2-40);
+		sul.css("top", $("#forcenter").offset().top-$("#forcenter").height()+ParentHeaderHeight+10);
+		sul.css("left", $("#forcenter").offset().left-$("#forcenter").width()-130+ParentLeftWidth+5);
 		sul.show(); 
 	});
 	$("#forcenter").on("blur", function() {

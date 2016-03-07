@@ -26,10 +26,9 @@ function init() {
 
 
 function initData(cb) {
-	ParentLeftWidth = PRQ.get("ParentLeftWidth");
-	ParentHeaderHeight = PRQ.get("ParentHeaderHeight");
-	ParentLeftWidth = CU.isEmpty(ParentLeftWidth) ? 0 : parseInt(ParentLeftWidth, 10);
-	ParentHeaderHeight = CU.isEmpty(ParentHeaderHeight) ? 0 : parseInt(ParentHeaderHeight, 10);
+	var pb = CC.getParentLayoutBorder();
+	ParentLeftWidth = pb.width;
+	ParentHeaderHeight = pb.height;
 	
 	var ls = DROP["V_PS_RES_APPLY_CHECK_STATUS"];
 	for(var i=0; i<ls.length; i++) {
