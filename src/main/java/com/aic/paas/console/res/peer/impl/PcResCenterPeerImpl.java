@@ -77,5 +77,26 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		return pcResCenterSvc.removeById(id);
 	}
 
+	@Override
+	public int initResCenter(Long id ,Boolean useAgent) {
+		
+		//获取初始化参数
+		Map<String,Object> param = pcResCenterSvc.getInitParam(id, useAgent);
+		System.out.println("the param of initResCenter is : "+ param.toString());
+		
+		JSONObject json = new JSONObject();
+		json.putAll(param);
+		
+		
+		return 0;
+	}
+
+	@Override
+	public List<String> getInitLog(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }
