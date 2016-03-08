@@ -2,7 +2,6 @@ package com.aic.paas.console.res.bean;
 
 
 
-
 import com.binary.framework.bean.EntityBean;
 
 
@@ -62,9 +61,16 @@ public class PcComputer implements EntityBean {
 
 
 	/**
-	 * mapping-field: CPU个数[CPU_COUNT]
+	 * mapping-field: CPU核数[CPU_COUNT]
+	 * 单位：0.00个
 	 */
 	private Integer cpuCount;
+
+
+	/**
+	 * mapping-field: CPU可用于集群的核数[CPU_OFFER]
+	 */
+	private Integer cpuOffer;
 
 
 	/**
@@ -88,10 +94,28 @@ public class PcComputer implements EntityBean {
 
 
 	/**
+	 * mapping-field: 可用于集群的内存[MEM_OFFER]
+	 */
+	private Long memOffer;
+
+
+	/**
+	 * mapping-field: 内存类型[MEM_TYPE]
+	 */
+	private String memType;
+
+
+	/**
 	 * mapping-field: 硬盘大小[DISK_SIZE]
 	 * 单位：M
 	 */
 	private Long diskSize;
+
+
+	/**
+	 * mapping-field: 存储类型[DISK_TYPE]
+	 */
+	private String diskType;
 
 
 	/**
@@ -287,6 +311,14 @@ public class PcComputer implements EntityBean {
 	}
 
 
+	public Integer getCpuOffer() {
+		return this.cpuOffer;
+	}
+	public void setCpuOffer(Integer cpuOffer) {
+		this.cpuOffer = cpuOffer;
+	}
+
+
 	public Long getCpuFrequency() {
 		return this.cpuFrequency;
 	}
@@ -311,11 +343,35 @@ public class PcComputer implements EntityBean {
 	}
 
 
+	public Long getMemOffer() {
+		return this.memOffer;
+	}
+	public void setMemOffer(Long memOffer) {
+		this.memOffer = memOffer;
+	}
+
+
+	public String getMemType() {
+		return this.memType;
+	}
+	public void setMemType(String memType) {
+		this.memType = memType;
+	}
+
+
 	public Long getDiskSize() {
 		return this.diskSize;
 	}
 	public void setDiskSize(Long diskSize) {
 		this.diskSize = diskSize;
+	}
+
+
+	public String getDiskType() {
+		return this.diskType;
+	}
+	public void setDiskType(String diskType) {
+		this.diskType = diskType;
 	}
 
 

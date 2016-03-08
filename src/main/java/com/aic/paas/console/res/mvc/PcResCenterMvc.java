@@ -80,8 +80,8 @@ public class PcResCenterMvc {
 	}
 
 	@RequestMapping("/initResCenter")
-	public void initResCenter(HttpServletRequest request, HttpServletResponse response,Long resCenterId,Boolean useAgent){
-		int c = pcResCenterPeer.initResCenter(resCenterId,useAgent);	
+	public void initResCenter(HttpServletRequest request, HttpServletResponse response,Long resCenterId,Boolean useAgent,Boolean loadOnly){
+		int c = pcResCenterPeer.initResCenter(resCenterId,useAgent,loadOnly);	
 		ControllerUtils.returnJson(request, response, c);
 	}
 	

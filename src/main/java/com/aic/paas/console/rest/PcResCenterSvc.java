@@ -111,7 +111,7 @@ public interface PcResCenterSvc {
 	 * 返回初始化参数
 	 * @param computerId
 	 */
-	public Map<String,Object> getInitParam(Long resCenterId,Boolean useAgent);
+	public Map<String,Object> getInitParam(Long resCenterId,Boolean useAgent,Boolean loadOnly);
 	
 	
 	

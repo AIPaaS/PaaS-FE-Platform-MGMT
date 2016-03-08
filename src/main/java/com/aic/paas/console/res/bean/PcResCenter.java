@@ -2,7 +2,6 @@ package com.aic.paas.console.res.bean;
 
 
 
-
 import com.binary.framework.bean.EntityBean;
 
 
@@ -48,6 +47,24 @@ public class PcResCenter implements EntityBean {
 	 * mapping-field: 镜像库ID[IMG_RESP_ID]
 	 */
 	private Long imgRespId;
+
+
+	/**
+	 * mapping-field: 镜像地址[IMAGE_PATH]
+	 */
+	private String imagePath;
+
+
+	/**
+	 * mapping-field: 集群内部服务域名后缀[DOMAIN]
+	 */
+	private String domain;
+
+
+	/**
+	 * mapping-field: 非mesos集群管理域名[EXTERNAL_DOMAIN]
+	 */
+	private String externalDomain;
 
 
 	/**
@@ -167,6 +184,30 @@ public class PcResCenter implements EntityBean {
 	}
 	public void setImgRespId(Long imgRespId) {
 		this.imgRespId = imgRespId;
+	}
+
+
+	public String getImagePath() {
+		return this.imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+
+	public String getDomain() {
+		return this.domain;
+	}
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+
+
+	public String getExternalDomain() {
+		return this.externalDomain;
+	}
+	public void setExternalDomain(String externalDomain) {
+		this.externalDomain = externalDomain;
 	}
 
 

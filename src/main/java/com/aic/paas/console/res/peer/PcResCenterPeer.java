@@ -111,7 +111,7 @@ public interface PcResCenterPeer {
 	 * @param useAgent
 	 * @return
 	 */
-	public int initResCenter(Long id,Boolean useAgent);
+	public int initResCenter(Long id,Boolean useAgent,Boolean loadOnly);
 	
 	/**
 	 * 查询初始化日志

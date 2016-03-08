@@ -1,5 +1,7 @@
 package com.aic.paas.console.res.peer.impl;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
 
@@ -9,11 +11,13 @@ import com.aic.paas.console.res.bean.CPcResCenter;
 import com.aic.paas.console.res.bean.PcResCenter;
 import com.aic.paas.console.res.bean.PcResCenterInfo;
 import com.aic.paas.console.res.peer.PcResCenterPeer;
+import com.aic.paas.console.res.util.HttpClientUtil;
 import com.aic.paas.console.rest.PcResCenterSvc;
 import com.alibaba.dubbo.common.json.JSON;
 import com.alibaba.dubbo.common.json.JSONObject;
 import com.binary.core.util.BinaryUtils;
 import com.binary.jdbc.Page;
+import com.google.gson.Gson;
 
 public class PcResCenterPeerImpl implements PcResCenterPeer{
 	
@@ -78,15 +82,23 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 	}
 
 	@Override
-	public int initResCenter(Long id ,Boolean useAgent) {
+	public int initResCenter(Long id ,Boolean useAgent,Boolean loadOnly) {
 		
 		//获取初始化参数
-		Map<String,Object> param = pcResCenterSvc.getInitParam(id, useAgent);
+		Map<String,Object> param = pcResCenterSvc.getInitParam(id, useAgent, loadOnly);
 		System.out.println("the param of initResCenter is : "+ param.toString());
 		
-		JSONObject json = new JSONObject();
-		json.putAll(param);
+		Gson gson = new Gson();
 		
+		try {
+			String result = HttpClientUtil.sendPostRequest("http://127.0.0.1:20678/cpaas/deploy/manage/open",gson.toJson(param));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return 0;
 	}

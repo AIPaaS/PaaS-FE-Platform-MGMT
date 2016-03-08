@@ -61,7 +61,7 @@ function initFace() {
 }
 function query(){
 	var resId = $('#sel_resCenter :selected').val();
-	if(resId==null) return false;
+	if(resId==null) return ;
 	RS.ajax({url:"/res/computer/queryByResCenter",ps:{resCenterId : resId},cb:function(result) {
 
 		var slavePartList = result.slavePartList;
