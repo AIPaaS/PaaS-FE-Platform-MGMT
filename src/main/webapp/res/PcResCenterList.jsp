@@ -112,7 +112,7 @@ String ContextPath = request.getContextPath();
 				{{/if}}
 			</td>
 			<td class="text-center">
-				{{if row.status==1}}
+				{{if row.resCenter.status==1}}
 					是
 				{{else}}
 					否
