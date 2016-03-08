@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.aic.paas.console.res.bean.CPcComputer;
 import com.aic.paas.console.res.bean.PcComputer;
 import com.aic.paas.console.res.bean.PcComputerTag;
+import com.aic.paas.console.res.bean.ResDetailInfo;
 import com.aic.paas.console.res.peer.PcComputerPeer;
 import com.aic.paas.console.rest.PcComputerSvc;
 import com.binary.core.util.BinaryUtils;
@@ -53,5 +54,13 @@ public class PcComputerPeerImpl implements PcComputerPeer{
 	public void removeComputerTags(Long computerId) {
 		pcComputerSvc.removeComputerTags(computerId);
 	}
+
+	@Override
+	public ResDetailInfo getByResCenter(Long resCenterId) {
+		ResDetailInfo info = pcComputerSvc.queryByResCenter(resCenterId);
+		return info;
+	}
+
+
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import com.aic.paas.console.res.bean.CPcComputer;
 import com.aic.paas.console.res.bean.PcComputer;
 import com.aic.paas.console.res.bean.PcComputerTag;
+import com.aic.paas.console.res.bean.ResDetailInfo;
 import com.binary.jdbc.Page;
 
 public interface PcComputerPeer {
@@ -93,4 +94,8 @@ public interface PcComputerPeer {
 	 */
 	public void removeComputerTags(Long computerId);
 
+    /**
+     * 根据资源中心查询服务器
+     */
+	public  ResDetailInfo getByResCenter(Long resCenterId);
 }

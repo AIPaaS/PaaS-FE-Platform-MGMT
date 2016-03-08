@@ -1,6 +1,7 @@
 package com.aic.paas.console.res.peer.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -9,6 +10,8 @@ import com.aic.paas.console.res.bean.PcResCenter;
 import com.aic.paas.console.res.bean.PcResCenterInfo;
 import com.aic.paas.console.res.peer.PcResCenterPeer;
 import com.aic.paas.console.rest.PcResCenterSvc;
+import com.alibaba.dubbo.common.json.JSON;
+import com.alibaba.dubbo.common.json.JSONObject;
 import com.binary.core.util.BinaryUtils;
 import com.binary.jdbc.Page;
 
@@ -72,6 +75,26 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 	public int removeById(Long id) {
 		BinaryUtils.checkEmpty(id, "id");
 		return pcResCenterSvc.removeById(id);
+	}
+
+	@Override
+	public int initResCenter(Long id ,Boolean useAgent) {
+		
+		//获取初始化参数
+		Map<String,Object> param = pcResCenterSvc.getInitParam(id, useAgent);
+		System.out.println("the param of initResCenter is : "+ param.toString());
+		
+		JSONObject json = new JSONObject();
+		json.putAll(param);
+		
+		
+		return 0;
+	}
+
+	@Override
+	public List<String> getInitLog(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

@@ -105,9 +105,19 @@ public interface PcResCenterPeer {
 	
 	
 	
+	/**
+	 * 初始化资源中心
+	 * @param id
+	 * @param useAgent
+	 * @return
+	 */
+	public int initResCenter(Long id,Boolean useAgent);
 	
-	
-	
-
+	/**
+	 * 查询初始化日志
+	 * @param id
+	 * @return
+	 */
+	public List<String> getInitLog(Long id);
 
 }

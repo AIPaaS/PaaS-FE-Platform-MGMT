@@ -10,8 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.aic.paas.console.res.bean.CPcResCenter;
+import com.aic.paas.console.res.bean.PcComputer;
 import com.aic.paas.console.res.bean.PcResCenter;
 import com.aic.paas.console.res.bean.PcResCenterInfo;
+import com.aic.paas.console.res.bean.ResDetailInfo;
+import com.aic.paas.console.res.peer.PcComputerPeer;
 import com.aic.paas.console.res.peer.PcResCenterPeer;
 import com.aic.paas.frame.cross.bean.DropRecord;
 import com.aic.paas.frame.util.ComponentUtil;
@@ -24,6 +27,9 @@ public class PcResCenterMvc {
 	
 	@Autowired
 	PcResCenterPeer pcResCenterPeer;
+	
+	@Autowired
+	PcComputerPeer pcComputerPeer;
 	
 	@RequestMapping("/getResCenterCodeList")
     public void getResCenterCodeList(HttpServletRequest request, HttpServletResponse response, Boolean addEmpty, Boolean addAttr ,Long dataCenterId) {
@@ -73,5 +79,18 @@ public class PcResCenterMvc {
 		ControllerUtils.returnJson(request, response, c);
 	}
 
-
+	@RequestMapping("/initResCenter")
+	public void initResCenter(HttpServletRequest request, HttpServletResponse response,Long resCenterId,Boolean useAgent){
+		int c = pcResCenterPeer.initResCenter(resCenterId,useAgent);	
+		ControllerUtils.returnJson(request, response, c);
+	}
+	
+	@RequestMapping("/getInitLog")
+	public void getInitLog(HttpServletRequest request, HttpServletResponse response,Long resCenterId){
+		List<String> log = pcResCenterPeer.getInitLog(resCenterId);
+		ControllerUtils.returnJson(request, response, log);
+	}
+	
+	
+	
 }

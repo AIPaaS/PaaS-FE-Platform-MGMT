@@ -1,6 +1,7 @@
 package com.aic.paas.console.rest;
 
 import java.util.List;
+import java.util.Map;
 
 import com.aic.paas.console.res.bean.CPcResCenter;
 import com.aic.paas.console.res.bean.PcResCenter;
@@ -106,7 +107,11 @@ public interface PcResCenterSvc {
 	public int removeById(Long id);
 	
 	
-	
+	/**
+	 * 返回初始化参数
+	 * @param computerId
+	 */
+	public Map<String,Object> getInitParam(Long resCenterId,Boolean useAgent);
 	
 	
 	

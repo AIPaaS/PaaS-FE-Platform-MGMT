@@ -23,6 +23,7 @@ import com.aic.paas.console.res.bean.PcComputerTag;
 import com.aic.paas.console.res.bean.PcDataCenter;
 import com.aic.paas.console.res.bean.PcNetZone;
 import com.aic.paas.console.res.bean.PcResCenter;
+import com.aic.paas.console.res.bean.ResDetailInfo;
 import com.aic.paas.console.res.peer.PcCompRoomPeer;
 import com.aic.paas.console.res.peer.PcComputerPeer;
 import com.aic.paas.console.res.peer.PcDataCenterPeer;
@@ -216,6 +217,12 @@ public class PcComputerMvc {
 	public void removeComputerTags(HttpServletRequest request, HttpServletResponse response,Long computerId) {
 		pcComputerPeer.removeComputerTags(computerId);
 		ControllerUtils.returnJson(request, response, null);
+	}
+	
+	@RequestMapping("/queryByResCenter")
+	public void queryByResCenter(HttpServletRequest request, HttpServletResponse response,Long resCenterId) {
+		ResDetailInfo info = pcComputerPeer.getByResCenter(resCenterId);
+		ControllerUtils.returnJson(request, response, info);
 	}
 	
 }

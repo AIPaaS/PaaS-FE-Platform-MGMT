@@ -44,6 +44,8 @@ function forward(url) {
 					<span style="padding-left:60px;"><a href="###" onclick="forward2ModuCode('0204')">网络区域</a></span><br>
 					<span style="padding-left:60px;"><a href="###" onclick="forward2ModuCode('0205')">服务器登记</a></span><br>
 					<span style="padding-left:60px;"><a href="###" onclick="forward2ModuCode('0206')">平台资源</a></span><br>
+					<span style="padding-left:60px;"><a href="###" onclick="forward2ModuCode('0207')">资源初始化</a></span><br>
+					
 				</td>
 			</tr>
 			<tr>
