@@ -55,12 +55,6 @@ public class PcComputerPeerImpl implements PcComputerPeer{
 		pcComputerSvc.removeComputerTags(computerId);
 	}
 
-	@Override
-	public ResDetailInfo getByResCenter(Long resCenterId) {
-		ResDetailInfo info = pcComputerSvc.queryByResCenter(resCenterId);
-		return info;
-	}
-
 
 
 }

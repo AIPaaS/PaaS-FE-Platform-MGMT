@@ -106,13 +106,6 @@ public interface PcResCenterSvc {
 	 */
 	public int removeById(Long id);
 	
-	
-	/**
-	 * 返回初始化参数
-	 * @param computerId
-	 */
-	public Map<String,Object> getInitParam(Long resCenterId,Boolean useAgent);
-	
-	
+
 	
 }

@@ -218,11 +218,4 @@ public class PcComputerMvc {
 		pcComputerPeer.removeComputerTags(computerId);
 		ControllerUtils.returnJson(request, response, null);
 	}
-	
-	@RequestMapping("/queryByResCenter")
-	public void queryByResCenter(HttpServletRequest request, HttpServletResponse response,Long resCenterId) {
-		ResDetailInfo info = pcComputerPeer.getByResCenter(resCenterId);
-		ControllerUtils.returnJson(request, response, info);
-	}
-	
 }

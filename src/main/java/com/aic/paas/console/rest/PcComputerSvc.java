@@ -111,13 +111,5 @@ public interface PcComputerSvc {
 	
 	
 	
-	/**
-	 * 根据资源中心选择
-	 * @param computerId
-	 */
-	public ResDetailInfo queryByResCenter(Long resCenterId);
-	
-	
-	
 
 }

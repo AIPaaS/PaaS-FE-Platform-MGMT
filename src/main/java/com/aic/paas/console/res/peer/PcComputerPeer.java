@@ -94,8 +94,5 @@ public interface PcComputerPeer {
 	 */
 	public void removeComputerTags(Long computerId);
 
-    /**
-     * 根据资源中心查询服务器
-     */
-	public  ResDetailInfo getByResCenter(Long resCenterId);
+
 }

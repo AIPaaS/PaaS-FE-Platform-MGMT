@@ -78,19 +78,6 @@ public class PcResCenterMvc {
 		int c = pcResCenterPeer.removeById(id);
 		ControllerUtils.returnJson(request, response, c);
 	}
-
-	@RequestMapping("/initResCenter")
-	public void initResCenter(HttpServletRequest request, HttpServletResponse response,Long resCenterId,Boolean useAgent){
-		int c = pcResCenterPeer.initResCenter(resCenterId,useAgent);	
-		ControllerUtils.returnJson(request, response, c);
-	}
-	
-	@RequestMapping("/getInitLog")
-	public void getInitLog(HttpServletRequest request, HttpServletResponse response,Long resCenterId){
-		List<String> log = pcResCenterPeer.getInitLog(resCenterId);
-		ControllerUtils.returnJson(request, response, log);
-	}
-	
 	
 	
 }
