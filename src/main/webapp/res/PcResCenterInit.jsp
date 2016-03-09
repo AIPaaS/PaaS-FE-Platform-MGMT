@@ -6,6 +6,21 @@ String ContextPath = request.getContextPath();
 
 <jsp:include page="/layout/jsp/head.jsp"></jsp:include>
 
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#btn_init').click(function(){
+		$('#div-log').show();
+		startGetLog();
+		var resId = $('#sel_resCenter :selected').val();
+		RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
+			if(result==0){
+				alert("初始化成功！");
+			}
+		}});
+	})
+});
+
+</script>
 
 <div class="row">
 	<div class="col-lg-12">
@@ -44,7 +59,6 @@ String ContextPath = request.getContextPath();
 	<div class="col-lg-12">
 		<div class="main-box clearfix">
 			<div class="main-box-body clearfix">
-			<div>核心区</div>
 				<div class="table-responsive">
 					<table class="table">
 						<thead>
@@ -62,11 +76,37 @@ String ContextPath = request.getContextPath();
 								<th class="text-center">标签</th>
 							</tr>
 						</thead>
-						<tbody id="pcComputerTable">
+						
+					</table>
+				</div>
+				
+<!-- 				<div>核心域</div> -->
+				<div class="table-responsive">
+					<table class="table">
+						<tbody id="pcComputerTable-center">
 							
 						</tbody>
 					</table>
 				</div>
+
+<!-- 				<div>访问入口域</div> -->
+				<div class="table-responsive">
+					<table class="table">
+						<tbody id="pcComputerTable-visit">
+							
+						</tbody>
+					</table>
+				</div>
+				
+<!-- 				<div>服务域</div> -->
+				<div class="table-responsive">
+					<table class="table">
+						<tbody id="pcComputerTable-slave">
+							
+						</tbody>
+					</table>
+				</div>
+				
 				<div class="row-fluid">
 					<div class="col-lg-6">
 						<label>
@@ -95,6 +135,11 @@ String ContextPath = request.getContextPath();
 		</div>
 	</div>
 </div>
+
+
+
+
+
 
 <!-- <div class="row" > -->
 <!-- 	<div class="col-lg-12"> -->
@@ -127,19 +172,22 @@ String ContextPath = request.getContextPath();
 		</div>
 	</div>
 
-	<script id="pcComputerTable-tmpl" type="text/x-jquery-tmpl">
-	{{each(i,row) slavePartList}}
+	<script id="pcComputerTable-center-tmpl" type="text/x-jquery-tmpl">
+{{each(i,row) corePartList}}
 		<tr>
-			<td class="text-center">{{= row.code}}</td>
+			<td class="text-center"><a href="<%=ContextPath%>/dispatch/mc/020501?id={{= row.id}}&pageNum={{= pageNum}}">{{= row.code}}</a></td>
 			<td class="text-center">{{= row.ip}}</td>
 			<td class="text-center">
-				{{= row.roomId}}
+				{{= PU.getDropValue("DV_COMP_ROOM_CODE",row.roomId,false)}}
 			</td>
-			<td class="text-center">{{= row.dataCenterId}}
+			<td class="text-center">
+				{{= PU.getDropValue("DV_DATA_CENTER_CODE",row.dataCenterId,false)}}
 			</td>
-			<td class="text-center">{{= row.resCenterId}}
+			<td class="text-center">
+				{{= PU.getDropValue("DV_RES_CENTER_CODE",row.resCenterId,false)}}
 			</td>
-			<td class="text-center">{{= row.netZoneId}}
+			<td class="text-center">
+				{{= PU.getDropValue("DV_NET_ZONE_CODE",row.netZoneId,false)}}
 			</td>
 			
 			<td class="text-center">
@@ -147,9 +195,16 @@ String ContextPath = request.getContextPath();
 					{{= row.cpuCount/100}}
 				{{/if}}
 			</td>
-			<td class="text-center">{{= row.memSize}}</td>
-			<td class="text-center">{{= row.diskSize}}</td>
+			<td class="text-center">{{= CU.toMegaByteUnit(row.memSize)}}</td>
+			<td class="text-center">{{= CU.toMegaByteUnit(row.diskSize)}}</td>
 			<td class="text-center">{{= row.osName}}</td>
+			<td class="text-center">
+				{{if row.status==1}}
+					是
+				{{else}}
+					否
+				{{/if}}
+			</td>
 			<td class="text-center">
 				<a id="a_comp_tags_{{= row.id}}" href="###" class="table-link" title="标签详情">
 					<span class="fa-stack">
@@ -158,8 +213,97 @@ String ContextPath = request.getContextPath();
 					</span>
 				</a>
 			</td>
-	</tr>
+		</tr>
+{{/each}}
+</script>
+
+	<script id="pcComputerTable-visit-tmpl" type="text/x-jquery-tmpl">
+{{each(i,row) visitPartList}}
+		<tr>
+			<td class="text-center"><a href="<%=ContextPath%>/dispatch/mc/020501?id={{= row.id}}&pageNum={{= pageNum}}">{{= row.code}}</a></td>
+			<td class="text-center">{{= row.ip}}</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_COMP_ROOM_CODE",row.roomId,false)}}
+			</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_DATA_CENTER_CODE",row.dataCenterId,false)}}
+			</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_RES_CENTER_CODE",row.resCenterId,false)}}
+			</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_NET_ZONE_CODE",row.netZoneId,false)}}
+			</td>
 			
+			<td class="text-center">
+				{{if !CU.isEmpty(row.cpuCount)}}
+					{{= row.cpuCount/100}}
+				{{/if}}
+			</td>
+			<td class="text-center">{{= CU.toMegaByteUnit(row.memSize)}}</td>
+			<td class="text-center">{{= CU.toMegaByteUnit(row.diskSize)}}</td>
+			<td class="text-center">{{= row.osName}}</td>
+			<td class="text-center">
+				{{if row.status==1}}
+					是
+				{{else}}
+					否
+				{{/if}}
+			</td>
+			<td class="text-center">
+				<a id="a_comp_tags_{{= row.id}}" href="###" class="table-link" title="标签详情">
+					<span class="fa-stack">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-tags fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			</td>
+		</tr>
+{{/each}}
+</script>
+
+	<script id="pcComputerTable-slave-tmpl" type="text/x-jquery-tmpl">
+{{each(i,row) slavePartList}}
+		<tr>
+			<td class="text-center"><a href="<%=ContextPath%>/dispatch/mc/020501?id={{= row.id}}&pageNum={{= pageNum}}">{{= row.code}}</a></td>
+			<td class="text-center">{{= row.ip}}</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_COMP_ROOM_CODE",row.roomId,false)}}
+			</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_DATA_CENTER_CODE",row.dataCenterId,false)}}
+			</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_RES_CENTER_CODE",row.resCenterId,false)}}
+			</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_NET_ZONE_CODE",row.netZoneId,false)}}
+			</td>
+			
+			<td class="text-center">
+				{{if !CU.isEmpty(row.cpuCount)}}
+					{{= row.cpuCount/100}}
+				{{/if}}
+			</td>
+			<td class="text-center">{{= CU.toMegaByteUnit(row.memSize)}}</td>
+			<td class="text-center">{{= CU.toMegaByteUnit(row.diskSize)}}</td>
+			<td class="text-center">{{= row.osName}}</td>
+			<td class="text-center">
+				{{if row.status==1}}
+					是
+				{{else}}
+					否
+				{{/if}}
+			</td>
+			<td class="text-center">
+				<a id="a_comp_tags_{{= row.id}}" href="###" class="table-link" title="标签详情">
+					<span class="fa-stack">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-tags fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			</td>
+		</tr>
 {{/each}}
 </script>
 

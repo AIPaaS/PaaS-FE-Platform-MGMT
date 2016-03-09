@@ -11,7 +11,6 @@ var CurrentPageNum = 1;
 
 var GridAddId = 1;
 
-var resId = $('#sel_resCenter :selected').val();
 
 function init() {
 	initData(function() {
@@ -51,10 +50,10 @@ function initComponent() {
 
 }
 function initListener() {
-	$("#btn_init").bind("click", function() {
-		initRes(resId);
+//	$("#btn_init").bind("click", initResCenter);
+	$("#sel_resCenter").bind("change", function() {
+		query();
 	});
-	$("#sel_resCenter").bind("change",function(){query();});
 
 }
 function initFace() {
@@ -63,27 +62,58 @@ function query(){
 	var resId = $('#sel_resCenter :selected').val();
 	if(resId==null) return ;
 	RS.ajax({url:"/res/computer/queryByResCenter",ps:{resCenterId : resId},cb:function(result) {
-
+		$('#pcComputerTable-center').html("");
+		$('#pcComputerTable-visit').html("");
+		$('#pcComputerTable-slave').html("");
 		var slavePartList = result.slavePartList;
-
-		$('#pcComputerTable-tmpl').tmpl(result).appendTo("#pcComputerTable");
+		var masterPartList = result.corePartList;
+		var visitPartList = result.visitPartList;
+		$('#pcComputerTable-center-tmpl').tmpl(result).appendTo("#pcComputerTable-center");
+		$('#pcComputerTable-visit-tmpl').tmpl(result).appendTo("#pcComputerTable-visit");
+		$('#pcComputerTable-slave-tmpl').tmpl(result).appendTo("#pcComputerTable-slave");
 
 	}});
-	
 }
 
-function initRes(resId){
+function initResCenter(){
 	$('#div-log').show();
-	
-	RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId : resId},cb:function(result) {
+	startGetLog();
+	var resId = $('#sel_resCenter :selected').val();
+	RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:"111",useAgent:true,loadOnly:true},cb:function(result) {
 		if(result==0){
 			alert("初始化成功！");
 		}
 	}});
-	
-	
+}
+
+//刷新日志
+var intervalTime;
+function startGetLog() {
+		/*轮询*/
+		queryLog();
+		intervalTime = setInterval(function() {
+			queryLog();
+	}, 5000);
+}
+function queryLog() {
+	var resId = $('#sel_resCenter :selected').val();
+	RS.ajax({url:"/res/resc/getInitLog",ps:{resCenterId:resId},cb:function(msg) {
+			if (msg.length != 0) {
+				var str = '';
+				var d = msg;
+				for (var i = 0; i < d.length; i++) {
+					str += new Date() + '  日志信息:   ' + d[i]+ '\n';
+				}
+				var html =  str;
+				$('#logWindow').html('');
+				$('#logWindow').html(html);
+				$("#logWindow").scrollTop($("#logWindow")[0].scrollHeight);
+				return;
+			}
+	}});
 	
 }
+
 
 function toTreeData(dropList) {
 	var tree = [{}];

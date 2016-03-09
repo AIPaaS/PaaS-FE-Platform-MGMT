@@ -2,6 +2,7 @@ package com.aic.paas.console.res.peer.impl;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -86,27 +87,30 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		
 		//获取初始化参数
 		Map<String,Object> param = pcResCenterSvc.getInitParam(id, useAgent, loadOnly);
-		System.out.println("the param of initResCenter is : "+ param.toString());
 		
 		Gson gson = new Gson();
-		
-		try {
-			String result = HttpClientUtil.sendPostRequest("http://127.0.0.1:20678/cpaas/deploy/manage/open",gson.toJson(param));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println("init resCenter param----"+gson.toJson(param));
+//		try {
+//			String result = HttpClientUtil.sendPostRequest("http://127.0.0.1:20678/cpaas/deploy/manage/open",gson.toJson(param));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (URISyntaxException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		return 0;
 	}
 
 	@Override
 	public List<String> getInitLog(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> list = new ArrayList<String>();
+		list.add("---begin init resource center---");
+		list.add("---install mesos master...... ");
+		list.add("---finish install master");
+		list.add("---begin install HaProxy...... ");
+		return list;
 	}
 
 	

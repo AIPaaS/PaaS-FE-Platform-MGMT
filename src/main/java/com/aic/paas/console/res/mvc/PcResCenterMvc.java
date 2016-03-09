@@ -91,6 +91,4 @@ public class PcResCenterMvc {
 		ControllerUtils.returnJson(request, response, log);
 	}
 	
-	
-	
 }

@@ -81,6 +81,15 @@ String ContextPath = request.getContextPath();
 				</div>
 			</div>
 			<div class="form-group">
+				<label for="cpuOffer" class="col-lg-2 control-label">可用于集群的核数<font color="red">*</font>:</label>
+				<div class="col-lg-5">
+					<input type="text" name="cpuOffer" required class="form-control" pattern="^\d{1,8}$" maxlength="8" id="cpuOffer" placeholder="必填">
+				</div>
+				<div class="col-lg-5">
+					<span>至少预留一核</span>
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="cpuFrequency" class="col-lg-2 control-label">CPU主频:</label>
 				<div class="col-lg-5">
 					<input type="text" name="cpuFrequency" class="form-control" maxlength="16" id="cpuFrequency">
@@ -108,12 +117,39 @@ String ContextPath = request.getContextPath();
 				</div>
 			</div>
 			<div class="form-group">
+				<label for="memOffer" class="col-lg-2 control-label">可用于集群的内存<font color="red">*</font>:</label>
+				<div class="col-lg-5">
+					<input type="text" name="memOffer" pattern="\d{1,16}" maxlength="16" required class="form-control" id="memOffer" placeholder="必填">
+				</div>
+				<div class="col-lg-5">
+					<span>单位:G   预留1G</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="memType" class="col-lg-2 control-label">内存类型 :</label>
+				<div class="col-lg-5">
+					<input type="text" name="memType" class="form-control" id="memType">
+				</div>
+				<div class="col-lg-5">
+					<span>如：ddr3</span>
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="number" class="col-lg-2 control-label">硬盘大小<font color="red">*</font>:</label>
 				<div class="col-lg-5">
 					<input type="text" name="diskSize" pattern="\d{1,16}" maxlength="16" required class="form-control" id="diskSize" placeholder="必填">
 				</div>
 				<div class="col-lg-5">
 					<span>单位:G</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="diskType" class="col-lg-2 control-label">硬盘类型 :</label>
+				<div class="col-lg-5">
+					<input type="text" name="diskType" class="form-control" id="diskType">
+				</div>
+				<div class="col-lg-5">
+					<span></span>
 				</div>
 			</div>
 			<div class="form-group">
