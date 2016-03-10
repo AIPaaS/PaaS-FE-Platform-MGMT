@@ -64,8 +64,8 @@ public class PcComputerMvc {
 	 * @param opts room|dc|rc|nc
 	 */
 	@RequestMapping("/getComputerRegionDropListMap")
-	public void getComputerRegionDropListMap(HttpServletRequest request, HttpServletResponse response, Boolean addEmpty, Boolean addAttr, String opts) {
-		Map<String, List<DropRecord>> map = getComputerRegionDropListMap(addEmpty, addAttr, opts);
+	public void getComputerRegionDropListMap(HttpServletRequest request, HttpServletResponse response, Boolean addEmpty, Boolean addAttr,Integer status, String opts) {
+		Map<String, List<DropRecord>> map = getComputerRegionDropListMap(addEmpty, addAttr,status, opts);
 		ControllerUtils.returnJson(request, response, map);
 	}
 	
@@ -75,7 +75,7 @@ public class PcComputerMvc {
 	 * @param level 1=数据中心   2=数据中心+资源中心  3=数据中心+资源中心+网络区域
 	 */
 	@RequestMapping("/getComputerRegionTree")
-	public void getComputerRegionTree(HttpServletRequest request, HttpServletResponse response, Boolean addAttr, Integer level) {
+	public void getComputerRegionTree(HttpServletRequest request, HttpServletResponse response, Boolean addAttr, Integer status,Integer level) {
 		String opts = "dc|rc|nc";
 		if(level != null) {
 			switch (level.intValue()) {
@@ -85,7 +85,7 @@ public class PcComputerMvc {
 			}
 		}
 		
-		Map<String, List<DropRecord>> map = getComputerRegionDropListMap(false, addAttr, opts);
+		Map<String, List<DropRecord>> map = getComputerRegionDropListMap(false, addAttr, status,opts);
 		
 		List<DropRecord> dclist = map.get("dc");
 		List<DropRecord> rclist = map.get("rc");
@@ -108,7 +108,7 @@ public class PcComputerMvc {
 	}
 	
 	
-	private Map<String, List<DropRecord>> getComputerRegionDropListMap(Boolean addEmpty, Boolean addAttr, String opts)  {
+	private Map<String, List<DropRecord>> getComputerRegionDropListMap(Boolean addEmpty, Boolean addAttr, Integer status,String opts)  {
 		Map<String, List<DropRecord>> map = new HashMap<String, List<DropRecord>>();
 		boolean adda = addAttr==null || addAttr.booleanValue();
 		
@@ -117,7 +117,7 @@ public class PcComputerMvc {
 		if(BinaryUtils.isEmpty(opts)) opts = null;
 		if(opts==null || opts.indexOf("room")>-1) {
 			CPcCompRoom roomcdt = new CPcCompRoom();
-			roomcdt.setStatus(1);
+			if(status != null) roomcdt.setStatus(1);
 			List<PcCompRoom> roomList = pcCompRoomPeer.queryList(roomcdt, "ROOM_CODE, ID");
 			List<DropRecord> roomDropList = ComponentUtil.toDropList(roomList, "ID", "roomName", addAttr, addEmpty);
 			map.put("room", roomDropList);
@@ -125,7 +125,7 @@ public class PcComputerMvc {
 		
 		if(opts==null || opts.indexOf("dc")>-1) {
 			CPcDataCenter dccdt = new CPcDataCenter();
-			dccdt.setStatus(1);
+			if(status != null) dccdt.setStatus(1);
 			List<PcDataCenter> dclist = pcDataCenterPeer.queryList(dccdt, "CODE, ID");
 			List<DropRecord> dcDropList = ComponentUtil.toDropList(dclist, "ID", "name", addAttr, addEmpty);
 			for(int i=fori; i<dcDropList.size(); i++) {
@@ -138,7 +138,7 @@ public class PcComputerMvc {
 
 		if(opts==null || opts.indexOf("rc")>-1) {
 			CPcResCenter rccdt = new CPcResCenter();
-			rccdt.setStatus(1);
+			if(status != null) rccdt.setStatus(1);
 			List<PcResCenter> rclist = pcResCenterPeer.queryList(rccdt, "RES_CODE, ID");
 			List<DropRecord> rcDropList = ComponentUtil.toDropList(rclist, "ID", "resName", true, addEmpty);
 			for(int i=fori; i<rcDropList.size(); i++) {
