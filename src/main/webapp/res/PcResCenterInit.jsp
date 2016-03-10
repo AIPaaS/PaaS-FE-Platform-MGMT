@@ -9,9 +9,15 @@ String ContextPath = request.getContextPath();
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#btn_init').click(function(){
+		if(centerSize<3||visitSize<2||slaveSize<1) return;
+		
+		var resId = "";
+		resId=$('#sel_resCenter :selected').val();
+		
+		if(resId=="") return ;
 		$('#div-log').show();
 		startGetLog();
-		var resId = $('#sel_resCenter :selected').val();
+		$('#div-init-button').hide();
 		RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
 			if(result==0){
 				alert("初始化成功！");
@@ -35,17 +41,7 @@ $(document).ready(function() {
 							<option value="99">BIUaa资源中心</option>
 						</select>
 					</div>
-
-					<div class="form-group  pull-left"">
-						<label for="contactEmail" class="col-lg-2 control-label">是否通过代理构建:</label>
-						<div class="col-lg-1">
-							<input type="checkbox" name="status" id="status"
-								checked="checked">
-						</div>
-						<div class="col-lg-11">
-							<span></span>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -128,19 +124,47 @@ $(document).ready(function() {
 							<ul id="ul_pagination" class="pagination-sm"></ul>
 						</div>
 					</div>
-				<button class="btn btn-primary pull-left" id="btn_init">
-					<i class="fa fa-lg"></i> 初始化
-				</button>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div class="row"  id="div-log" style="display: none">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<div class="main-box-body clearfix">
+				<div>日志</div>
+				 <div class="filter-block pull-left">
+					<div class="form-group pull-left">
+						<div>
+							<textarea id="logWindow" cols="100%" rows="15%" value=""
+								style="	background-color: black;border-style: solid;color: white; font-size: 15px;"></textarea>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
 
-
-
-
-
+<div class="row" id= "div-init-button">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<div class="main-box-body clearfix">
+				<div class="form-group">
+				<div class="col-lg-offset-2 col-lg-10">
+					<button type="submit" id="btn_init" class="btn btn-success">初始化</button>
+				</div>
+			</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
 <!-- <div class="row" > -->
 <!-- 	<div class="col-lg-12"> -->
 <!-- 		<div class="main-box clearfix"> -->
@@ -156,21 +180,7 @@ $(document).ready(function() {
 	<div id="sel_forcenter"
 		style="width: 300px; position: absolute; display: none;"></div>
 
-	<div class="row" id="div-log" style="display: none">
-		<div class="col-lg-12">
-			<div class="main-box clearfix">
-				<div>日志</div>
-				 <div class="filter-block pull-left">
-					<div class="form-group pull-left">
-						<div>
-							<textarea id="logWindow" cols="100%" rows="15%" value=""
-								style="	background-color: black;border-style: solid;color: white; font-size: 15px;"></textarea>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 
 	<script id="pcComputerTable-center-tmpl" type="text/x-jquery-tmpl">
 {{each(i,row) corePartList}}
