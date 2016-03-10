@@ -34,7 +34,13 @@
 	<import resource="classpath:spring/spring-paas-cdep.xml" />
 	
 			
-	
+	<bean class="com.aic.paas.comm.util.PropertiesPool" >
+		<property name="locations">
+			<array>
+				<value>classpath:config.properties</value>
+			</array>
+		</property>
+	</bean>
 	
 	
 </beans>
