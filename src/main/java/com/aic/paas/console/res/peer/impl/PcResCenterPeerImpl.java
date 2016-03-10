@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.aic.paas.comm.util.PropertiesPool;
 import com.aic.paas.console.res.bean.CPcResCenter;
 import com.aic.paas.console.res.bean.PcResCenter;
 import com.aic.paas.console.res.bean.PcResCenterInfo;
@@ -25,6 +26,9 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 	@Autowired
 	PcResCenterSvc pcResCenterSvc;
 
+	@Autowired
+	PropertiesPool propertiesPool;
+	
 	public Page<PcResCenter> queryPage(Integer pageNum, Integer pageSize,CPcResCenter cdt, String orders) {
 		return pcResCenterSvc.queryPage(pageNum, pageSize, cdt, orders);
 	}
@@ -91,7 +95,7 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		Gson gson = new Gson();
 		System.out.println("init resCenter param----"+gson.toJson(param));
 //		try {
-//			String result = HttpClientUtil.sendPostRequest("http://127.0.0.1:20678/cpaas/deploy/manage/open",gson.toJson(param));
+//			String result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
 //		} catch (IOException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();

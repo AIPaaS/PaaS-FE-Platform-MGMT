@@ -60,6 +60,33 @@ String ContextPath = request.getContextPath();
 				</div>
 			</div>
 			<div class="form-group">
+				<label for="imagePath" class="col-lg-2 control-label">镜像地址:<font color="red">*</font>:</label>
+				<div class="col-lg-5">
+					<input type="text" name="imagePath" class="form-control" id="imagePath" required pattern=".{1,200}" placeholder="必填">
+				</div>
+				<div class="col-lg-5">
+					<span></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="domain" class="col-lg-2 control-label">集群内部服务域名后缀:<font color="red">*</font>:</label>
+				<div class="col-lg-5">
+					<input type="text" name="domain" class="form-control" id="domain" required pattern=".{1,40}" placeholder="必填">
+				</div>
+				<div class="col-lg-5">
+					<span>如：inner.com</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="externalDomain" class="col-lg-2 control-label">非mesos集群管理域名:<font color="red">*</font>:</label>
+				<div class="col-lg-5">
+					<input type="text" name="externalDomain" class="form-control" id="externalDomain" required pattern=".{1,40}" placeholder="必填">
+				</div>
+				<div class="col-lg-5">
+					<span>如：out.com</span>
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="contactEmail" class="col-lg-2 control-label">是否有效:</label>
 				<div class="col-lg-1">
 					<input type="checkbox" name="status" id="status" checked="checked">
