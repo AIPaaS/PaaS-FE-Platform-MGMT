@@ -16,6 +16,7 @@ import com.aic.paas.console.res.bean.PcResCenterInfo;
 import com.aic.paas.console.res.bean.ResDetailInfo;
 import com.aic.paas.console.res.peer.PcComputerPeer;
 import com.aic.paas.console.res.peer.PcResCenterPeer;
+import com.aic.paas.console.res.vo.OpenResultParamVo;
 import com.aic.paas.frame.cross.bean.DropRecord;
 import com.aic.paas.frame.util.ComponentUtil;
 import com.binary.framework.util.ControllerUtils;
@@ -81,8 +82,8 @@ public class PcResCenterMvc {
 
 	@RequestMapping("/initResCenter")
 	public void initResCenter(HttpServletRequest request, HttpServletResponse response,Long resCenterId,Boolean useAgent,Boolean loadOnly){
-		int c = pcResCenterPeer.initResCenter(resCenterId,useAgent,loadOnly);	
-		ControllerUtils.returnJson(request, response, c);
+		OpenResultParamVo r = pcResCenterPeer.initResCenter(resCenterId,useAgent,loadOnly);	
+		ControllerUtils.returnJson(request, response, r);
 	}
 	
 	@RequestMapping("/getInitLog")

@@ -5,6 +5,7 @@ import java.util.List;
 import com.aic.paas.console.res.bean.CPcResCenter;
 import com.aic.paas.console.res.bean.PcResCenter;
 import com.aic.paas.console.res.bean.PcResCenterInfo;
+import com.aic.paas.console.res.vo.OpenResultParamVo;
 import com.binary.jdbc.Page;
 
 public interface PcResCenterPeer {
@@ -111,7 +112,7 @@ public interface PcResCenterPeer {
 	 * @param useAgent
 	 * @return
 	 */
-	public int initResCenter(Long id,Boolean useAgent,Boolean loadOnly);
+	public OpenResultParamVo initResCenter(Long id,Boolean useAgent,Boolean loadOnly);
 	
 	/**
 	 * 查询初始化日志

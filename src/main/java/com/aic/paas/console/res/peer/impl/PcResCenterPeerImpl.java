@@ -14,6 +14,7 @@ import com.aic.paas.console.res.bean.PcResCenter;
 import com.aic.paas.console.res.bean.PcResCenterInfo;
 import com.aic.paas.console.res.peer.PcResCenterPeer;
 import com.aic.paas.console.res.util.HttpClientUtil;
+import com.aic.paas.console.res.vo.OpenResultParamVo;
 import com.aic.paas.console.rest.PcResCenterSvc;
 import com.alibaba.dubbo.common.json.JSON;
 import com.alibaba.dubbo.common.json.JSONObject;
@@ -87,15 +88,16 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 	}
 
 	@Override
-	public int initResCenter(Long id ,Boolean useAgent,Boolean loadOnly) {
+	public OpenResultParamVo initResCenter(Long id ,Boolean useAgent,Boolean loadOnly) {
 		
 		//获取初始化参数
 		Map<String,Object> param = pcResCenterSvc.getInitParam(id, useAgent, loadOnly);
 		
 		Gson gson = new Gson();
 		System.out.println("init resCenter param----"+gson.toJson(param));
+		String result = null;
 //		try {
-//			String result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
+//			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
 //		} catch (IOException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
@@ -103,8 +105,8 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		
-		return 0;
+		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
+		return initResult;
 	}
 
 	@Override

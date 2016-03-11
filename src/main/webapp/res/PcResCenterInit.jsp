@@ -21,8 +21,10 @@ $(document).ready(function() {
 		startGetLog();
 		$('#div-init-button').hide();
 		RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
-			if(result==0){
-				alert("初始化成功！");
+			if(result.resultCode=="000000"){
+				CC.showMsg({msg:"初始化资源中心成功！"});
+			}else{
+				CC.showMsg({msg:result.resultMsg});
 			}
 		}});
 	})
