@@ -66,19 +66,19 @@ function query(){
 	resId=$('#sel_resCenter :selected').val();
 	if(resId=="") return ;
 	RS.ajax({url:"/res/computer/queryByResCenter",ps:{resCenterId : resId},cb:function(result) {
-		$('#pcComputerTable-center').html("");
-		$('#pcComputerTable-visit').html("");
-		$('#pcComputerTable-slave').html("");
+		$('#pcComputerTable').html("");
 		var slavePartList = result.slavePartList;
 		var masterPartList = result.corePartList;
 		var visitPartList = result.visitPartList;
+		var computerList = result.computerList;
 		centerSize = result.corePartList==null?0:masterPartList.length;
 		visitSize = result.visitPartList==null?0:visitPartList.length;
 		slaveSize = result.slavePartList==null?0:slavePartList.length;
 //		alert(centerSize+"--"+visitSize+"--"+slaveSize);
-		$('#pcComputerTable-center-tmpl').tmpl(result).appendTo("#pcComputerTable-center");
-		$('#pcComputerTable-visit-tmpl').tmpl(result).appendTo("#pcComputerTable-visit");
-		$('#pcComputerTable-slave-tmpl').tmpl(result).appendTo("#pcComputerTable-slave");
+		$('#pcComputerTable-tmpl').tmpl(result).appendTo("#pcComputerTable");
+//		$('#pcComputerTable-center-tmpl').tmpl(result).appendTo("#pcComputerTable-center");
+//		$('#pcComputerTable-visit-tmpl').tmpl(result).appendTo("#pcComputerTable-visit");
+//		$('#pcComputerTable-slave-tmpl').tmpl(result).appendTo("#pcComputerTable-slave");
 
 	}});
 }

@@ -134,11 +134,11 @@ function submitForm(){
 	var memtotal = $('#cpuCount').val();
 	var memOffer = $('#memOffer').val();
 	if(cuptotal-cpuoffer<1||cpuoffer<=0){
-		alert("可用于集群的cpu核数填写错误！");
+		CC.showMsg({msg:"可用于集群的cpu核数填写错误！"});
 		return ;
 	}
 	if(memtotal-memOffer<1||memOffer<=0){
-		alert("可用于集群的内存填写错误！");
+		CC.showMsg({msg:"可用于集群的内存填写错误！"});
 		return ;
 	}
 	var bean = PU.getFormData("form_computer");
