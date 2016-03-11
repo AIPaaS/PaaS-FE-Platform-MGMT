@@ -225,6 +225,8 @@ var CC = {
 	getParentLayoutBorder : function() {
 		var w = PRQ.get("ParentLeftWidth");
 		var h = PRQ.get("ParentHeaderHeight");
+		var sid = PRQ.get("PARENT_SID");
+		
 		if(CU.isEmpty(w)) {
 			w = cookie.get("ParentLeftWidth");
 			if(CU.isEmpty(w)) w = "0";
@@ -237,6 +239,23 @@ var CC = {
 		}else {
 			cookie.put("ParentHeaderHeight", h);
 		}
+		
+		if(CU.isEmpty(sid)) {
+			sid = cookie.get("PARENT_SID");
+			if(CU.isEmpty(sid)) sid = "-1";
+		}else {
+			cookie.put("PARENT_SID", sid);
+		}
+		
+		//父页面与子页面登录用户不一至,则子页面重新登录
+		if(sid != (SU.id+"")) {
+			//var beforeUrl = ""+window.location;
+			//window.location = ContextPath + "/refreshRelogin?beforeUrl="+encodeURIComponent(beforeUrl);
+			RS.ajax({url:"/invalid"});
+			CC.showMsg({msg:"请重新登录!"});
+			throw " must be relogin! ";
+		}
+		
 		return {width:parseInt(w,10),height:parseInt(h,10)};
 	}
 };

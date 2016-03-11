@@ -18,7 +18,7 @@ function initData(cb) {
 	CurrentId = PRQ.get("id");
 	CurrentPageNum = PRQ.get("pageNum");
 	if(CU.isEmpty(CurrentPageNum)) CurrentPageNum = 1;
-	RS.ajax({url:"/res/computer/getComputerRegionDropListMap",ps:{addEmpty:true, addAttr:true ,opts:"dc|rc"},cb:function(result) {
+	RS.ajax({url:"/res/computer/getComputerRegionDropListMap",ps:{addEmpty:true, addAttr:true ,status:1,opts:"dc|rc"},cb:function(result) {
 		DROP["DV_DATA_CENTER_CODE"] = result["dc"];
 		DROP["DV_RES_CENTER_CODE"] = result["rc"];
 		var dcselhtml = PU.getSelectOptionsHtml("DV_DATA_CENTER_CODE");

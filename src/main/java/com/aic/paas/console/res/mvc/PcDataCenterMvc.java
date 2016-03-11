@@ -26,9 +26,10 @@ public class PcDataCenterMvc {
 	
 
 	@RequestMapping("/getDataCenterCodeList")
-    public void getDataCenterCodeList(HttpServletRequest request, HttpServletResponse response, Boolean addEmpty, Boolean addAttr) {
+    public void getDataCenterCodeList(HttpServletRequest request, HttpServletResponse response, Integer status, Boolean addEmpty, Boolean addAttr) {
 		CPcDataCenter cdt = new CPcDataCenter();
-        cdt.setStatus(1);
+		if(status != null) cdt.setStatus(status);
+        
        List<PcDataCenter> list = pcDataCenterPeer.queryList(cdt, "CODE, ID");
       
        List<DropRecord> dropList = ComponentUtil.toDropList(list, "ID", "name", addAttr, addEmpty);
