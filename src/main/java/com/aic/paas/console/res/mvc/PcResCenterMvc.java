@@ -17,10 +17,13 @@ import com.aic.paas.console.res.bean.ResDetailInfo;
 import com.aic.paas.console.res.peer.PcComputerPeer;
 import com.aic.paas.console.res.peer.PcResCenterPeer;
 import com.aic.paas.console.res.vo.OpenResultParamVo;
+import com.aic.paas.console.res.vo.ResTaskLog;
 import com.aic.paas.frame.cross.bean.DropRecord;
 import com.aic.paas.frame.util.ComponentUtil;
 import com.binary.framework.util.ControllerUtils;
 import com.binary.jdbc.Page;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 @Controller
 @RequestMapping("/res/resc")
@@ -88,8 +91,11 @@ public class PcResCenterMvc {
 	
 	@RequestMapping("/getInitLog")
 	public void getInitLog(HttpServletRequest request, HttpServletResponse response,Long resCenterId){
-		List<String> log = pcResCenterPeer.getInitLog(resCenterId);
-		ControllerUtils.returnJson(request, response, log);
+		String log = pcResCenterPeer.getInitLog(resCenterId);
+		Gson gson = new Gson();
+		List<ResTaskLog> reslog = gson.fromJson(log, new TypeToken<List<ResTaskLog>>() {
+		}.getType());;
+		ControllerUtils.returnJson(request, response, reslog);
 	}
 	
 }
