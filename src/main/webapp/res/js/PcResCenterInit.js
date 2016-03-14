@@ -74,11 +74,8 @@ function query(){
 		centerSize = result.corePartList==null?0:masterPartList.length;
 		visitSize = result.visitPartList==null?0:visitPartList.length;
 		slaveSize = result.slavePartList==null?0:slavePartList.length;
-//		alert(centerSize+"--"+visitSize+"--"+slaveSize);
+
 		$('#pcComputerTable-tmpl').tmpl(result).appendTo("#pcComputerTable");
-//		$('#pcComputerTable-center-tmpl').tmpl(result).appendTo("#pcComputerTable-center");
-//		$('#pcComputerTable-visit-tmpl').tmpl(result).appendTo("#pcComputerTable-visit");
-//		$('#pcComputerTable-slave-tmpl').tmpl(result).appendTo("#pcComputerTable-slave");
 
 	}});
 }
@@ -91,7 +88,7 @@ function initResCenter(){
 		if(result.resultCode.equal("000000")){
 			alert("初始化成功！");
 		}else {
-			alert(result.resultMsg);
+			alert("初始化安装失败！！！");
 		}
 	}});
 }
