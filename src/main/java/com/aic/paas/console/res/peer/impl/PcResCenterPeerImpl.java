@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.aic.paas.comm.util.PropertiesPool;
@@ -23,6 +24,8 @@ import com.binary.jdbc.Page;
 import com.google.gson.Gson;
 
 public class PcResCenterPeerImpl implements PcResCenterPeer{
+	
+	private static Logger logger = Logger.getLogger(PcResCenterPeerImpl.class);
 	
 	@Autowired
 	PcResCenterSvc pcResCenterSvc;
@@ -98,6 +101,7 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		String result = null;
 		try {
 			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
+			logger.info("the result of initResCenter is : "+ result);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
