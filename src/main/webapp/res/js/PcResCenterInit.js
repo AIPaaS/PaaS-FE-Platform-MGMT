@@ -87,9 +87,11 @@ function initResCenter(){
 	$('#div-log').show();
 	startGetLog();
 	var resId = $('#sel_resCenter :selected').val();
-	RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:"111",useAgent:true,loadOnly:true},cb:function(result) {
-		if(result==0){
+	RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
+		if(result.resultCode=="000000"){
 			alert("初始化成功！");
+		}else {
+			alert(result.resultMsg);
 		}
 	}});
 }
@@ -110,7 +112,7 @@ function queryLog() {
 				var str = '';
 				var d = msg;
 				for (var i = 0; i < d.length; i++) {
-					str += new Date() + '  日志信息:   ' + d[i]+ '\n';
+					str += d[i].logTime + '  日志信息:   ' + d[i].logCnt+ '\n';
 				}
 				var html =  str;
 				$('#logWindow').html('');
@@ -120,6 +122,28 @@ function queryLog() {
 			}
 	}});
 	
+	
+//	$.ajax({
+//		type : "POST",
+//		url : "/res/resc/getInitLog?resCenterId="+resId,
+//		dataType : "json",
+//		success : function(msg) {
+//				if (msg.length != 0) {
+//					var str = '';
+//					var d = msg;
+//					for (var i = 0; i < d.length; i++) {
+//						str += d[i].logTime + '  日志信息:   ' + d[i].logCnt + '\n';
+//					}
+//					var html =  str;
+//					$('#logWindow').html('');
+//					$('#logWindow').html(html);
+//					$("#logWindow").scrollTop($("#logWindow")[0].scrollHeight);
+//					return;
+//				}else{
+//					return;
+//				}
+//		}
+//	});
 }
 
 

@@ -96,27 +96,32 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		Gson gson = new Gson();
 		System.out.println("init resCenter param----"+gson.toJson(param));
 		String result = null;
-//		try {
-//			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (URISyntaxException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
 		return initResult;
 	}
 
 	@Override
-	public List<String> getInitLog(Long id) {
-		List<String> list = new ArrayList<String>();
-		list.add("---begin init resource center---");
-		list.add("---install mesos master...... ");
-		list.add("---finish install master");
-		list.add("---begin install HaProxy...... ");
-		return list;
+	public String getInitLog(Long id) {
+		String logResult = null;
+		try {
+			logResult = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.getLog"), id.intValue()+"");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return logResult;
 	}
 
 	

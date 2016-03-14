@@ -119,6 +119,6 @@ public interface PcResCenterPeer {
 	 * @param id
 	 * @return
 	 */
-	public List<String> getInitLog(Long id);
+	public String getInitLog(Long id);
 
 }
