@@ -1,7 +1,16 @@
 <%@ page contentType="text/html; charset=utf-8"%>
+<%@page import="com.binary.framework.web.SessionKey,com.binary.framework.bean.User"%>
 
 <%
 String ContextPath = request.getContextPath();
+User user = (User)session.getAttribute(SessionKey.SYSTEM_USER);
+
+if(user == null) {
+	response.sendRedirect(ContextPath+"/index.jsp");
+	return ;
+}
+
+Long userId = user.getId();
 %>
 
 <!doctype html>
@@ -17,7 +26,7 @@ function forward2ModuCode(mc) {
 }
 
 function forward(url) {
-	document.getElementById("if_page").src = url + "?ParentLeftWidth=220&ParentHeaderHeight=50&d="+new Date().getTime();
+	document.getElementById("if_page").src = url + "?PARENT_SID=<%=userId%>&ParentLeftWidth=220&ParentHeaderHeight=50&d="+new Date().getTime();
 }
 
 

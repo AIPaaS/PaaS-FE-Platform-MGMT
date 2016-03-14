@@ -20,7 +20,7 @@ function initData(cb) {
 	CurrentPageNum = PRQ.get("pageNum");
 	if(CU.isEmpty(CurrentPageNum)) CurrentPageNum = 1;
 	
-	RS.ajax({url:"/res/computer/getComputerRegionDropListMap",ps:{addEmpty:true, addAttr:true},cb:function(result) {
+	RS.ajax({url:"/res/computer/getComputerRegionDropListMap",ps:{addEmpty:true, addAttr:true,status:1},cb:function(result) {
 		DROP["DV_COMP_ROOM_CODE"] = result["room"];
 		DROP["DV_DATA_CENTER_CODE"] = result["dc"];
 		DROP["DV_RES_CENTER_CODE"] = result["rc"];
