@@ -81,4 +81,13 @@ public class PcImageRepositoryMvc {
 		int c = imageRepositoryPeer.removeById(id);
 		ControllerUtils.returnJson(request, response, c);
 	}
+	
+	@RequestMapping("/isExitImageCode")
+	public void isExitImageCode(HttpServletRequest request,HttpServletResponse response, String code){
+		CPcImageRepository cp = new CPcImageRepository();
+		cp.setImgRespCode(code);
+		List<PcImageRepository> list = imageRepositoryPeer.queryList(cp, "id");
+		boolean bl = list.size()>0;
+		ControllerUtils.returnJson(request, response, bl);
+	}
 }

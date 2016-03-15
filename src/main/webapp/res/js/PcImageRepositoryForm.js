@@ -1,5 +1,6 @@
 var CurrentId = "";
 var CurrentPageNum = 1;
+
 /** 初始化 **/
 function init() {
 	initData(function() {
@@ -74,12 +75,21 @@ function verifyRoomHasSnapshoot() {
 /**提交表单**/
 function submitForm(){
 	var bean = PU.getFormData("form_imageResp");
-	if(!CU.isEmpty(CurrentId)) bean.id = CurrentId;
-	RS.ajax({url:"/res/imgresp/saveOrUpdate",ps:bean,cb:function(r) {
-		var url = ContextPath+"/dispatch/mc/0401";
-		if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;
-		window.location = url;
+	RS.ajax({url:"/res/imgresp/isExitImageCode",ps:{imgRespCode : bean.imgRespCode},cb:function(r) {
+		if(r){
+			CC.showMsg({msg:"镜像库代码已存在!"});
+			return;
+		}else{
+			
+			if(!CU.isEmpty(CurrentId)) bean.id = CurrentId;
+			RS.ajax({url:"/res/imgresp/saveOrUpdate",ps:bean,cb:function(r) {
+				var url = ContextPath+"/dispatch/mc/0401";
+				if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;
+				window.location = url;
+			}});
+		}
 	}});
+	
 }
 
 
