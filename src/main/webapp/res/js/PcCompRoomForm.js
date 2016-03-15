@@ -72,11 +72,18 @@ function submitForm(){
 	var status = 1;
 	var isChecked = $("#status").prop("checked");
 	if(!isChecked) status = 0;
-	var record = {id:CurrentId,roomCode:roomCode,roomName:roomName,roomAddr:roomAddr,contactName:contactName,contactPhone:contactPhone,contactPhone2:contactPhone2,contactEmail:contactEmail,remark:remark,status:status};
-	RS.ajax({url:"/res/comproom/saveOrUpdate",ps:record,cb:function(r) {
-		var url = ContextPath+"/dispatch/mc/0201";
-		if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;
-		window.location = url;
+	RS.ajax({url:"/res/comproom/isExistRoomCode",ps:{roomCode:roomCode},cb:function(r) {
+		if(r){
+			CC.showMsg({msg:"机房编号已存在!"});
+			return;
+		}else{
+			var record = {id:CurrentId,roomCode:roomCode,roomName:roomName,roomAddr:roomAddr,contactName:contactName,contactPhone:contactPhone,contactPhone2:contactPhone2,contactEmail:contactEmail,remark:remark,status:status};
+			RS.ajax({url:"/res/comproom/saveOrUpdate",ps:record,cb:function(r) {
+				var url = ContextPath+"/dispatch/mc/0201";
+				if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;
+				window.location = url;
+			}});
+		}
 	}});
 }
 

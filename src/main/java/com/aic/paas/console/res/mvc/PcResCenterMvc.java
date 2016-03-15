@@ -81,6 +81,15 @@ public class PcResCenterMvc {
 		ControllerUtils.returnJson(request, response, c);
 	}
 
+	@RequestMapping("/isExistResCode")
+	public void isExistResCode(HttpServletRequest request, HttpServletResponse response,String resCode) {
+		CPcResCenter cp = new CPcResCenter();
+		cp.setResCode(resCode);
+		List<PcResCenter> list = pcResCenterPeer.queryList(cp, "ID");
+		Boolean bl = list.size()>0;
+		ControllerUtils.returnJson(request, response, bl);
+	}
+	
 	@RequestMapping("/initResCenter")
 	public void initResCenter(HttpServletRequest request, HttpServletResponse response,Long resCenterId,Boolean useAgent,Boolean loadOnly){
 		OpenResultParamVo r = pcResCenterPeer.initResCenter(resCenterId,useAgent,loadOnly);	

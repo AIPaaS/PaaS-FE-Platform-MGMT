@@ -107,10 +107,18 @@ function submitForm(){
 	var isChecked = $("#status").prop("checked");
 	if(!isChecked) status = 0;
 	var record = {id:CurrentId,dataCenterId:dataCenterId,resCenterId:resCenterId,zoneCode:zoneCode,zoneName:zoneName,netSegDesc:netSegDesc,netSegExp:netSegExp,status:status};
-	RS.ajax({url:"/res/netzone/saveOrUpdate",ps:record,cb:function(r) {
-		var url = ContextPath+"/dispatch/mc/0204";
-		if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;
-		window.location = url;
+
+	RS.ajax({url:"/res/netzone/isExistZoneCode",ps:{zoneCode : zoneCode,resCenterId : resCenterId},cb:function(r) {
+		if(r){
+			CC.showMsg({msg:"区域代码已存在!"});
+			return;
+		}else{
+			RS.ajax({url:"/res/netzone/saveOrUpdate",ps:record,cb:function(r) {
+				var url = ContextPath+"/dispatch/mc/0204";
+				if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;
+				window.location = url;
+			}});
+		}
 	}});
 }
 

@@ -62,12 +62,23 @@ function queryInfo(){
 /**提交表单**/
 function submitForm(){
 	var bean = PU.getFormData("form_resCenter");
-	if(!CU.isEmpty(CurrentId)) bean.id = CurrentId;
-	RS.ajax({url:"/res/resc/saveOrUpdate",ps:bean,cb:function(r) {
-		var url = ContextPath+"/dispatch/mc/0203";
-		if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;
-		window.location = url;
+	RS.ajax({url:"/res/resc/isExistResCode",ps:{resCode:bean.resCode},cb:function(r) {
+		if(r){
+			CC.showMsg({msg:"资源中心代码已存在!"});
+			return;
+		}else{
+			if(!CU.isEmpty(CurrentId)) bean.id = CurrentId;
+			RS.ajax({url:"/res/resc/saveOrUpdate",ps:bean,cb:function(r) {
+				var url = ContextPath+"/dispatch/mc/0203";
+				if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;
+				window.location = url;
+			}});
+			
+		}
 	}});
+	
+	
+
 }
 
 

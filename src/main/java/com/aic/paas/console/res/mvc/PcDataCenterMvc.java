@@ -59,4 +59,13 @@ public class PcDataCenterMvc {
 		int c = pcDataCenterPeer.removeById(id);
 		ControllerUtils.returnJson(request, response, c);
 	}
+	
+	@RequestMapping("/isExistDataCode")
+	public void isExistDataCode(HttpServletRequest request, HttpServletResponse response,String code) {
+		CPcDataCenter cp = new CPcDataCenter();
+		cp.setCode(code);
+		List<PcDataCenter> list = pcDataCenterPeer.queryList(cp, "ID");
+		Boolean bl = list.size()>0;
+		ControllerUtils.returnJson(request, response, bl);
+	}
 }

@@ -225,4 +225,13 @@ public class PcComputerMvc {
 		ControllerUtils.returnJson(request, response, info);
 	}
 	
+	@RequestMapping("/isExistCompterCode")
+	public void isExistCompterCode(HttpServletRequest request, HttpServletResponse response,String code) {
+		CPcComputer cp = new CPcComputer();
+		cp.setCode(code);
+		List<PcComputer> list = pcComputerPeer.queryList(cp, "ID");
+		Boolean bl = list.size()>0;
+		ControllerUtils.returnJson(request, response, bl);
+	}
+	
 }

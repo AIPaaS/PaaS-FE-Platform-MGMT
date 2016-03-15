@@ -82,8 +82,8 @@ public class PcImageRepositoryMvc {
 		ControllerUtils.returnJson(request, response, c);
 	}
 	
-	@RequestMapping("/isExitImageCode")
-	public void isExitImageCode(HttpServletRequest request,HttpServletResponse response, String code){
+	@RequestMapping("/isExistImageCode")
+	public void isExistImageCode(HttpServletRequest request,HttpServletResponse response, String code){
 		CPcImageRepository cp = new CPcImageRepository();
 		cp.setImgRespCode(code);
 		List<PcImageRepository> list = imageRepositoryPeer.queryList(cp, "id");

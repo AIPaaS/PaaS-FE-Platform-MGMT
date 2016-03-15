@@ -63,11 +63,21 @@ function submitForm(){
 	var isChecked = $("#status").prop("checked");
 	if(!isChecked) status = 0;
 	var record = {id:CurrentId,code:code,name:name,remark:remark,status:status};
-	RS.ajax({url:"/res/datac/saveOrUpdate",ps:record,cb:function(r) {
-		var url = ContextPath+"/dispatch/mc/0202";
-		if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;
-		window.location = url;
+	
+	RS.ajax({url:"/res/datac/isExistDataCode",ps:{code : code},cb:function(r) {
+		if(r){
+			CC.showMsg({msg:"数据中心代码已存在!"});
+			return;
+		}else {
+			
+			RS.ajax({url:"/res/datac/saveOrUpdate",ps:record,cb:function(r) {
+				var url = ContextPath+"/dispatch/mc/0202";
+				if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;
+				window.location = url;
+			}});
+		}
 	}});
+
 }
 
 

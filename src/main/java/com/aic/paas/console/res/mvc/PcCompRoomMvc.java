@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.aic.paas.console.res.bean.CPcCompRoom;
+import com.aic.paas.console.res.bean.CPcResCenter;
 import com.aic.paas.console.res.bean.PcCompRoom;
 import com.aic.paas.console.res.peer.PcCompRoomPeer;
 import com.aic.paas.frame.cross.bean.DropRecord;
@@ -57,6 +58,15 @@ public class PcCompRoomMvc {
 	public void removeById(HttpServletRequest request, HttpServletResponse response,Long id) {
 		int c = pcCompRoomPeer.removeById(id);
 		ControllerUtils.returnJson(request, response, c);
+	}
+	
+	@RequestMapping("/isExistRoomCode")
+	public void isExistRoomCode(HttpServletRequest request, HttpServletResponse response,String roomCode) {
+		CPcCompRoom cpr = new CPcCompRoom();
+		cpr.setRoomCode(roomCode);
+		List<PcCompRoom> list = pcCompRoomPeer.queryList(cpr, "ID");
+		Boolean bl = list.size()>0;
+		ControllerUtils.returnJson(request, response, bl);
 	}
 
 }
