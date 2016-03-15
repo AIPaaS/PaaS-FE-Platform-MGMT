@@ -109,8 +109,10 @@ function getSelOpHtml(ls) {
 function queryInfo(){
 	RS.ajax({url:"/res/computer/queryById",ps:{id:CurrentId},cb:function(rs) {
 		if(!CU.isEmpty(rs.cpuCount)) rs.cpuCount = rs.cpuCount/100;
+		if(!CU.isEmpty(rs.cpuOffer)) rs.cpuOffer = rs.cpuOffer/100;
 		if(!CU.isEmpty(rs.memSize)) rs.memSize = rs.memSize/1024;
 		if(!CU.isEmpty(rs.diskSize)) rs.diskSize = rs.diskSize/1024;
+		if(!CU.isEmpty(rs.memOffer)) rs.memOffer = rs.memOffer/1024;
 		
 		if(!CU.isEmpty(rs.dataCenterId)) {
 			fillResDropList(rs.dataCenterId);
@@ -129,21 +131,19 @@ function queryInfo(){
 
 /**提交表单**/
 function submitForm(){
-	var cuptotal = $('#cpuCount').val();
-	var cpuoffer = $('#cpuOffer').val();
-	var memtotal = $('#cpuCount').val();
-	var memOffer = $('#memOffer').val();
-	if(cuptotal-cpuoffer<1||cpuoffer<=0){
+	var bean = PU.getFormData("form_computer");
+	if(bean.cuptotal-bean.cpuoffer<1||bean.cpuoffer<=0){
 		CC.showMsg({msg:"可用于集群的cpu核数填写错误！"});
 		return ;
 	}
-	if(memtotal-memOffer<1||memOffer<=0){
+	if(bean.memtotal-bean.memOffer<1||bean.memOffer<=0){
 		CC.showMsg({msg:"可用于集群的内存填写错误！"});
 		return ;
 	}
-	var bean = PU.getFormData("form_computer");
 	bean.cpuCount = parseInt(bean.cpuCount,10)*100;
+	bean.cpuOffer = parseInt(bean.cpuOffer,10)*100;
 	bean.memSize = parseInt(bean.memSize,10)*1024;
+	bean.memOffer = parseInt(bean.memOffer,10)*1024;
 	bean.diskSize = parseInt(bean.diskSize,10)*1024;
 	if(!CU.isEmpty(CurrentId)) bean.id = CurrentId;
 	

@@ -10,14 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.aic.paas.console.res.bean.CPcResCenter;
-import com.aic.paas.console.res.bean.PcComputer;
 import com.aic.paas.console.res.bean.PcResCenter;
 import com.aic.paas.console.res.bean.PcResCenterInfo;
-import com.aic.paas.console.res.bean.ResDetailInfo;
 import com.aic.paas.console.res.peer.PcComputerPeer;
 import com.aic.paas.console.res.peer.PcResCenterPeer;
+import com.aic.paas.console.res.vo.LogResult;
 import com.aic.paas.console.res.vo.OpenResultParamVo;
-import com.aic.paas.console.res.vo.ResTaskLog;
 import com.aic.paas.frame.cross.bean.DropRecord;
 import com.aic.paas.frame.util.ComponentUtil;
 import com.binary.framework.util.ControllerUtils;
@@ -93,7 +91,7 @@ public class PcResCenterMvc {
 	public void getInitLog(HttpServletRequest request, HttpServletResponse response,Long resCenterId){
 		String log = pcResCenterPeer.getInitLog(resCenterId);
 		Gson gson = new Gson();
-		List<ResTaskLog> reslog = gson.fromJson(log, new TypeToken<List<ResTaskLog>>() {
+		List<LogResult> reslog = gson.fromJson(log, new TypeToken<List<LogResult>>() {
 		}.getType());;
 		ControllerUtils.returnJson(request, response, reslog);
 	}
