@@ -80,18 +80,18 @@ function query(){
 	}});
 }
 
-function initResCenter(){
-	$('#div-log').show();
-	startGetLog();
-	var resId = $('#sel_resCenter :selected').val();
-	RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
-		if(result.resultCode.equal("000000")){
-			alert("初始化成功！");
-		}else {
-			alert("初始化安装失败！！！");
-		}
-	}});
-}
+//function initResCenter(){
+//	$('#div-log').show();
+//	startGetLog();
+//	var resId = $('#sel_resCenter :selected').val();
+//	RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
+//		if(result.resultCode.equal("000000")){
+//			alert("初始化成功！");
+//		}else {
+//			alert("初始化安装失败！！！");
+//		}
+//	}});
+//}
 
 //刷新日志
 var intervalTime;

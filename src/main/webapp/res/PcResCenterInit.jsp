@@ -24,7 +24,7 @@ $(document).ready(function() {
 			if(result.resultCode=="000000"){
 				CC.showMsg({msg:"初始化资源中心成功！"});
 			}else{
-				CC.showMsg({msg:result.resultMsg});
+				CC.showMsg({msg:alert("初始化安装失败！！！")});
 			}
 		}});
 	})
