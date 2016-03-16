@@ -180,18 +180,18 @@ String ContextPath = request.getContextPath();
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="loginName" class="col-lg-2 control-label">登录账号:</label>
+				<label for="loginName" class="col-lg-2 control-label">登录账号<font color="red">*</font>:</label>
 				<div class="col-lg-5">
-					<input type="text" name="loginName" class="form-control" maxlength="20" id="loginName">
+					<input type="text" name="loginName" class="form-control" maxlength="20" id="loginName" required placeholder="必填">
 				</div>
 				<div class="col-lg-5">
 					<span></span>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="loginPwd" class="col-lg-2 control-label">登录密码:</label>
+				<label for="loginPwd" class="col-lg-2 control-label">登录密码<font color="red">*</font>:</label>
 				<div class="col-lg-5">
-					<input type="password" name="loginPwd" class="form-control" maxlength="20" id="loginPwd">
+					<input type="password" name="loginPwd" class="form-control" maxlength="20" id="loginPwd" required placeholder="必填">
 				</div>
 				<div class="col-lg-5">
 					<span></span>
