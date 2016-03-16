@@ -38,11 +38,10 @@ $(document).ready(function() {
 			<div class="filter-block pull-left">
 				<div class="pull-left">
 					<div class="form-group pull-left">
-						&nbsp;&nbsp;&nbsp;&nbsp;服务器编号:
+						&nbsp;&nbsp;&nbsp;&nbsp;选择资源中心:
 					</div>
 					<div class="form-group pull-left">
 						<select id="sel_resCenter" class="form-control" style="width:160px;">
-							<option value="99">BIUaa资源中心</option>
 						</select>
 					</div>
 					
@@ -73,7 +72,7 @@ $(document).ready(function() {
 								<th class="text-center">内存大小</th>
 								<th class="text-center">硬盘大小</th>
 								<th class="text-center">操作系统</th>
-								<th class="text-center">标签</th>
+								<th class="text-center">是否有效</th>
 							</tr>
 						</thead>
 						<tbody id="pcComputerTable">
@@ -159,14 +158,6 @@ $(document).ready(function() {
 				{{else}}
 					否
 				{{/if}}
-			</td>
-			<td class="text-center">
-				<a id="a_comp_tags_{{= row.id}}" href="###" class="table-link" title="标签详情">
-					<span class="fa-stack">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-tags fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
 			</td>
 		</tr>
 {{/each}}

@@ -60,5 +60,14 @@ public class PcNetZoneMvc {
 		int c = netZonePeer.removeById(id);
 		ControllerUtils.returnJson(request, response, c);
 	}
-
+	
+	@RequestMapping("/isExistZoneCode")
+	public void isExistZoneCode(HttpServletRequest request, HttpServletResponse response,String zoneCode, Long resCenterId) {
+		CPcNetZone cp = new CPcNetZone();
+		cp.setResCenterId(resCenterId);
+		cp.setZoneCode(zoneCode);
+		List<PcNetZone> list = netZonePeer.queryList(cp, "ID");
+		Boolean bl = list.size()>0;
+		ControllerUtils.returnJson(request, response, bl);
+	}
 }

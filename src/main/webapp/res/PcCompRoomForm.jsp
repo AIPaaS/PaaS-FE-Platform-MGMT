@@ -52,7 +52,7 @@ String ContextPath = request.getContextPath();
 			<div class="form-group">
 				<label for="contactPhone" class="col-lg-2 control-label">机房联系电话:</label>
 				<div class="col-lg-5">
-					<input type="text" name="contactPhone" class="form-control" id="contactPhone" pattern="^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d{8}$)" placeholder="机房联系电话">
+					<input type="tel" name="contactPhone" class="form-control" id="contactPhone" pattern="((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)" placeholder="机房联系电话">
 				</div>
 				<div class="col-lg-5">
 					<span></span>
@@ -61,7 +61,7 @@ String ContextPath = request.getContextPath();
 			<div class="form-group">
 				<label for="contactPhone2" class="col-lg-2 control-label">机房联系电话2:</label>
 				<div class="col-lg-5">
-					<input type="text" name="contactPhone2" class="form-control" id="contactPhone2" pattern="^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d{8}$)" placeholder="机房联系电话2">
+					<input type="tel" name="contactPhone2" class="form-control" id="contactPhone2" pattern="((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)" placeholder="机房联系电话2">
 				</div>
 				<div class="col-lg-5">
 					<span></span>
@@ -70,7 +70,7 @@ String ContextPath = request.getContextPath();
 			<div class="form-group">
 				<label for="contactEmail" class="col-lg-2 control-label">机房联系邮箱<font color="red">*</font>:</label>
 				<div class="col-lg-5">
-					<input type="email" name="contactEmail" class="form-control" id="contactEmail" required placeholder="必填">
+					<input type="text" name="contactEmail" class="form-control" id="contactEmail" pattern="^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$" required placeholder="必填">
 				</div>
 				<div class="col-lg-5">
 					<span>示例:example@email.com</span>

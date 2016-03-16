@@ -10,8 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.aic.paas.console.res.bean.CPcImageRepository;
+import com.aic.paas.console.res.bean.CPcResCenter;
 import com.aic.paas.console.res.bean.PcImageRepository;
+import com.aic.paas.console.res.bean.PcResCenter;
 import com.aic.paas.console.res.peer.PcImageRepositoryPeer;
+import com.aic.paas.console.res.peer.PcResCenterPeer;
 import com.aic.paas.frame.cross.bean.DropRecord;
 import com.aic.paas.frame.util.ComponentUtil;
 import com.binary.core.util.BinaryUtils;
@@ -25,6 +28,8 @@ public class PcImageRepositoryMvc {
 	@Autowired
 	PcImageRepositoryPeer imageRepositoryPeer;
 	
+	@Autowired
+	PcResCenterPeer pcResCenterPeer;
 	
 	@RequestMapping("/getImageRespDropList")
     public void getImageRespDropList(HttpServletRequest request, HttpServletResponse response, Boolean addEmpty, Boolean addAttr, CPcImageRepository cdt, String orders) {
@@ -80,5 +85,24 @@ public class PcImageRepositoryMvc {
 	public void removeById(HttpServletRequest request,HttpServletResponse response, Long id){
 		int c = imageRepositoryPeer.removeById(id);
 		ControllerUtils.returnJson(request, response, c);
+	}
+	
+	@RequestMapping("/isExistImageCode")
+	public void isExistImageCode(HttpServletRequest request,HttpServletResponse response, String code){
+		CPcImageRepository cp = new CPcImageRepository();
+		cp.setImgRespCode(code);
+		List<PcImageRepository> list = imageRepositoryPeer.queryList(cp, "id");
+		boolean bl = list.size()>0;
+		ControllerUtils.returnJson(request, response, bl);
+	}
+	
+	@RequestMapping("/isImageRepUsed")
+	public void isImageRepUsed(HttpServletRequest request,HttpServletResponse response, Long id){
+		CPcResCenter cp = new CPcResCenter();
+		cp.setImgRespId(id);
+		cp.setStatus(1);
+		List<PcResCenter> list  = pcResCenterPeer.queryList(cp, "ID");
+		boolean bl = list.size()>0;
+		ControllerUtils.returnJson(request, response, bl);
 	}
 }
