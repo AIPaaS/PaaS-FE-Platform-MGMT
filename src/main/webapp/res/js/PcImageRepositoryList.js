@@ -84,11 +84,19 @@ function query(pageNum){
 }
 
 function removeImageRepo(id){
-	var obj = CurrDataMap["key_"+id];
-	CC.showMsg({msg:"您确定要删除镜像库[<font color='blue'>"+obj.imgRespCode+"</font>]吗?",option:2,callback:function(r) {
-		if(r != "ok") return ;
-		RS.ajax({url:"/res/imgresp/removeById",ps:{id:id},cb:function() {
-			query(ParamPageNum);
-		}});
+	RS.ajax({url:"/res/imgresp/isImageRepUsed",ps:{id:id},cb:function(r) {
+		if(r){
+			CC.showMsg({msg:"该镜像库正在被使用，不能被删除!"});
+			return;
+		}else{
+			var obj = CurrDataMap["key_"+id];
+			CC.showMsg({msg:"您确定要删除镜像库[<font color='blue'>"+obj.imgRespCode+"</font>]吗?",option:2,callback:function(r) {
+				if(r != "ok") return ;
+				RS.ajax({url:"/res/imgresp/removeById",ps:{id:id},cb:function() {
+					query(ParamPageNum);
+				}});
+			}});
+		}
 	}});
+	
 }
