@@ -109,7 +109,7 @@ function submitForm(){
 	var record = {id:CurrentId,dataCenterId:dataCenterId,resCenterId:resCenterId,zoneCode:zoneCode,zoneName:zoneName,netSegDesc:netSegDesc,netSegExp:netSegExp,status:status};
 
 	RS.ajax({url:"/res/netzone/isExistZoneCode",ps:{zoneCode : zoneCode,resCenterId : resCenterId},cb:function(r) {
-		if(r){
+		if(r && CurrentId==null){
 			CC.showMsg({msg:"区域代码已存在!"});
 			return;
 		}else{

@@ -73,7 +73,7 @@ function submitForm(){
 	var isChecked = $("#status").prop("checked");
 	if(!isChecked) status = 0;
 	RS.ajax({url:"/res/comproom/isExistRoomCode",ps:{roomCode:roomCode},cb:function(r) {
-		if(r){
+		if(r && CurrentId==null){
 			CC.showMsg({msg:"机房编号已存在!"});
 			return;
 		}else{

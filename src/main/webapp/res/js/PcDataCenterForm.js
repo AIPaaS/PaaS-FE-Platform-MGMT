@@ -65,7 +65,7 @@ function submitForm(){
 	var record = {id:CurrentId,code:code,name:name,remark:remark,status:status};
 	
 	RS.ajax({url:"/res/datac/isExistDataCode",ps:{code : code},cb:function(r) {
-		if(r){
+		if(r && CurrentId==null){
 			CC.showMsg({msg:"数据中心代码已存在!"});
 			return;
 		}else {

@@ -63,7 +63,7 @@ function queryInfo(){
 function submitForm(){
 	var bean = PU.getFormData("form_resCenter");
 	RS.ajax({url:"/res/resc/isExistResCode",ps:{resCode:bean.resCode},cb:function(r) {
-		if(r){
+		if(r && CurrentId==null){
 			CC.showMsg({msg:"资源中心代码已存在!"});
 			return;
 		}else{

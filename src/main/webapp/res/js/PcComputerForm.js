@@ -148,7 +148,7 @@ function submitForm(){
 	if(!CU.isEmpty(CurrentId)) bean.id = CurrentId;
 	
 	RS.ajax({url:"/res/computer/isExistCompterCode",ps:bean,cb:function(r) {
-		if(r){
+		if(r && CurrentId==null){
 			CC.showMsg({msg:"服务器编号已存在!"});
 			return;
 		}else {
