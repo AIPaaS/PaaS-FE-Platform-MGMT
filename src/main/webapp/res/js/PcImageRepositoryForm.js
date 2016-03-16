@@ -75,8 +75,8 @@ function verifyRoomHasSnapshoot() {
 /**提交表单**/
 function submitForm(){
 	var bean = PU.getFormData("form_imageResp");
-	RS.ajax({url:"/res/imgresp/isExistImageCode",ps:{imgRespCode : bean.imgRespCode},cb:function(r) {
-		if(r && CurrentId==null){
+	RS.ajax({url:"/res/imgresp/isExistImageCode",ps:{code : bean.imgRespCode},cb:function(r) {
+		if(r && CU.isEmpty(CurrentId)){
 			CC.showMsg({msg:"镜像库代码已存在!"});
 			return;
 		}else{
