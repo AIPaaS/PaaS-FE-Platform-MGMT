@@ -44,6 +44,7 @@ function initData(cb) {
 		
 		var roomselhtml = PU.getSelectOptionsHtml("DV_RES_CENTER_CODE");
 		$("#sel_resCenter").html(roomselhtml);
+		$("#sel_resCenter").find("option").first().hide();
 		if(CU.isFunction(cb))cb();
 	}});
 
@@ -54,7 +55,10 @@ function initComponent() {
 }
 function initListener() {
 //	$("#btn_init").bind("click", initResCenter);
-	$("#sel_resCenter").bind("change", function() {
+//	$("#sel_resCenter").bind("change", function() {
+//		query();
+//	});
+	$("#btn_query").bind("click", function() {
 		query();
 	});
 
@@ -80,18 +84,18 @@ function query(){
 	}});
 }
 
-function initResCenter(){
-	$('#div-log').show();
-	startGetLog();
-	var resId = $('#sel_resCenter :selected').val();
-	RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
-		if(result.resultCode.equal("000000")){
-			alert("初始化成功！");
-		}else {
-			alert("初始化安装失败！！！");
-		}
-	}});
-}
+//function initResCenter(){
+//	$('#div-log').show();
+//	startGetLog();
+//	var resId = $('#sel_resCenter :selected').val();
+//	RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
+//		if(result.resultCode.equal("000000")){
+//			alert("初始化成功！");
+//		}else {
+//			alert("初始化安装失败！！！");
+//		}
+//	}});
+//}
 
 //刷新日志
 var intervalTime;

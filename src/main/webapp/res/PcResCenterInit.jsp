@@ -22,9 +22,14 @@ $(document).ready(function() {
 		$('#div-init-button').hide();
 		RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
 			if(result.resultCode=="000000"){
+				clearInterval(intervalTime);
 				CC.showMsg({msg:"初始化资源中心成功！"});
 			}else{
-				CC.showMsg({msg:result.resultMsg});
+				//停止查询日志
+				clearInterval(intervalTime);
+				$('#div-log').hide();
+				CC.showMsg({msg:"初始化错误"});
+				$('#div-init-button').show();
 			}
 		}});
 	})
@@ -44,8 +49,10 @@ $(document).ready(function() {
 						<select id="sel_resCenter" class="form-control" style="width:160px;">
 						</select>
 					</div>
-					
 				</div>
+				
+				<button class="btn btn-primary pull-left" id="btn_query"><i class="fa fa-search fa-lg"></i> 查询</button>
+				
 			</div>
 		</div>
 	</div>
