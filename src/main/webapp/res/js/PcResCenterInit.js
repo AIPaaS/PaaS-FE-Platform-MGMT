@@ -70,6 +70,17 @@ function query(){
 	resId=$('#sel_resCenter :selected').val();
 	if(resId=="") return ;
 	RS.ajax({url:"/res/computer/queryByResCenter",ps:{resCenterId : resId},cb:function(result) {
+		alert(result.initStatus);
+		if(result.initStatus==1) {
+			$('#initStatus').html("已初始化");
+			$('#btn_init').attr("disabled",true);
+			$('#btn_init').attr("style","background: #D3D3D3");
+		}else{
+			$('#initStatus').html("");
+			$('#btn_init').removeAttr("style");
+			$('#btn_init').attr("disabled",false);
+		}
+		
 		$('#pcComputerTable').html("");
 		var slavePartList = result.slavePartList;
 		var masterPartList = result.corePartList;

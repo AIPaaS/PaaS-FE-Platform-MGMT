@@ -49,6 +49,9 @@ $(document).ready(function() {
 						<select id="sel_resCenter" class="form-control" style="width:160px;">
 						</select>
 					</div>
+					<div class="col-lg-5">
+						<span id="initStatus"></span>
+					</div>
 				</div>
 				
 				<button class="btn btn-primary pull-left" id="btn_query"><i class="fa fa-search fa-lg"></i> 查询</button>
@@ -57,7 +60,6 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
-
 
 
 <!-- 正文 -->
@@ -118,8 +120,8 @@ $(document).ready(function() {
 		<div class="main-box clearfix">
 			<div class="main-box-body clearfix">
 				<div class="form-group">
-				<div class="col-lg-offset-2 col-lg-10">
-					<button type="submit" id="btn_init" class="btn btn-success">初始化</button>
+				<div  id="btn_init" class="col-lg-offset-2 col-lg-10">
+					<button type="submit" class="btn btn-success">初始化</button>
 				</div>
 			</div>
 				
