@@ -44,7 +44,7 @@ function initData(cb) {
 		
 		var roomselhtml = PU.getSelectOptionsHtml("DV_RES_CENTER_CODE");
 		$("#sel_resCenter").html(roomselhtml);
-		$("#sel_resCenter").find("option").first().hide();
+		$("#sel_resCenter").find("option").first().remove();
 		if(CU.isFunction(cb))cb();
 	}});
 
