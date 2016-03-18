@@ -44,6 +44,7 @@ function initData(cb) {
 		
 		var roomselhtml = PU.getSelectOptionsHtml("DV_RES_CENTER_CODE");
 		$("#sel_resCenter").html(roomselhtml);
+		$("#sel_resCenter").find("option").first().hide();
 		if(CU.isFunction(cb))cb();
 	}});
 
@@ -54,7 +55,10 @@ function initComponent() {
 }
 function initListener() {
 //	$("#btn_init").bind("click", initResCenter);
-	$("#sel_resCenter").bind("change", function() {
+//	$("#sel_resCenter").bind("change", function() {
+//		query();
+//	});
+	$("#btn_query").bind("click", function() {
 		query();
 	});
 
@@ -105,18 +109,19 @@ function startGetLog() {
 function queryLog() {
 	var resId = $('#sel_resCenter :selected').val();
 	RS.ajax({url:"/res/resc/getInitLog",ps:{resCenterId:resId},cb:function(msg) {
-			if (msg.length != 0) {
-				var str = '';
-				var d = msg;
-				for (var i = 0; i < d.length; i++) {
-					str += d[i].finishTime + '  日志信息:   ' + d[i].desc+ '\n';
-				}
-				var html =  str;
-				$('#logWindow').html('');
-				$('#logWindow').html(html);
-				$("#logWindow").scrollTop($("#logWindow")[0].scrollHeight);
-				return;
+		if(CU.isEmpty(msg)) return;
+		if (msg.length != 0) {
+			var str = '';
+			var d = msg;
+			for (var i = 0; i < d.length; i++) {
+				str += d[i].finishTime + '  日志信息:   ' + d[i].desc+ '\n';
 			}
+			var html =  str;
+			$('#logWindow').html('');
+			$('#logWindow').html(html);
+			$("#logWindow").scrollTop($("#logWindow")[0].scrollHeight);
+			return;
+		}
 	}});
 }
 
