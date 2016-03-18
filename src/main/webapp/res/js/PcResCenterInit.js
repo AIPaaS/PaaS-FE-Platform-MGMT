@@ -74,11 +74,13 @@ function query(){
 		if(result.initStatus==1) {
 			$('#initStatus').html("已初始化");
 			$('#btn_init').attr("disabled",true);
-			$('#btn_init').attr("style","background: #D3D3D3");
+			$('#btn_init').addClass("disabled");
+			$('#btn_init').removeClass("btn-success");
 		}else{
 			$('#initStatus').html("");
-			$('#btn_init').removeAttr("style");
 			$('#btn_init').attr("disabled",false);
+			$('#btn_init').addClass("btn-success");
+			$('#btn_init').removeClass("disabled");
 		}
 		
 		$('#pcComputerTable').html("");
