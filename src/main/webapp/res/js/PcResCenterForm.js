@@ -68,6 +68,7 @@ function submitForm(){
 			return;
 		}else{
 			if(!CU.isEmpty(CurrentId)) bean.id = CurrentId;
+			if(CU.isEmpty(CurrentId)) bean.initStatus = 0;
 			RS.ajax({url:"/res/resc/saveOrUpdate",ps:bean,cb:function(r) {
 				var url = ContextPath+"/dispatch/mc/0203";
 				if(!CU.isEmpty(CurrentPageNum)) url += "?pageNum="+CurrentPageNum;

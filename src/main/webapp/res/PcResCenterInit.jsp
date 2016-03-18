@@ -15,16 +15,30 @@ $(document).ready(function() {
 		}
 		var resId = "";
 		resId=$('#sel_resCenter :selected').val();
-		
-		if(resId=="") return ;
+// 		if(initStatus==1){
+// 			CC.showMsg({msg:"改资源中心正在初始化中"});
+// 			return;
+// 		}
+		if(resId==""||initStatus==2) return ;
 		$('#div-log').show();
 		startGetLog();
 		$('#div-init-button').hide();
+// 		//资源状态置1，锁死
+// 		RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:1},cb:function(r) {
+// 		}});
+		//开始初始化
 		RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
 			if(result.resultCode=="000000"){
+				
+				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:2},cb:function(r) {
+				}});
+				
 				clearInterval(intervalTime);
 				CC.showMsg({msg:"初始化资源中心成功！"});
 			}else{
+				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
+				}});
+				
 				//停止查询日志
 				clearInterval(intervalTime);
 				$('#div-log').hide();
@@ -58,7 +72,18 @@ $(document).ready(function() {
 	</div>
 </div>
 
-
+<div class="row">
+	<div class="col-lg-12">
+		<header class="pull-left clearfix">
+			<h2 id="resCenter-des">
+<!-- 				<span id="initStatus" class="col-lg-2 control-label"></span> -->
+<!-- 				<div >  -->
+<%--  					<font color="blue">核心控制域：${CurrentPageNum } 台    访问入口域：${visitSize }台   服务域：${slaveSize }台</font> --%>
+<!--  				</div> -->
+			</h2>
+		</header>
+	</div>
+</div>
 
 <!-- 正文 -->
 <div class="row">
@@ -119,7 +144,7 @@ $(document).ready(function() {
 			<div class="main-box-body clearfix">
 				<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-10">
-					<button type="submit" id="btn_init" class="btn btn-success">初始化</button>
+					<button type="submit"  id="btn_init" class="btn btn-success">初始化</button>
 				</div>
 			</div>
 				
@@ -168,6 +193,12 @@ $(document).ready(function() {
 			</td>
 		</tr>
 {{/each}}
+</script>
+
+<script id="resCenter-des-tmpl" type="text/x-jquery-tmpl">
+	{{each(i,row) result}}
+		<font color="blue">核心控制域：{{=row.initStatus }} 台    访问入口域：${visitSize }台   服务域：${slaveSize }台</font>
+	{{/each}}
 </script>
 
 	<jsp:include page="/layout/jsp/footer.jsp"></jsp:include>

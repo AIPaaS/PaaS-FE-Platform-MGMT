@@ -2,6 +2,7 @@ package com.aic.paas.console.res.bean;
 
 
 
+
 import com.binary.framework.bean.EntityBean;
 
 
@@ -65,6 +66,13 @@ public class PcResCenter implements EntityBean {
 	 * mapping-field: 非mesos集群管理域名[EXTERNAL_DOMAIN]
 	 */
 	private String externalDomain;
+
+
+	/**
+	 * mapping-field: 初始化状态[INIT_STATUS]
+	 * 0-未初始化，1-正在初始化，2-初始化完成，3-初始化失败
+	 */
+	private Integer initStatus;
 
 
 	/**
@@ -208,6 +216,14 @@ public class PcResCenter implements EntityBean {
 	}
 	public void setExternalDomain(String externalDomain) {
 		this.externalDomain = externalDomain;
+	}
+
+
+	public Integer getInitStatus() {
+		return this.initStatus;
+	}
+	public void setInitStatus(Integer initStatus) {
+		this.initStatus = initStatus;
 	}
 
 
