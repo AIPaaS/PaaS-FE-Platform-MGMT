@@ -1,0 +1,596 @@
+2016-03-02 14:26:02  [ main:0 ] - [ INFO ]  start jetty-server ......
+2016-03-02 14:26:02  [ main:5 ] - [ INFO ]  begin initialization QueuedThreadPool ......
+2016-03-02 14:26:02  [ main:7 ] - [ INFO ]  begin initialization SelectChannelConnector ......
+2016-03-02 14:26:02  [ main:10 ] - [ INFO ]  Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2016-03-02 14:26:02  [ main:10 ] - [ INFO ]  begin initialization Server ......
+2016-03-02 14:26:02  [ main:26 ] - [ INFO ]  begin initialization WebAppContext ......
+2016-03-02 14:26:02  [ main:26 ] - [ INFO ]   initialization app-root '/paas-cdep=src/main/webapp' ...... 
+2016-03-02 14:26:02  [ main:57 ] - [ INFO ]  begin start server ......
+2016-03-02 14:26:02  [ main:57 ] - [ INFO ]  jetty-6.1.26
+2016-03-02 14:26:02  [ main:539 ] - [ INFO ]  Initializing Spring FrameworkServlet 'spring'
+2016-03-02 14:26:02  [ main:539 ] - [ INFO ]  FrameworkServlet 'spring': initialization started
+2016-03-02 14:26:03  [ main:557 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Wed Mar 02 14:26:03 CST 2016]; root of context hierarchy
+2016-03-02 14:26:03  [ main:592 ] - [ INFO ]  Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-servlet.xml]
+2016-03-02 14:26:03  [ main:686 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-context.xml]
+2016-03-02 14:26:03  [ main:723 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-dubbo-client.xml]
+2016-03-02 14:26:03  [ main:770 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-sso-client.xml]
+2016-03-02 14:26:03  [ main:788 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring/spring-sso-client.xml]
+2016-03-02 14:26:03  [ main:823 ] - [ INFO ]  JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+2016-03-02 14:26:03  [ main:855 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring/spring-paas-frame.xml]
+2016-03-02 14:26:03  [ main:892 ] - [ INFO ]  JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+2016-03-02 14:26:03  [ main:955 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring/spring-paas-cdep.xml]
+2016-03-02 14:26:03  [ main:971 ] - [ INFO ]  JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+2016-03-02 14:26:03  [ main:1156 ] - [ INFO ]  Loading properties file from class path resource [project.properties]
+2016-03-02 14:26:03  [ main:1193 ] - [ INFO ]  Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5aa090df: defining beans [viewResolver,org.springframework.web.servlet.handler.SimpleMappingExceptionResolver#0,multipartResolver,org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,com.binary.framework.util.FrameworkProperties#0,DubboRestClient_SYS,DubboRestClient_RES,DubboxRest_SysFrameSvc,DubboxRest_MerchentSvc,DubboxRest_PcCompRoomSvc,DubboxRest_PcComputerSvc,DubboxRest_PcDataCenterSvc,DubboxRest_PcImageRepositorySvc,DubboxRest_PcNetZoneSvc,DubboxRest_PcResCenterSvc,DubboxRest_PsMntResApplySvc,DubboxRest_PsMntResSvc,DubboxRest_PsResCenterResSvc,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,com.binary.sso.client.auth.SsoClientAuthMvc#0,com.binary.sso.client.SsoClientConfiguration#0,dropListMvc,indexMvc,moduMvc,tmpFileMvc,treeListMvc,com.aic.paas.frame.cross.peer.impl.SysAuthResPeerImpl#0,com.aic.paas.frame.cross.peer.impl.SysFramePeerImpl#0,com.aic.paas.frame.util.SysFrameUtil#0,com.aic.paas.frame.cross.integration.PaasSsoUserLoginListener#0,dispatchMvc,pcCompRoomMvc,pcComputerMvc,pcDataCenterMvc,pcImageRepositoryMvc,pcNetZoneMvc,pcResCenterMvc,psMntResApplyMvc,psResCenterResMvc,com.aic.paas.console.res.peer.impl.PcCompRoomPeerImpl#0,com.aic.paas.console.res.peer.impl.PcComputerPeerImpl#0,com.aic.paas.console.res.peer.impl.PcDataCenterPeerImpl#0,com.aic.paas.console.res.peer.impl.PcNetZonePeerImpl#0,com.aic.paas.console.res.peer.impl.PcResCenterPeerImpl#0,com.aic.paas.console.res.peer.impl.PsResCenterResPeerImpl#0,com.aic.paas.console.res.peer.impl.PsMntResApplyPeerImpl#0,com.aic.paas.console.res.peer.impl.PcImageRepositoryPeerImpl#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+2016-03-02 14:26:03  [ main:1486 ] - [ INFO ]  Mapped URL path [/sso/client/auth/ssoCallback] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:26:03  [ main:1487 ] - [ INFO ]  Mapped URL path [/sso/client/auth/ssoCallback.*] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:26:03  [ main:1487 ] - [ INFO ]  Mapped URL path [/sso/client/auth/ssoCallback/] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:26:03  [ main:1487 ] - [ INFO ]  Mapped URL path [/sso/client/auth/notLogin] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:26:03  [ main:1488 ] - [ INFO ]  Mapped URL path [/sso/client/auth/notLogin.*] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:26:03  [ main:1488 ] - [ INFO ]  Mapped URL path [/sso/client/auth/notLogin/] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:26:03  [ main:1488 ] - [ INFO ]  Mapped URL path [/sso/client/auth/verifyLogin] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:26:03  [ main:1489 ] - [ INFO ]  Mapped URL path [/sso/client/auth/verifyLogin.*] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:26:03  [ main:1489 ] - [ INFO ]  Mapped URL path [/sso/client/auth/verifyLogin/] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:26:03  [ main:1491 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropList] onto handler 'dropListMvc'
+2016-03-02 14:26:03  [ main:1491 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropList.*] onto handler 'dropListMvc'
+2016-03-02 14:26:03  [ main:1491 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropList/] onto handler 'dropListMvc'
+2016-03-02 14:26:03  [ main:1492 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatch] onto handler 'dropListMvc'
+2016-03-02 14:26:03  [ main:1492 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatch.*] onto handler 'dropListMvc'
+2016-03-02 14:26:03  [ main:1492 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatch/] onto handler 'dropListMvc'
+2016-03-02 14:26:03  [ main:1493 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatchSingle] onto handler 'dropListMvc'
+2016-03-02 14:26:03  [ main:1493 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatchSingle.*] onto handler 'dropListMvc'
+2016-03-02 14:26:03  [ main:1493 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatchSingle/] onto handler 'dropListMvc'
+2016-03-02 14:26:03  [ main:1494 ] - [ INFO ]  Root mapping to handler 'indexMvc'
+2016-03-02 14:26:03  [ main:1495 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/getMenuTree] onto handler 'moduMvc'
+2016-03-02 14:26:03  [ main:1495 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/getMenuTree.*] onto handler 'moduMvc'
+2016-03-02 14:26:03  [ main:1495 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/getMenuTree/] onto handler 'moduMvc'
+2016-03-02 14:26:03  [ main:1496 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleByCode] onto handler 'moduMvc'
+2016-03-02 14:26:03  [ main:1496 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleByCode.*] onto handler 'moduMvc'
+2016-03-02 14:26:03  [ main:1496 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleByCode/] onto handler 'moduMvc'
+2016-03-02 14:26:03  [ main:1497 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleById] onto handler 'moduMvc'
+2016-03-02 14:26:03  [ main:1497 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleById.*] onto handler 'moduMvc'
+2016-03-02 14:26:03  [ main:1497 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleById/] onto handler 'moduMvc'
+2016-03-02 14:26:03  [ main:1498 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/tmpfile/upload] onto handler 'tmpFileMvc'
+2016-03-02 14:26:03  [ main:1498 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/tmpfile/upload.*] onto handler 'tmpFileMvc'
+2016-03-02 14:26:03  [ main:1498 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/tmpfile/upload/] onto handler 'tmpFileMvc'
+2016-03-02 14:26:03  [ main:1499 ] - [ INFO ]  Mapped URL path [/dispatch/mi/**] onto handler 'dispatchMvc'
+2016-03-02 14:26:03  [ main:1500 ] - [ INFO ]  Mapped URL path [/dispatch/mi/**.*] onto handler 'dispatchMvc'
+2016-03-02 14:26:03  [ main:1500 ] - [ INFO ]  Mapped URL path [/dispatch/mi/**/] onto handler 'dispatchMvc'
+2016-03-02 14:26:03  [ main:1500 ] - [ INFO ]  Mapped URL path [/dispatch/mc/**] onto handler 'dispatchMvc'
+2016-03-02 14:26:03  [ main:1500 ] - [ INFO ]  Mapped URL path [/dispatch/mc/**.*] onto handler 'dispatchMvc'
+2016-03-02 14:26:03  [ main:1501 ] - [ INFO ]  Mapped URL path [/dispatch/mc/**/] onto handler 'dispatchMvc'
+2016-03-02 14:26:03  [ main:1502 ] - [ INFO ]  Mapped URL path [/res/comproom/queryById] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1502 ] - [ INFO ]  Mapped URL path [/res/comproom/queryById.*] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1502 ] - [ INFO ]  Mapped URL path [/res/comproom/queryById/] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1502 ] - [ INFO ]  Mapped URL path [/res/comproom/removeById] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1503 ] - [ INFO ]  Mapped URL path [/res/comproom/removeById.*] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1503 ] - [ INFO ]  Mapped URL path [/res/comproom/removeById/] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1503 ] - [ INFO ]  Mapped URL path [/res/comproom/queryPage] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1504 ] - [ INFO ]  Mapped URL path [/res/comproom/queryPage.*] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1504 ] - [ INFO ]  Mapped URL path [/res/comproom/queryPage/] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1504 ] - [ INFO ]  Mapped URL path [/res/comproom/saveOrUpdate] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1504 ] - [ INFO ]  Mapped URL path [/res/comproom/saveOrUpdate.*] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1505 ] - [ INFO ]  Mapped URL path [/res/comproom/saveOrUpdate/] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1505 ] - [ INFO ]  Mapped URL path [/res/comproom/getCompRoomDropList] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1505 ] - [ INFO ]  Mapped URL path [/res/comproom/getCompRoomDropList.*] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1505 ] - [ INFO ]  Mapped URL path [/res/comproom/getCompRoomDropList/] onto handler 'pcCompRoomMvc'
+2016-03-02 14:26:03  [ main:1507 ] - [ INFO ]  Mapped URL path [/res/computer/saveComputerTags] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1507 ] - [ INFO ]  Mapped URL path [/res/computer/saveComputerTags.*] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1507 ] - [ INFO ]  Mapped URL path [/res/computer/saveComputerTags/] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1507 ] - [ INFO ]  Mapped URL path [/res/computer/removeComputerTags] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1508 ] - [ INFO ]  Mapped URL path [/res/computer/removeComputerTags.*] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1508 ] - [ INFO ]  Mapped URL path [/res/computer/removeComputerTags/] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1508 ] - [ INFO ]  Mapped URL path [/res/computer/queryComputerTagList] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1508 ] - [ INFO ]  Mapped URL path [/res/computer/queryComputerTagList.*] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1509 ] - [ INFO ]  Mapped URL path [/res/computer/queryComputerTagList/] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1509 ] - [ INFO ]  Mapped URL path [/res/computer/queryById] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1509 ] - [ INFO ]  Mapped URL path [/res/computer/queryById.*] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1509 ] - [ INFO ]  Mapped URL path [/res/computer/queryById/] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1510 ] - [ INFO ]  Mapped URL path [/res/computer/removeById] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1510 ] - [ INFO ]  Mapped URL path [/res/computer/removeById.*] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1510 ] - [ INFO ]  Mapped URL path [/res/computer/removeById/] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1510 ] - [ INFO ]  Mapped URL path [/res/computer/queryPage] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1511 ] - [ INFO ]  Mapped URL path [/res/computer/queryPage.*] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1511 ] - [ INFO ]  Mapped URL path [/res/computer/queryPage/] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1511 ] - [ INFO ]  Mapped URL path [/res/computer/saveOrUpdate] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1511 ] - [ INFO ]  Mapped URL path [/res/computer/saveOrUpdate.*] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1512 ] - [ INFO ]  Mapped URL path [/res/computer/saveOrUpdate/] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1512 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionTree] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1512 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionTree.*] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1512 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionTree/] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1513 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionDropListMap] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1513 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionDropListMap.*] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1513 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionDropListMap/] onto handler 'pcComputerMvc'
+2016-03-02 14:26:03  [ main:1514 ] - [ INFO ]  Mapped URL path [/res/datac/queryById] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1514 ] - [ INFO ]  Mapped URL path [/res/datac/queryById.*] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1514 ] - [ INFO ]  Mapped URL path [/res/datac/queryById/] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1515 ] - [ INFO ]  Mapped URL path [/res/datac/removeById] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1515 ] - [ INFO ]  Mapped URL path [/res/datac/removeById.*] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1515 ] - [ INFO ]  Mapped URL path [/res/datac/removeById/] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1516 ] - [ INFO ]  Mapped URL path [/res/datac/queryPage] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1516 ] - [ INFO ]  Mapped URL path [/res/datac/queryPage.*] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1516 ] - [ INFO ]  Mapped URL path [/res/datac/queryPage/] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1516 ] - [ INFO ]  Mapped URL path [/res/datac/saveOrUpdate] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1517 ] - [ INFO ]  Mapped URL path [/res/datac/saveOrUpdate.*] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1517 ] - [ INFO ]  Mapped URL path [/res/datac/saveOrUpdate/] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1517 ] - [ INFO ]  Mapped URL path [/res/datac/getDataCenterCodeList] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1517 ] - [ INFO ]  Mapped URL path [/res/datac/getDataCenterCodeList.*] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1518 ] - [ INFO ]  Mapped URL path [/res/datac/getDataCenterCodeList/] onto handler 'pcDataCenterMvc'
+2016-03-02 14:26:03  [ main:1519 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryById] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1519 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryById.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1519 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryById/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1519 ] - [ INFO ]  Mapped URL path [/res/imgresp/removeById] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1520 ] - [ INFO ]  Mapped URL path [/res/imgresp/removeById.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1520 ] - [ INFO ]  Mapped URL path [/res/imgresp/removeById/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1520 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryPage] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1520 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryPage.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1521 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryPage/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1521 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryList] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1521 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryList.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1521 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryList/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1522 ] - [ INFO ]  Mapped URL path [/res/imgresp/saveOrUpdate] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1522 ] - [ INFO ]  Mapped URL path [/res/imgresp/saveOrUpdate.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1522 ] - [ INFO ]  Mapped URL path [/res/imgresp/saveOrUpdate/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1522 ] - [ INFO ]  Mapped URL path [/res/imgresp/getImageRespDropList] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1523 ] - [ INFO ]  Mapped URL path [/res/imgresp/getImageRespDropList.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1523 ] - [ INFO ]  Mapped URL path [/res/imgresp/getImageRespDropList/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1523 ] - [ INFO ]  Mapped URL path [/res/imgresp/verifyRoomHasSnapshoot] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1523 ] - [ INFO ]  Mapped URL path [/res/imgresp/verifyRoomHasSnapshoot.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1524 ] - [ INFO ]  Mapped URL path [/res/imgresp/verifyRoomHasSnapshoot/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:26:03  [ main:1525 ] - [ INFO ]  Mapped URL path [/res/netzone/queryById] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1525 ] - [ INFO ]  Mapped URL path [/res/netzone/queryById.*] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1525 ] - [ INFO ]  Mapped URL path [/res/netzone/queryById/] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1525 ] - [ INFO ]  Mapped URL path [/res/netzone/removeById] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1526 ] - [ INFO ]  Mapped URL path [/res/netzone/removeById.*] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1526 ] - [ INFO ]  Mapped URL path [/res/netzone/removeById/] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1526 ] - [ INFO ]  Mapped URL path [/res/netzone/queryPage] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1526 ] - [ INFO ]  Mapped URL path [/res/netzone/queryPage.*] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1527 ] - [ INFO ]  Mapped URL path [/res/netzone/queryPage/] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1527 ] - [ INFO ]  Mapped URL path [/res/netzone/saveOrUpdate] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1527 ] - [ INFO ]  Mapped URL path [/res/netzone/saveOrUpdate.*] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1527 ] - [ INFO ]  Mapped URL path [/res/netzone/saveOrUpdate/] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1528 ] - [ INFO ]  Mapped URL path [/res/netzone/getNetZoneCodeList] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1528 ] - [ INFO ]  Mapped URL path [/res/netzone/getNetZoneCodeList.*] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1528 ] - [ INFO ]  Mapped URL path [/res/netzone/getNetZoneCodeList/] onto handler 'pcNetZoneMvc'
+2016-03-02 14:26:03  [ main:1529 ] - [ INFO ]  Mapped URL path [/res/resc/queryById] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1529 ] - [ INFO ]  Mapped URL path [/res/resc/queryById.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1529 ] - [ INFO ]  Mapped URL path [/res/resc/queryById/] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1530 ] - [ INFO ]  Mapped URL path [/res/resc/removeById] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1530 ] - [ INFO ]  Mapped URL path [/res/resc/removeById.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1530 ] - [ INFO ]  Mapped URL path [/res/resc/removeById/] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1530 ] - [ INFO ]  Mapped URL path [/res/resc/queryPage] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1531 ] - [ INFO ]  Mapped URL path [/res/resc/queryPage.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1531 ] - [ INFO ]  Mapped URL path [/res/resc/queryPage/] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1531 ] - [ INFO ]  Mapped URL path [/res/resc/saveOrUpdate] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1532 ] - [ INFO ]  Mapped URL path [/res/resc/saveOrUpdate.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1532 ] - [ INFO ]  Mapped URL path [/res/resc/saveOrUpdate/] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1532 ] - [ INFO ]  Mapped URL path [/res/resc/queryInfoPage] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1532 ] - [ INFO ]  Mapped URL path [/res/resc/queryInfoPage.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1533 ] - [ INFO ]  Mapped URL path [/res/resc/queryInfoPage/] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1533 ] - [ INFO ]  Mapped URL path [/res/resc/getResCenterCodeList] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1533 ] - [ INFO ]  Mapped URL path [/res/resc/getResCenterCodeList.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1533 ] - [ INFO ]  Mapped URL path [/res/resc/getResCenterCodeList/] onto handler 'pcResCenterMvc'
+2016-03-02 14:26:03  [ main:1534 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoPage] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1534 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoPage.*] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1535 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoPage/] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1535 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoList] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1535 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoList.*] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1535 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoList/] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1536 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoById] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1536 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoById.*] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1536 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoById/] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1536 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyBack] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1537 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyBack.*] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1537 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyBack/] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1537 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyPass] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1537 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyPass.*] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1538 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyPass/] onto handler 'psMntResApplyMvc'
+2016-03-02 14:26:03  [ main:1538 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResById] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1539 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResById.*] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1539 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResById/] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1539 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowById] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1539 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowById.*] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1540 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowById/] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1540 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowPage] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1540 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowPage.*] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1540 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowPage/] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1541 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResPage] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1541 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResPage.*] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:03  [ main:1541 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResPage/] onto handler 'psResCenterResMvc'
+2016-03-02 14:26:04  [ main:1645 ] - [ INFO ]  FrameworkServlet 'spring': initialization completed in 1105 ms
+2016-03-02 14:26:04  [ main:1666 ] - [ INFO ]  Started SelectChannelConnector@0.0.0.0:16104
+2016-03-02 14:26:04  [ main:1666 ] - [ INFO ]  start server successful.
+2016-03-02 14:27:05  [ 1916021542@qtp-337297605-6:63038 ] - [ ERROR ]  /paas-cdep/sso/client/auth/ssoCallback
+java.lang.Error: Unresolved compilation problem: 
+	The method onLoginSuccess(HttpServletRequest, User, String) of type SimpleSsoUserLoginListener must override a superclass method
+
+	at com.aic.paas.frame.cross.integration.SimpleSsoUserLoginListener.onLoginSuccess(SimpleSsoUserLoginListener.java:18)
+	at com.aic.paas.frame.cross.integration.PaasSsoUserLoginListener.onLoginSuccess(PaasSsoUserLoginListener.java:26)
+	at com.binary.sso.client.auth.SsoClientAuthMvc.loginSession(SsoClientAuthMvc.java:182)
+	at com.binary.sso.client.auth.SsoClientAuthMvc.ssoCallback(SsoClientAuthMvc.java:205)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:176)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:436)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:424)
+	at com.binary.framework.spring.BinarySpringServlet.doDispatch(BinarySpringServlet.java:222)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.binary.framework.web.filter.LoginValidateFilter.doFilter(LoginValidateFilter.java:223)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at com.binary.framework.web.filter.CharacterEncodingFilter.doFilter(CharacterEncodingFilter.java:28)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+2016-03-02 14:27:45  [ main:0 ] - [ INFO ]  start jetty-server ......
+2016-03-02 14:27:45  [ main:16 ] - [ INFO ]  begin initialization QueuedThreadPool ......
+2016-03-02 14:27:45  [ main:16 ] - [ INFO ]  begin initialization SelectChannelConnector ......
+2016-03-02 14:27:45  [ main:32 ] - [ INFO ]  Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2016-03-02 14:27:45  [ main:32 ] - [ INFO ]  begin initialization Server ......
+2016-03-02 14:27:45  [ main:32 ] - [ INFO ]  begin initialization WebAppContext ......
+2016-03-02 14:27:45  [ main:32 ] - [ INFO ]   initialization app-root '/paas-cdep=src/main/webapp' ...... 
+2016-03-02 14:27:45  [ main:83 ] - [ INFO ]  begin start server ......
+2016-03-02 14:27:45  [ main:83 ] - [ INFO ]  jetty-6.1.26
+2016-03-02 14:27:46  [ main:549 ] - [ INFO ]  Initializing Spring FrameworkServlet 'spring'
+2016-03-02 14:27:46  [ main:549 ] - [ INFO ]  FrameworkServlet 'spring': initialization started
+2016-03-02 14:27:46  [ main:583 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Wed Mar 02 14:27:46 CST 2016]; root of context hierarchy
+2016-03-02 14:27:46  [ main:618 ] - [ INFO ]  Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-servlet.xml]
+2016-03-02 14:27:46  [ main:687 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-context.xml]
+2016-03-02 14:27:46  [ main:718 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-dubbo-client.xml]
+2016-03-02 14:27:46  [ main:765 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-sso-client.xml]
+2016-03-02 14:27:46  [ main:787 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring/spring-sso-client.xml]
+2016-03-02 14:27:46  [ main:818 ] - [ INFO ]  JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+2016-03-02 14:27:46  [ main:865 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring/spring-paas-frame.xml]
+2016-03-02 14:27:46  [ main:895 ] - [ INFO ]  JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+2016-03-02 14:27:46  [ main:950 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring/spring-paas-cdep.xml]
+2016-03-02 14:27:46  [ main:966 ] - [ INFO ]  JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+2016-03-02 14:27:46  [ main:1134 ] - [ INFO ]  Loading properties file from class path resource [project.properties]
+2016-03-02 14:27:46  [ main:1166 ] - [ INFO ]  Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@36b93e8f: defining beans [viewResolver,org.springframework.web.servlet.handler.SimpleMappingExceptionResolver#0,multipartResolver,org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,com.binary.framework.util.FrameworkProperties#0,DubboRestClient_SYS,DubboRestClient_RES,DubboxRest_SysFrameSvc,DubboxRest_MerchentSvc,DubboxRest_PcCompRoomSvc,DubboxRest_PcComputerSvc,DubboxRest_PcDataCenterSvc,DubboxRest_PcImageRepositorySvc,DubboxRest_PcNetZoneSvc,DubboxRest_PcResCenterSvc,DubboxRest_PsMntResApplySvc,DubboxRest_PsMntResSvc,DubboxRest_PsResCenterResSvc,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,com.binary.sso.client.auth.SsoClientAuthMvc#0,com.binary.sso.client.SsoClientConfiguration#0,dropListMvc,indexMvc,moduMvc,tmpFileMvc,treeListMvc,com.aic.paas.frame.cross.peer.impl.SysAuthResPeerImpl#0,com.aic.paas.frame.cross.peer.impl.SysFramePeerImpl#0,com.aic.paas.frame.util.SysFrameUtil#0,com.aic.paas.frame.cross.integration.PaasSsoUserLoginListener#0,dispatchMvc,pcCompRoomMvc,pcComputerMvc,pcDataCenterMvc,pcImageRepositoryMvc,pcNetZoneMvc,pcResCenterMvc,psMntResApplyMvc,psResCenterResMvc,com.aic.paas.console.res.peer.impl.PcCompRoomPeerImpl#0,com.aic.paas.console.res.peer.impl.PcComputerPeerImpl#0,com.aic.paas.console.res.peer.impl.PcDataCenterPeerImpl#0,com.aic.paas.console.res.peer.impl.PcNetZonePeerImpl#0,com.aic.paas.console.res.peer.impl.PcResCenterPeerImpl#0,com.aic.paas.console.res.peer.impl.PsResCenterResPeerImpl#0,com.aic.paas.console.res.peer.impl.PsMntResApplyPeerImpl#0,com.aic.paas.console.res.peer.impl.PcImageRepositoryPeerImpl#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+2016-03-02 14:27:47  [ main:1468 ] - [ INFO ]  Mapped URL path [/sso/client/auth/verifyLogin] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:27:47  [ main:1468 ] - [ INFO ]  Mapped URL path [/sso/client/auth/verifyLogin.*] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:27:47  [ main:1469 ] - [ INFO ]  Mapped URL path [/sso/client/auth/verifyLogin/] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:27:47  [ main:1469 ] - [ INFO ]  Mapped URL path [/sso/client/auth/ssoCallback] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:27:47  [ main:1469 ] - [ INFO ]  Mapped URL path [/sso/client/auth/ssoCallback.*] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:27:47  [ main:1470 ] - [ INFO ]  Mapped URL path [/sso/client/auth/ssoCallback/] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:27:47  [ main:1470 ] - [ INFO ]  Mapped URL path [/sso/client/auth/notLogin] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:27:47  [ main:1470 ] - [ INFO ]  Mapped URL path [/sso/client/auth/notLogin.*] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:27:47  [ main:1470 ] - [ INFO ]  Mapped URL path [/sso/client/auth/notLogin/] onto handler 'com.binary.sso.client.auth.SsoClientAuthMvc#0'
+2016-03-02 14:27:47  [ main:1472 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropList] onto handler 'dropListMvc'
+2016-03-02 14:27:47  [ main:1472 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropList.*] onto handler 'dropListMvc'
+2016-03-02 14:27:47  [ main:1473 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropList/] onto handler 'dropListMvc'
+2016-03-02 14:27:47  [ main:1473 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatch] onto handler 'dropListMvc'
+2016-03-02 14:27:47  [ main:1473 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatch.*] onto handler 'dropListMvc'
+2016-03-02 14:27:47  [ main:1474 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatch/] onto handler 'dropListMvc'
+2016-03-02 14:27:47  [ main:1474 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatchSingle] onto handler 'dropListMvc'
+2016-03-02 14:27:47  [ main:1474 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatchSingle.*] onto handler 'dropListMvc'
+2016-03-02 14:27:47  [ main:1474 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/drop/getDropListBatchSingle/] onto handler 'dropListMvc'
+2016-03-02 14:27:47  [ main:1475 ] - [ INFO ]  Root mapping to handler 'indexMvc'
+2016-03-02 14:27:47  [ main:1476 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/getMenuTree] onto handler 'moduMvc'
+2016-03-02 14:27:47  [ main:1476 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/getMenuTree.*] onto handler 'moduMvc'
+2016-03-02 14:27:47  [ main:1477 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/getMenuTree/] onto handler 'moduMvc'
+2016-03-02 14:27:47  [ main:1477 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleByCode] onto handler 'moduMvc'
+2016-03-02 14:27:47  [ main:1478 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleByCode.*] onto handler 'moduMvc'
+2016-03-02 14:27:47  [ main:1478 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleByCode/] onto handler 'moduMvc'
+2016-03-02 14:27:47  [ main:1479 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleById] onto handler 'moduMvc'
+2016-03-02 14:27:47  [ main:1479 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleById.*] onto handler 'moduMvc'
+2016-03-02 14:27:47  [ main:1479 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/modu/openModuleById/] onto handler 'moduMvc'
+2016-03-02 14:27:47  [ main:1480 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/tmpfile/upload] onto handler 'tmpFileMvc'
+2016-03-02 14:27:47  [ main:1480 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/tmpfile/upload.*] onto handler 'tmpFileMvc'
+2016-03-02 14:27:47  [ main:1480 ] - [ INFO ]  Mapped URL path [/sys/frame/cross/tmpfile/upload/] onto handler 'tmpFileMvc'
+2016-03-02 14:27:47  [ main:1481 ] - [ INFO ]  Mapped URL path [/dispatch/mi/**] onto handler 'dispatchMvc'
+2016-03-02 14:27:47  [ main:1481 ] - [ INFO ]  Mapped URL path [/dispatch/mi/**.*] onto handler 'dispatchMvc'
+2016-03-02 14:27:47  [ main:1482 ] - [ INFO ]  Mapped URL path [/dispatch/mi/**/] onto handler 'dispatchMvc'
+2016-03-02 14:27:47  [ main:1482 ] - [ INFO ]  Mapped URL path [/dispatch/mc/**] onto handler 'dispatchMvc'
+2016-03-02 14:27:47  [ main:1482 ] - [ INFO ]  Mapped URL path [/dispatch/mc/**.*] onto handler 'dispatchMvc'
+2016-03-02 14:27:47  [ main:1483 ] - [ INFO ]  Mapped URL path [/dispatch/mc/**/] onto handler 'dispatchMvc'
+2016-03-02 14:27:47  [ main:1484 ] - [ INFO ]  Mapped URL path [/res/comproom/saveOrUpdate] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1484 ] - [ INFO ]  Mapped URL path [/res/comproom/saveOrUpdate.*] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1484 ] - [ INFO ]  Mapped URL path [/res/comproom/saveOrUpdate/] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1485 ] - [ INFO ]  Mapped URL path [/res/comproom/removeById] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1485 ] - [ INFO ]  Mapped URL path [/res/comproom/removeById.*] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1486 ] - [ INFO ]  Mapped URL path [/res/comproom/removeById/] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1486 ] - [ INFO ]  Mapped URL path [/res/comproom/queryById] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1487 ] - [ INFO ]  Mapped URL path [/res/comproom/queryById.*] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1487 ] - [ INFO ]  Mapped URL path [/res/comproom/queryById/] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1487 ] - [ INFO ]  Mapped URL path [/res/comproom/queryPage] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1488 ] - [ INFO ]  Mapped URL path [/res/comproom/queryPage.*] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1488 ] - [ INFO ]  Mapped URL path [/res/comproom/queryPage/] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1488 ] - [ INFO ]  Mapped URL path [/res/comproom/getCompRoomDropList] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1489 ] - [ INFO ]  Mapped URL path [/res/comproom/getCompRoomDropList.*] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1489 ] - [ INFO ]  Mapped URL path [/res/comproom/getCompRoomDropList/] onto handler 'pcCompRoomMvc'
+2016-03-02 14:27:47  [ main:1490 ] - [ INFO ]  Mapped URL path [/res/computer/saveComputerTags] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1490 ] - [ INFO ]  Mapped URL path [/res/computer/saveComputerTags.*] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1491 ] - [ INFO ]  Mapped URL path [/res/computer/saveComputerTags/] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1491 ] - [ INFO ]  Mapped URL path [/res/computer/removeComputerTags] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1491 ] - [ INFO ]  Mapped URL path [/res/computer/removeComputerTags.*] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1491 ] - [ INFO ]  Mapped URL path [/res/computer/removeComputerTags/] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1492 ] - [ INFO ]  Mapped URL path [/res/computer/queryComputerTagList] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1492 ] - [ INFO ]  Mapped URL path [/res/computer/queryComputerTagList.*] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1492 ] - [ INFO ]  Mapped URL path [/res/computer/queryComputerTagList/] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1492 ] - [ INFO ]  Mapped URL path [/res/computer/saveOrUpdate] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1493 ] - [ INFO ]  Mapped URL path [/res/computer/saveOrUpdate.*] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1493 ] - [ INFO ]  Mapped URL path [/res/computer/saveOrUpdate/] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1493 ] - [ INFO ]  Mapped URL path [/res/computer/removeById] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1494 ] - [ INFO ]  Mapped URL path [/res/computer/removeById.*] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1494 ] - [ INFO ]  Mapped URL path [/res/computer/removeById/] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1494 ] - [ INFO ]  Mapped URL path [/res/computer/queryById] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1494 ] - [ INFO ]  Mapped URL path [/res/computer/queryById.*] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1495 ] - [ INFO ]  Mapped URL path [/res/computer/queryById/] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1495 ] - [ INFO ]  Mapped URL path [/res/computer/queryPage] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1495 ] - [ INFO ]  Mapped URL path [/res/computer/queryPage.*] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1495 ] - [ INFO ]  Mapped URL path [/res/computer/queryPage/] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1496 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionDropListMap] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1496 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionDropListMap.*] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1496 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionDropListMap/] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1496 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionTree] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1497 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionTree.*] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1497 ] - [ INFO ]  Mapped URL path [/res/computer/getComputerRegionTree/] onto handler 'pcComputerMvc'
+2016-03-02 14:27:47  [ main:1498 ] - [ INFO ]  Mapped URL path [/res/datac/saveOrUpdate] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1498 ] - [ INFO ]  Mapped URL path [/res/datac/saveOrUpdate.*] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1498 ] - [ INFO ]  Mapped URL path [/res/datac/saveOrUpdate/] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1498 ] - [ INFO ]  Mapped URL path [/res/datac/removeById] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1499 ] - [ INFO ]  Mapped URL path [/res/datac/removeById.*] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1499 ] - [ INFO ]  Mapped URL path [/res/datac/removeById/] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1499 ] - [ INFO ]  Mapped URL path [/res/datac/queryById] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1500 ] - [ INFO ]  Mapped URL path [/res/datac/queryById.*] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1500 ] - [ INFO ]  Mapped URL path [/res/datac/queryById/] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1500 ] - [ INFO ]  Mapped URL path [/res/datac/queryPage] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1500 ] - [ INFO ]  Mapped URL path [/res/datac/queryPage.*] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1501 ] - [ INFO ]  Mapped URL path [/res/datac/queryPage/] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1501 ] - [ INFO ]  Mapped URL path [/res/datac/getDataCenterCodeList] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1501 ] - [ INFO ]  Mapped URL path [/res/datac/getDataCenterCodeList.*] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1501 ] - [ INFO ]  Mapped URL path [/res/datac/getDataCenterCodeList/] onto handler 'pcDataCenterMvc'
+2016-03-02 14:27:47  [ main:1502 ] - [ INFO ]  Mapped URL path [/res/imgresp/saveOrUpdate] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1503 ] - [ INFO ]  Mapped URL path [/res/imgresp/saveOrUpdate.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1503 ] - [ INFO ]  Mapped URL path [/res/imgresp/saveOrUpdate/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1503 ] - [ INFO ]  Mapped URL path [/res/imgresp/removeById] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1503 ] - [ INFO ]  Mapped URL path [/res/imgresp/removeById.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1504 ] - [ INFO ]  Mapped URL path [/res/imgresp/removeById/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1504 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryList] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1504 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryList.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1504 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryList/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1505 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryById] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1505 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryById.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1505 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryById/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1506 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryPage] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1506 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryPage.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1506 ] - [ INFO ]  Mapped URL path [/res/imgresp/queryPage/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1506 ] - [ INFO ]  Mapped URL path [/res/imgresp/getImageRespDropList] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1507 ] - [ INFO ]  Mapped URL path [/res/imgresp/getImageRespDropList.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1507 ] - [ INFO ]  Mapped URL path [/res/imgresp/getImageRespDropList/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1507 ] - [ INFO ]  Mapped URL path [/res/imgresp/verifyRoomHasSnapshoot] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1507 ] - [ INFO ]  Mapped URL path [/res/imgresp/verifyRoomHasSnapshoot.*] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1508 ] - [ INFO ]  Mapped URL path [/res/imgresp/verifyRoomHasSnapshoot/] onto handler 'pcImageRepositoryMvc'
+2016-03-02 14:27:47  [ main:1508 ] - [ INFO ]  Mapped URL path [/res/netzone/saveOrUpdate] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1509 ] - [ INFO ]  Mapped URL path [/res/netzone/saveOrUpdate.*] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1509 ] - [ INFO ]  Mapped URL path [/res/netzone/saveOrUpdate/] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1509 ] - [ INFO ]  Mapped URL path [/res/netzone/removeById] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1510 ] - [ INFO ]  Mapped URL path [/res/netzone/removeById.*] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1510 ] - [ INFO ]  Mapped URL path [/res/netzone/removeById/] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1510 ] - [ INFO ]  Mapped URL path [/res/netzone/queryById] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1510 ] - [ INFO ]  Mapped URL path [/res/netzone/queryById.*] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1511 ] - [ INFO ]  Mapped URL path [/res/netzone/queryById/] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1511 ] - [ INFO ]  Mapped URL path [/res/netzone/queryPage] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1511 ] - [ INFO ]  Mapped URL path [/res/netzone/queryPage.*] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1511 ] - [ INFO ]  Mapped URL path [/res/netzone/queryPage/] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1512 ] - [ INFO ]  Mapped URL path [/res/netzone/getNetZoneCodeList] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1512 ] - [ INFO ]  Mapped URL path [/res/netzone/getNetZoneCodeList.*] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1512 ] - [ INFO ]  Mapped URL path [/res/netzone/getNetZoneCodeList/] onto handler 'pcNetZoneMvc'
+2016-03-02 14:27:47  [ main:1513 ] - [ INFO ]  Mapped URL path [/res/resc/saveOrUpdate] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1513 ] - [ INFO ]  Mapped URL path [/res/resc/saveOrUpdate.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1513 ] - [ INFO ]  Mapped URL path [/res/resc/saveOrUpdate/] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1514 ] - [ INFO ]  Mapped URL path [/res/resc/removeById] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1514 ] - [ INFO ]  Mapped URL path [/res/resc/removeById.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1514 ] - [ INFO ]  Mapped URL path [/res/resc/removeById/] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1515 ] - [ INFO ]  Mapped URL path [/res/resc/queryById] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1515 ] - [ INFO ]  Mapped URL path [/res/resc/queryById.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1515 ] - [ INFO ]  Mapped URL path [/res/resc/queryById/] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1515 ] - [ INFO ]  Mapped URL path [/res/resc/queryPage] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1516 ] - [ INFO ]  Mapped URL path [/res/resc/queryPage.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1516 ] - [ INFO ]  Mapped URL path [/res/resc/queryPage/] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1516 ] - [ INFO ]  Mapped URL path [/res/resc/queryInfoPage] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1516 ] - [ INFO ]  Mapped URL path [/res/resc/queryInfoPage.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1517 ] - [ INFO ]  Mapped URL path [/res/resc/queryInfoPage/] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1517 ] - [ INFO ]  Mapped URL path [/res/resc/getResCenterCodeList] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1517 ] - [ INFO ]  Mapped URL path [/res/resc/getResCenterCodeList.*] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1517 ] - [ INFO ]  Mapped URL path [/res/resc/getResCenterCodeList/] onto handler 'pcResCenterMvc'
+2016-03-02 14:27:47  [ main:1518 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoList] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1519 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoList.*] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1519 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoList/] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1519 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoPage] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1519 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoPage.*] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1520 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoPage/] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1520 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoById] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1520 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoById.*] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1520 ] - [ INFO ]  Mapped URL path [/res/mntresapply/queryInfoById/] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1521 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyPass] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1521 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyPass.*] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1521 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyPass/] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1521 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyBack] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1522 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyBack.*] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1522 ] - [ INFO ]  Mapped URL path [/res/mntresapply/checkApplyBack/] onto handler 'psMntResApplyMvc'
+2016-03-02 14:27:47  [ main:1523 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResPage] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1524 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResPage.*] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1524 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResPage/] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1524 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowPage] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1525 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowPage.*] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1525 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowPage/] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1525 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResById] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1526 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResById.*] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1526 ] - [ INFO ]  Mapped URL path [/res/rescres/queryResById/] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1526 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowById] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1527 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowById.*] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1527 ] - [ INFO ]  Mapped URL path [/res/rescres/queryFlowById/] onto handler 'psResCenterResMvc'
+2016-03-02 14:27:47  [ main:1649 ] - [ INFO ]  FrameworkServlet 'spring': initialization completed in 1100 ms
+2016-03-02 14:27:47  [ main:1673 ] - [ INFO ]  Started SelectChannelConnector@0.0.0.0:16104
+2016-03-02 14:27:47  [ main:1673 ] - [ INFO ]  start server successful.
+2016-03-02 14:31:32  [ 1916021542@qtp-814920607-7:226864 ] - [ ERROR ]   mvc process error! 
+com.binary.framework.exception.ControllerException:  call remote error!  token is invalidate 'bd2e0a12-2616-4bb6-8d50-f420df84e620'! 
+		at com.binary.framework.util.ControllerUtils.toRemoteJsonObject(ControllerUtils.java:150)
+		at com.binary.sso.client.auth.SsoClientAuthMvc.ssoCallback(SsoClientAuthMvc.java:199)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:606)
+		at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:176)
+		at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:436)
+		at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:424)
+		at com.binary.framework.spring.BinarySpringServlet.doDispatch(BinarySpringServlet.java:222)
+		at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+		at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+		at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+		at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+		at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+		at com.binary.framework.web.filter.LoginValidateFilter.doFilter(LoginValidateFilter.java:223)
+		at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+		at com.binary.framework.web.filter.CharacterEncodingFilter.doFilter(CharacterEncodingFilter.java:28)
+		at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+		at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+		at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+		at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+		at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+		at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+		at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+		at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+		at org.mortbay.jetty.Server.handle(Server.java:326)
+		at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+		at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+		at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+		at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+		at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+		at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+		at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+	at com.binary.framework.util.ControllerUtils.toRemoteJsonObject(ControllerUtils.java:150)
+	at com.binary.sso.client.auth.SsoClientAuthMvc.ssoCallback(SsoClientAuthMvc.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:176)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:436)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:424)
+	at com.binary.framework.spring.BinarySpringServlet.doDispatch(BinarySpringServlet.java:222)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.binary.framework.web.filter.LoginValidateFilter.doFilter(LoginValidateFilter.java:223)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at com.binary.framework.web.filter.CharacterEncodingFilter.doFilter(CharacterEncodingFilter.java:28)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+2016-03-02 14:31:39  [ 1916021542@qtp-814920607-7:234230 ] - [ INFO ]   sys-frame refresh login ...... 
+2016-03-02 14:31:39  [ 1916021542@qtp-814920607-7:234237 ] - [ INFO ]   sys-frame refresh login successful. 
+2016-03-02 14:48:40  [ 2082972428@qtp-814920607-2:1254564 ] - [ ERROR ]   mvc process error! 
+com.binary.framework.exception.ServiceException:  The current resource center 'memory' is not enough! 
+		at com.aic.paas.console.res.peer.impl.PsMntResApplyPeerImpl.checkApply(PsMntResApplyPeerImpl.java:159)
+		at com.aic.paas.console.res.mvc.PsMntResApplyMvc.checkApplyPass(PsMntResApplyMvc.java:62)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:606)
+		at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:176)
+		at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:436)
+		at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:424)
+		at com.binary.framework.spring.BinarySpringServlet.doDispatch(BinarySpringServlet.java:222)
+		at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+		at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+		at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+		at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+		at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+		at com.binary.framework.web.filter.LoginValidateFilter.doFilter(LoginValidateFilter.java:216)
+		at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+		at com.binary.framework.web.filter.CharacterEncodingFilter.doFilter(CharacterEncodingFilter.java:28)
+		at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+		at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+		at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+		at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+		at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+		at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+		at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+		at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+		at org.mortbay.jetty.Server.handle(Server.java:326)
+		at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+		at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:945)
+		at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:756)
+		at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+		at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+		at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+		at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+	at com.aic.paas.console.res.peer.impl.PsMntResApplyPeerImpl.checkApply(PsMntResApplyPeerImpl.java:159)
+	at com.aic.paas.console.res.mvc.PsMntResApplyMvc.checkApplyPass(PsMntResApplyMvc.java:62)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:176)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:436)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:424)
+	at com.binary.framework.spring.BinarySpringServlet.doDispatch(BinarySpringServlet.java:222)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.binary.framework.web.filter.LoginValidateFilter.doFilter(LoginValidateFilter.java:216)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at com.binary.framework.web.filter.CharacterEncodingFilter.doFilter(CharacterEncodingFilter.java:28)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:945)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:756)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
