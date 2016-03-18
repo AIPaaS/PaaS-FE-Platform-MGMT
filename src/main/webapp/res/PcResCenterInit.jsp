@@ -60,14 +60,14 @@ $(document).ready(function() {
 
 <div class="row">
 	<div class="col-lg-12">
-		<div class="main-box clearfix">
-			<div class="filter-block pull-left">
-				<div class="pull-left">
-					<span id="initStatus" class="col-lg-2 control-label"></span>
-				</div>
-				
-			</div>
-		</div>
+		<header class="pull-left clearfix">
+			<h2 id="resCenter-des">
+<!-- 				<span id="initStatus" class="col-lg-2 control-label"></span> -->
+<!-- 				<div >  -->
+<%--  					<font color="blue">核心控制域：${CurrentPageNum } 台    访问入口域：${visitSize }台   服务域：${slaveSize }台</font> --%>
+<!--  				</div> -->
+			</h2>
+		</header>
 	</div>
 </div>
 
@@ -179,6 +179,12 @@ $(document).ready(function() {
 			</td>
 		</tr>
 {{/each}}
+</script>
+
+<script id="resCenter-des-tmpl" type="text/x-jquery-tmpl">
+	{{each(i,row) result}}
+		<font color="blue">核心控制域：{{=row.initStatus }} 台    访问入口域：${visitSize }台   服务域：${slaveSize }台</font>
+	{{/each}}
 </script>
 
 	<jsp:include page="/layout/jsp/footer.jsp"></jsp:include>

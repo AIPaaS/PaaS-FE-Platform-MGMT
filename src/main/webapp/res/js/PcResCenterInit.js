@@ -70,7 +70,6 @@ function query(){
 	resId=$('#sel_resCenter :selected').val();
 	if(resId=="") return ;
 	RS.ajax({url:"/res/computer/queryByResCenter",ps:{resCenterId : resId},cb:function(result) {
-		alert(result.initStatus);
 		if(result.initStatus==1) {
 			$('#initStatus').html("已初始化");
 			$('#btn_init').attr("disabled",true);
@@ -93,7 +92,7 @@ function query(){
 		slaveSize = result.slavePartList==null?0:slavePartList.length;
 
 		$('#pcComputerTable-tmpl').tmpl(result).appendTo("#pcComputerTable");
-
+		$('#resCenter-des-tmpl').tmpl(result).appendTo("#resCenter-des");
 	}});
 }
 
