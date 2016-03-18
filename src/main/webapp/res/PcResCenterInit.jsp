@@ -15,16 +15,30 @@ $(document).ready(function() {
 		}
 		var resId = "";
 		resId=$('#sel_resCenter :selected').val();
-		
-		if(resId=="") return ;
+// 		if(initStatus==1){
+// 			CC.showMsg({msg:"改资源中心正在初始化中"});
+// 			return;
+// 		}
+		if(resId==""||initStatus==2) return ;
 		$('#div-log').show();
 		startGetLog();
 		$('#div-init-button').hide();
+// 		//资源状态置1，锁死
+// 		RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:1},cb:function(r) {
+// 		}});
+		//开始初始化
 		RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
 			if(result.resultCode=="000000"){
+				
+				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:2},cb:function(r) {
+				}});
+				
 				clearInterval(intervalTime);
 				CC.showMsg({msg:"初始化资源中心成功！"});
 			}else{
+				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
+				}});
+				
 				//停止查询日志
 				clearInterval(intervalTime);
 				$('#div-log').hide();

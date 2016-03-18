@@ -15,6 +15,8 @@ var centerSize = 0;
 var visitSize =0;
 var slaveSize = 0;
 
+var initStatus = 0;  //0-未初始化，1-正在初始化，2-初始化完成，3-初始化错误
+
 function init() {
 	initData(function() {
 		initComponent();
@@ -70,6 +72,7 @@ function query(){
 	resId=$('#sel_resCenter :selected').val();
 	if(resId=="") return ;
 	RS.ajax({url:"/res/computer/queryByResCenter",ps:{resCenterId : resId},cb:function(result) {
+		initStatus = result.initStatus;
 		if(result.initStatus==1) {
 			$('#initStatus').html("已初始化");
 			$('#btn_init').attr("disabled",true);
@@ -93,11 +96,11 @@ function query(){
 
 		$('#pcComputerTable-tmpl').tmpl(result).appendTo("#pcComputerTable");
 //		$('#resCenter-des-tmpl').tmpl(result).appendTo("#resCenter-des");
-		
+		$('#resCenter-des').html("");
 		var html = '';
 		if(result.initStatus==1)
 			html+= '<span id="initStatus" class="col-lg-2 control-label">已部署完成</span>';
-		html += '<font color="blue">核心控制域：'+${centerSize }+' 台    访问入口域：'+${visitSize }+'台   服务域：'+${slaveSize }+'台</font>';
+		html += '<font color="blue"> 核心控制域：'+centerSize+'台     访问入口域：'+visitSize+'台    服务域：'+slaveSize+'台</font>';
 		$('#resCenter-des').append(html);
 	
 	}});
