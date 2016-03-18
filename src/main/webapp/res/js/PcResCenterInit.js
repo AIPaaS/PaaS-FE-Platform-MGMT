@@ -92,7 +92,14 @@ function query(){
 		slaveSize = result.slavePartList==null?0:slavePartList.length;
 
 		$('#pcComputerTable-tmpl').tmpl(result).appendTo("#pcComputerTable");
-		$('#resCenter-des-tmpl').tmpl(result).appendTo("#resCenter-des");
+//		$('#resCenter-des-tmpl').tmpl(result).appendTo("#resCenter-des");
+		
+		var html = '';
+		if(result.initStatus==1)
+			html+= '<span id="initStatus" class="col-lg-2 control-label">已部署完成</span>';
+		html += '<font color="blue">核心控制域：'+${centerSize }+' 台    访问入口域：'+${visitSize }+'台   服务域：'+${slaveSize }+'台</font>';
+		$('#resCenter-des').append(html);
+	
 	}});
 }
 
