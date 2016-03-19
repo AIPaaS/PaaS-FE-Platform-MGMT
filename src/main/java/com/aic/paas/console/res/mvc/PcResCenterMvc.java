@@ -96,6 +96,12 @@ public class PcResCenterMvc {
 		ControllerUtils.returnJson(request, response, r);
 	}
 	
+	@RequestMapping("/cancelResCenter")
+	public void cancelResCenter(HttpServletRequest request, HttpServletResponse response,Long resCenterId,Boolean useAgent,Boolean loadOnly){
+		OpenResultParamVo r = pcResCenterPeer.cancelResCenter(resCenterId,useAgent,loadOnly);	
+		ControllerUtils.returnJson(request, response, r);
+	}
+	
 	@RequestMapping("/getInitLog")
 	public void getInitLog(HttpServletRequest request, HttpServletResponse response,Long resCenterId){
 		String log = pcResCenterPeer.getInitLog(resCenterId);

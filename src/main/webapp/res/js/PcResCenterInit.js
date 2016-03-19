@@ -63,6 +63,9 @@ function initListener() {
 	$("#btn_query").bind("click", function() {
 		query();
 	});
+	$("#btn_cancel").bind("click", function() {
+		cancelRes();
+	});
 
 }
 function initFace() {
@@ -73,16 +76,27 @@ function query(){
 	if(resId=="") return ;
 	RS.ajax({url:"/res/computer/queryByResCenter",ps:{resCenterId : resId},cb:function(result) {
 		initStatus = result.initStatus;
-		if(result.initStatus==1) {
-			$('#initStatus').html("已初始化");
+		if(initStatus==1) {
 			$('#btn_init').attr("disabled",true);
 			$('#btn_init').addClass("disabled");
 			$('#btn_init').removeClass("btn-success");
-		}else{
-			$('#initStatus').html("");
+			$("#btn_cancel").attr("disabled",true);
+			$("#btn_cancel").addClass("disabled");
+			$("#btn_cancel").removeClass("btn-success");
+		}else if(initStatus==2){
+			$('#btn_init').attr("disabled",true);
+			$('#btn_init').addClass("disabled");
+			$('#btn_init').removeClass("btn-success");
+			$("#btn_cancel").attr("disabled",true);
+			$("#btn_cancel").addClass("btn-success");
+			$("#btn_cancel").removeClass("disabled");
+		}else {
 			$('#btn_init').attr("disabled",false);
 			$('#btn_init').addClass("btn-success");
 			$('#btn_init').removeClass("disabled");
+			$("#btn_cancel").attr("disabled",true);
+			$("#btn_cancel").addClass("disabled");
+			$("#btn_cancel").removeClass("btn-success");
 		}
 		
 		$('#pcComputerTable').html("");
@@ -97,12 +111,46 @@ function query(){
 		$('#pcComputerTable-tmpl').tmpl(result).appendTo("#pcComputerTable");
 //		$('#resCenter-des-tmpl').tmpl(result).appendTo("#resCenter-des");
 		$('#resCenter-des').html("");
+		var statudesc = "状态：";
+		switch (initStatus){
+			case 0:statudesc += "未部署"; break;
+			case 1:statudesc += "正在部署中"; break;
+			case 2:statudesc += "已部署完成"; break;
+			case 3:statudesc += "部署失败"; break;
+		}
 		var html = '';
-		if(result.initStatus==1)
-			html+= '<span id="initStatus" class="col-lg-2 control-label">已部署完成</span>';
+			html+= '<span class="col-lg-2 control-label">'+statudesc+'</span>';
 		html += '<font color="blue"> 核心控制域：'+centerSize+'台     访问入口域：'+visitSize+'台    服务域：'+slaveSize+'台</font>';
 		$('#resCenter-des').append(html);
 	
+	}});
+}
+
+function cancelRes(){
+	var resId = "";
+	resId=$('#sel_resCenter :selected').val();
+	if(resId==""||initStatus!=2) return ;
+	$('#div-log').show();
+	startGetLog();
+	$('#div-init-button').hide();
+	RS.ajax({url:"/res/resc/cancelResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
+		if(result.resultCode=="000000"){
+			
+			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:0},cb:function(r) {
+			}});
+			
+			clearInterval(intervalTime);
+			CC.showMsg({msg:"注销资源中心成功"});
+		}else{
+			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
+			}});
+			
+			//停止查询日志
+			clearInterval(intervalTime);
+			$('#div-log').hide();
+			CC.showMsg({msg:"注销失败"});
+			$('#div-init-button').show();
+		}
 	}});
 }
 

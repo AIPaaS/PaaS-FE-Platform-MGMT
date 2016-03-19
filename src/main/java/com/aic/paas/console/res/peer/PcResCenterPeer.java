@@ -115,6 +115,16 @@ public interface PcResCenterPeer {
 	public OpenResultParamVo initResCenter(Long id,Boolean useAgent,Boolean loadOnly);
 	
 	/**
+	 * 
+	 * @param id
+	 * @param useAgent
+	 * @param loadOnly
+	 * @return
+	 */
+	public OpenResultParamVo cancelResCenter(Long id,Boolean useAgent,Boolean loadOnly);
+	
+	
+	/**
 	 * 查询初始化日志
 	 * @param id
 	 * @return

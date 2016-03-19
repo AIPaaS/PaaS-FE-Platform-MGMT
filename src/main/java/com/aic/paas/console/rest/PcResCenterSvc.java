@@ -26,6 +26,19 @@ public interface PcResCenterSvc {
 
 	
 	
+	/**
+	 * 分页查询
+	 * @param pageNum : 指定页码
+	 * @param pageSize : 指定页行数
+	 * @param cdt : 条件对象
+	 * @param orders : 排序字段, 多字段以逗号分隔
+	 * @return 
+	 */
+	public List<PcResCenter> queryPage2(Integer pageNum, Integer pageSize, CPcResCenter cdt, String orders);
+
+	
+	
+	
 	
 	/**
 	 * 不分页查询
@@ -109,9 +122,17 @@ public interface PcResCenterSvc {
 	
 	/**
 	 * 返回初始化参数
-	 * @param computerId
+	 * @param resCenterId
 	 */
 	public Map<String,Object> getInitParam(Long resCenterId,Boolean useAgent,Boolean loadOnly);
+
+
+
+	/**
+	 * 返回注销参数
+	 * @param resCenterId
+	 */
+	Map<String, Object> getCancelParam(Long resCenterId, Boolean useAgent,Boolean loadOnly);
 	
 	
 	

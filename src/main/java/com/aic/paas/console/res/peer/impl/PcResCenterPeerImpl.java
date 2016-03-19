@@ -97,7 +97,8 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		Map<String,Object> param = pcResCenterSvc.getInitParam(id, useAgent, loadOnly);
 		
 		Gson gson = new Gson();
-		System.out.println("init resCenter param----"+gson.toJson(param));
+		logger.info("init resCenter param----"+gson.toJson(param));
+
 		String result = null;
 		try {
 			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
@@ -126,6 +127,28 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 			e.printStackTrace();
 		}
 		return logResult;
+	}
+
+	@Override
+	public OpenResultParamVo cancelResCenter(Long id, Boolean useAgent,
+			Boolean loadOnly) {
+		//获取注销参数
+		Map<String,Object> param = pcResCenterSvc.getCancelParam(id, useAgent, loadOnly);
+		
+		Gson gson = new Gson();
+		logger.info("cancel resCenter param----"+gson.toJson(param)); 
+		String result = null;
+		try {
+			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.cancelRes"), id.intValue()+"");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
+		return initResult;
 	}
 
 	

@@ -74,16 +74,15 @@ $(document).ready(function() {
 
 <div class="row">
 	<div class="col-lg-12">
-		<header class="pull-left clearfix">
-			<h2 id="resCenter-des">
-<!-- 				<span id="initStatus" class="col-lg-2 control-label"></span> -->
-<!-- 				<div >  -->
-<%--  					<font color="blue">核心控制域：${CurrentPageNum } 台    访问入口域：${visitSize }台   服务域：${slaveSize }台</font> --%>
-<!--  				</div> -->
-			</h2>
-		</header>
+		<div class="main-box clearfix">
+			<div class="filter-block pull-left">
+				<div class="pull-left" id="resCenter-des">
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
+
 
 <!-- 正文 -->
 <div class="row">
@@ -143,10 +142,13 @@ $(document).ready(function() {
 		<div class="main-box clearfix">
 			<div class="main-box-body clearfix">
 				<div class="form-group">
-				<div class="col-lg-offset-2 col-lg-10">
-					<button type="submit"  id="btn_init" class="btn btn-success">初始化</button>
+					<div class="col-lg-offset-2 col-lg-10">
+						<button type="submit"  id="btn_init" class="btn btn-success">初始化</button>
+					</div>
+					<div class="col-lg-offset-2 col-lg-10">
+						<button type="submit"  id="btn_cancel" class="btn btn-success">资源中心注销</button>
+					</div>
 				</div>
-			</div>
 				
 			</div>
 		</div>
