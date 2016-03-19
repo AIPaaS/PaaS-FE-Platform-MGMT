@@ -144,8 +144,7 @@ $(document).ready(function() {
 				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">
 						<button type="submit"  id="btn_init" class="btn btn-success">初始化</button>
-					</div>
-					<div class="col-lg-offset-2 col-lg-10">
+					&nbsp;
 						<button type="submit"  id="btn_cancel" class="btn btn-success">资源中心注销</button>
 					</div>
 				</div>
