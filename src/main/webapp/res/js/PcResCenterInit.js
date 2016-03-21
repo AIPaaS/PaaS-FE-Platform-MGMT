@@ -56,10 +56,12 @@ function initComponent() {
 
 }
 function initListener() {
-//	$("#btn_init").bind("click", initResCenter);
-//	$("#sel_resCenter").bind("change", function() {
-//		query();
-//	});
+	$("#btn_init").bind("click", function() {
+		initResCenter();
+	});
+	$("#sel_resCenter").bind("change", function() {
+		query();
+	});
 	$("#btn_query").bind("click", function() {
 		query();
 	});
@@ -142,8 +144,8 @@ function cancelRes(){
 			clearInterval(intervalTime);
 			CC.showMsg({msg:"注销资源中心成功"});
 		}else{
-			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
-			}});
+//			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
+//			}});
 			
 			//停止查询日志
 			clearInterval(intervalTime);
@@ -154,18 +156,46 @@ function cancelRes(){
 	}});
 }
 
-//function initResCenter(){
-//	$('#div-log').show();
-//	startGetLog();
-//	var resId = $('#sel_resCenter :selected').val();
-//	RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
-//		if(result.resultCode.equal("000000")){
-//			alert("初始化成功！");
-//		}else {
-//			alert("初始化安装失败！！！");
-//		}
-//	}});
-//}
+function initResCenter(){
+		if(centerSize<3||visitSize<2||slaveSize<1){
+			CC.showMsg({msg:"该资源中心服务器不够"});
+			return;
+		}
+		var resId = "";
+		resId=$('#sel_resCenter :selected').val();
+// 		if(initStatus==1){
+// 			CC.showMsg({msg:"改资源中心正在初始化中"});
+// 			return;
+// 		}
+		if(resId==""||initStatus==2) return ;
+		$('#div-log').show();
+		startGetLog();
+		$('#div-init-button').hide();
+// 		//资源状态置1，锁死
+// 		RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:1},cb:function(r) {
+// 		}});
+		//开始初始化
+		RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
+			if(result.resultCode=="000000"){
+				
+				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:2},cb:function(r) {
+				}});
+				
+				clearInterval(intervalTime);
+				CC.showMsg({msg:"初始化资源中心成功！"});
+				window.location = ContextPath + "/dispatch/mc/0207";
+			}else{
+				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
+				}});
+				
+				//停止查询日志
+				clearInterval(intervalTime);
+				$('#div-log').hide();
+				CC.showMsg({msg:"初始化错误"});
+				$('#div-init-button').show();
+			}
+		}});
+}
 
 //刷新日志
 var intervalTime;

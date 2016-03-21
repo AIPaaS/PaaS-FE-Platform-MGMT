@@ -6,50 +6,6 @@ String ContextPath = request.getContextPath();
 
 <jsp:include page="/layout/jsp/head.jsp"></jsp:include>
 
-<script type="text/javascript">
-$(document).ready(function() {
-	$('#btn_init').click(function(){
-		if(centerSize<3||visitSize<2||slaveSize<1){
-			CC.showMsg({msg:"该资源中心服务器不够"});
-			return;
-		}
-		var resId = "";
-		resId=$('#sel_resCenter :selected').val();
-// 		if(initStatus==1){
-// 			CC.showMsg({msg:"改资源中心正在初始化中"});
-// 			return;
-// 		}
-		if(resId==""||initStatus==2) return ;
-		$('#div-log').show();
-		startGetLog();
-		$('#div-init-button').hide();
-// 		//资源状态置1，锁死
-// 		RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:1},cb:function(r) {
-// 		}});
-		//开始初始化
-		RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
-			if(result.resultCode=="000000"){
-				
-				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:2},cb:function(r) {
-				}});
-				
-				clearInterval(intervalTime);
-				CC.showMsg({msg:"初始化资源中心成功！"});
-			}else{
-				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
-				}});
-				
-				//停止查询日志
-				clearInterval(intervalTime);
-				$('#div-log').hide();
-				CC.showMsg({msg:"初始化错误"});
-				$('#div-init-button').show();
-			}
-		}});
-	})
-});
-
-</script>
 
 <div class="row">
 	<div class="col-lg-12">
@@ -104,6 +60,7 @@ $(document).ready(function() {
 								<th class="text-center">硬盘大小</th>
 								<th class="text-center">操作系统</th>
 								<th class="text-center">是否有效</th>
+								<th class="text-center">命令窗</th>
 							</tr>
 						</thead>
 						<tbody id="pcComputerTable">
@@ -145,7 +102,9 @@ $(document).ready(function() {
 					<div class="col-lg-offset-2 col-lg-10">
 						<button type="submit"  id="btn_init" class="btn btn-success">初始化</button>
 					&nbsp;
-						<button type="submit"  id="btn_cancel" class="btn btn-success">资源中心注销</button>
+						<button type="submit"  id="btn_cancel" class="btn btn-success">注销</button>
+					&nbsp;
+						<button type="submit"  id="btn_add_computer" class="btn btn-success">扩充</button>
 					</div>
 				</div>
 				
@@ -191,6 +150,14 @@ $(document).ready(function() {
 				{{else}}
 					否
 				{{/if}}
+			</td>
+			<td class="text-center">
+				<a id="a_comp_tags_{{= row.id}}" href="###" class="table-link" title="标签详情">
+					<span class="fa-stack">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-tags fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
 			</td>
 		</tr>
 {{/each}}

@@ -234,4 +234,15 @@ public class PcComputerMvc {
 		ControllerUtils.returnJson(request, response, bl);
 	}
 	
+	@RequestMapping("/isExistInSlavePart")
+	public void isExistInSlavePart(HttpServletRequest request, HttpServletResponse response,PcComputer record) {
+		ResDetailInfo info = pcComputerPeer.getByResCenter(record.getResCenterId());
+		Boolean bl = false;
+		for(PcComputer pc : info.getSlavePartList()){
+			if(record.getIp().equals(pc.getIp())){
+				bl = true; break;
+			}
+		}
+		ControllerUtils.returnJson(request, response, bl);
+	}
 }
