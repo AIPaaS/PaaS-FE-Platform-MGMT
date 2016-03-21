@@ -20,6 +20,7 @@ import com.aic.paas.console.rest.PcResCenterSvc;
 import com.alibaba.dubbo.common.json.JSON;
 import com.alibaba.dubbo.common.json.JSONObject;
 import com.binary.core.util.BinaryUtils;
+import com.binary.framework.exception.ServiceException;
 import com.binary.jdbc.Page;
 import com.google.gson.Gson;
 
@@ -103,13 +104,10 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		try {
 			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
 			logger.info("the result of initResCenter is : "+ result);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} catch (IOException | URISyntaxException e) {
+			logger.error(e.getMessage());
+			throw new ServiceException(e.getMessage());
+		} 
 		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
 		return initResult;
 	}
@@ -119,12 +117,8 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		String logResult = null;
 		try {
 			logResult = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.getLog"), id.intValue()+"");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException | URISyntaxException e) {
+			logger.error(e.getMessage());
 		}
 		return logResult;
 	}
@@ -139,18 +133,12 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		logger.info("cancel resCenter param----"+gson.toJson(param)); 
 		String result = null;
 		try {
-			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.cancelRes"), id.intValue()+"");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.cancelRes"), gson.toJson(param));
+		} catch (IOException | URISyntaxException e) {
+			logger.error(e.getMessage());
+			throw new ServiceException(e.getMessage());
 		}
 		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
 		return initResult;
 	}
-
-	
-
 }
