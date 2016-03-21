@@ -87,7 +87,7 @@ function query(){
 			$('#btn_init').attr("disabled",true);
 			$('#btn_init').addClass("disabled");
 			$('#btn_init').removeClass("btn-success");
-			$("#btn_cancel").attr("disabled",true);
+			$("#btn_cancel").attr("disabled",false);
 			$("#btn_cancel").addClass("btn-success");
 			$("#btn_cancel").removeClass("disabled");
 		}else {
