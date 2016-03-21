@@ -104,11 +104,9 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
 			logger.info("the result of initResCenter is : "+ result);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
 		return initResult;
@@ -120,10 +118,10 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		try {
 			logResult = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.getLog"), id.intValue()+"");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return logResult;
@@ -139,12 +137,12 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		logger.info("cancel resCenter param----"+gson.toJson(param)); 
 		String result = null;
 		try {
-			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.cancelRes"), id.intValue()+"");
+			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.cancelRes"), gson.toJson(param));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
