@@ -11,11 +11,11 @@ import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.CoreConnectionPNames;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,9 +25,18 @@ public class HttpClientUtil {
 	public static String sendPostRequest(String url, String data)
 			throws IOException, URISyntaxException {
 		
-		HttpClient client = new DefaultHttpClient();
-		client.getParams().setIntParameter(CoreConnectionPNames.SO_TIMEOUT, 2400000);  
-		client.getParams().setIntParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 2400000);  
+		int timeout = 5000;
+	    RequestConfig config =
+	        RequestConfig.custom().setConnectTimeout(timeout * 1000)
+	            .setConnectionRequestTimeout(timeout * 1000).setSocketTimeout(timeout * 1000).build();
+
+	    CloseableHttpClient client =
+	        HttpClientBuilder.create().setDefaultRequestConfig(config).build();
+	    
+//		HttpClient client = new DefaultHttpClient();
+//		client.getParams().setIntParameter(CoreConnectionPNames.SO_TIMEOUT, 2400000);  
+//		client.getParams().setIntParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 2400000);  
+	    
 		HttpPost post = new HttpPost(url);
 		LOGGER.debug("*************************"+data+"*************************");
 		StringEntity entity = new StringEntity(data, "utf-8");// 解决中文乱码问题
