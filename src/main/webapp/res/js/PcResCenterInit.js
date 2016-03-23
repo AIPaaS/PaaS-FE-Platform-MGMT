@@ -68,7 +68,15 @@ function initListener() {
 	$("#btn_cancel").bind("click", function() {
 		cancelRes();
 	});
-
+	$("#btn_add").bind("click",function(){
+		$("#div_appResUse").modal("show");
+	})
+	$('#btn_add_pass').bind("click",function(){
+		addComputerInRes();
+	})
+	$('#btn_add_back').bind("click",function(){
+		$("#div_appResUse").modal("hide");
+	})
 }
 function initFace() {
 }
@@ -102,16 +110,19 @@ function query(){
 		}
 		
 		$('#pcComputerTable').html("");
+		$('#appResTable').html("");
 		var slavePartList = result.slavePartList;
 		var masterPartList = result.corePartList;
 		var visitPartList = result.visitPartList;
 		var computerList = result.computerList;
+		var toAddComputerList = result.toAddComputer;
 		centerSize = result.corePartList==null?0:masterPartList.length;
 		visitSize = result.visitPartList==null?0:visitPartList.length;
 		slaveSize = result.slavePartList==null?0:slavePartList.length;
 
 		$('#pcComputerTable-tmpl').tmpl(result).appendTo("#pcComputerTable");
-//		$('#resCenter-des-tmpl').tmpl(result).appendTo("#resCenter-des");
+		$('#appResTable-tmpl').tmpl(result).appendTo("#appResTable");
+		
 		$('#resCenter-des').html("");
 		var statudesc = "状态：";
 		switch (initStatus){
@@ -177,13 +188,12 @@ function initResCenter(){
 		//开始初始化
 		RS.ajax({url:"/res/resc/initResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
 			if(result.resultCode=="000000"){
-				
 				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:2},cb:function(r) {
 				}});
 				
 				clearInterval(intervalTime);
 				CC.showMsg({msg:"初始化资源中心成功！"});
-				window.location = ContextPath + "/dispatch/mc/0207";
+				window.location = ContextPath + "/dispatch/mc/0207";  
 			}else{
 				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
 				}});
@@ -196,6 +206,17 @@ function initResCenter(){
 			}
 		}});
 }
+
+function addComputerInRes(){
+	var computerId = new Array();
+	$(":checkbox:checked").each(function(){
+		computerId.push($(this).val());
+	})
+	RS.ajax({url:"/res/resc/addSlave",ps:{computerId : computerId.join()},cb:function(r) {
+		
+	}});
+}
+
 
 //刷新日志
 var intervalTime;

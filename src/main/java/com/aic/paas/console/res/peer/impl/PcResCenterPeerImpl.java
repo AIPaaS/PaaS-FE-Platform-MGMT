@@ -10,12 +10,16 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.aic.paas.comm.util.PropertiesPool;
+import com.aic.paas.console.res.bean.CPcComputer;
 import com.aic.paas.console.res.bean.CPcResCenter;
+import com.aic.paas.console.res.bean.PcComputer;
 import com.aic.paas.console.res.bean.PcResCenter;
 import com.aic.paas.console.res.bean.PcResCenterInfo;
 import com.aic.paas.console.res.peer.PcResCenterPeer;
 import com.aic.paas.console.res.util.HttpClientUtil;
 import com.aic.paas.console.res.vo.OpenResultParamVo;
+import com.aic.paas.console.res.vo.ResDetailInfo;
+import com.aic.paas.console.rest.PcComputerSvc;
 import com.aic.paas.console.rest.PcResCenterSvc;
 import com.alibaba.dubbo.common.json.JSON;
 import com.alibaba.dubbo.common.json.JSONObject;
@@ -33,6 +37,9 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 
 	@Autowired
 	PropertiesPool propertiesPool;
+	
+	@Autowired
+	PcComputerSvc pcComputerSvc;
 	
 	public Page<PcResCenter> queryPage(Integer pageNum, Integer pageSize,CPcResCenter cdt, String orders) {
 		return pcResCenterSvc.queryPage(pageNum, pageSize, cdt, orders);
@@ -141,4 +148,24 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
 		return initResult;
 	}
+
+	@Override
+	public void initResCenterSuccess(Long id) {
+		CPcComputer cp = new CPcComputer();
+		cp.setResCenterId(id);
+		cp.setStatus(1);
+		List<PcComputer> list = pcComputerSvc.queryList(cp, "ID");
+		for(PcComputer pc : list){
+			pc.setUseStatus(1);
+			pcComputerSvc.saveOrUpdate(pc);
+		}
+	}
+
+	@Override
+	public OpenResultParamVo addSlave(List<Long> computerId) {
+		System.out.println(computerId.toString());
+		return null;
+	}
+	
+	
 }

@@ -74,6 +74,45 @@ String ContextPath = request.getContextPath();
 </div>
 </div>
 
+<!-- 弹出框（Modal） -->
+<div class="modal fade" id="div_appResUse" tabindex="-1" role="dialog" aria-hidden="true">
+   <div class="modal-dialog" style="width:900px;">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="div_title"></h4>
+         </div>
+         <div class="modal-body">
+            <table class="table">
+				<thead>
+					<tr>
+						<th>选择</th>
+						<th class="text-center">服务器编号</th>
+						<th class="text-center">服务器IP</th>
+						<th class="text-center">所属机房</th>
+						<th class="text-center">数据中心</th>
+						<th class="text-center">资源中心</th>
+						<th class="text-center">网络区域</th>
+						<th class="text-center">CPU个数</th>
+						<th class="text-center">内存大小</th>
+						<th class="text-center">硬盘大小</th>
+						<th class="text-center">操作系统</th>
+					</tr>
+				</thead>
+				<tbody id="appResTable">
+					
+				</tbody>
+			</table>
+         </div>
+          <div class="modal-footer" >
+	         <button id="btn_add_pass" type="button" class="btn btn-lg btn-success ok" >确认</button>
+			<button id="btn_add_back" type="button" class="btn btn-lg cancel" >取消</button>
+      	</div>
+      </div>
+	</div>
+</div>
+
+
 
 <div class="row"  id="div-log" style="display: none">
 	<div class="col-lg-12">
@@ -104,7 +143,7 @@ String ContextPath = request.getContextPath();
 					&nbsp;
 						<button type="submit"  id="btn_cancel" class="btn btn-success">注销</button>
 					&nbsp;
-						<button type="submit"  id="btn_add_computer" class="btn btn-success">扩充</button>
+						<button type="submit"  id="btn_add" class="btn btn-success">扩充</button>
 					</div>
 				</div>
 				
@@ -162,11 +201,35 @@ String ContextPath = request.getContextPath();
 		</tr>
 {{/each}}
 </script>
-
-<script id="resCenter-des-tmpl" type="text/x-jquery-tmpl">
-	{{each(i,row) result}}
-		<font color="blue">核心控制域：{{=row.initStatus }} 台    访问入口域：${visitSize }台   服务域：${slaveSize }台</font>
-	{{/each}}
+	<script id="appResTable-tmpl" type="text/x-jquery-tmpl">
+	{{each(i,row) toAddComputer}}
+		<tr>
+			<td class="text-center"><input type="checkbox" value="{{= row.id}}" /></td>
+			<td class="text-center"><a href="<%=ContextPath%>/dispatch/mc/020501?id={{= row.id}}&pageNum={{= pageNum}}">{{= row.code}}</a></td>
+			<td class="text-center">{{= row.ip}}</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_COMP_ROOM_CODE",row.roomId,false)}}
+			</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_DATA_CENTER_CODE",row.dataCenterId,false)}}
+			</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_RES_CENTER_CODE",row.resCenterId,false)}}
+			</td>
+			<td class="text-center">
+				{{= PU.getDropValue("DV_NET_ZONE_CODE",row.netZoneId,false)}}
+			</td>
+			
+			<td class="text-center">
+				{{if !CU.isEmpty(row.cpuCount)}}
+					{{= row.cpuCount/100}}
+				{{/if}}
+			</td>
+			<td class="text-center">{{= CU.toMegaByteUnit(row.memSize)}}</td>
+			<td class="text-center">{{= CU.toMegaByteUnit(row.diskSize)}}</td>
+			<td class="text-center">{{= row.osName}}</td>	
+		</tr>
+{{/each}}
 </script>
 
 	<jsp:include page="/layout/jsp/footer.jsp"></jsp:include>
