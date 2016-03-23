@@ -60,12 +60,12 @@ String ContextPath = request.getContextPath();
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="imagePath" class="col-lg-2 control-label">镜像地址:<font color="red">*</font>:</label>
+				<label for="imagePath" class="col-lg-2 control-label">镜像存储路径:<font color="red">*</font>:</label>
 				<div class="col-lg-5">
 					<input type="text" name="imagePath" class="form-control" id="imagePath" required pattern=".{1,200}" placeholder="必填">
 				</div>
 				<div class="col-lg-5">
-					<span></span>
+					<span>本机镜像临时存储路径</span>
 				</div>
 			</div>
 			<div class="form-group">
