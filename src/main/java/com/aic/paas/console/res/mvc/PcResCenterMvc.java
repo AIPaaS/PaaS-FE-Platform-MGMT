@@ -136,11 +136,11 @@ public class PcResCenterMvc {
 	}	
 	
 	@RequestMapping("/addSlave")
-	public void addSlave(HttpServletRequest request, HttpServletResponse response,String computerId){
+	public void addSlave(HttpServletRequest request, HttpServletResponse response,Long resCenterId,String computerId){
 		String[] id = computerId.split(",");
 		List<Long> list = new ArrayList<Long>();
 		for(String str : id) list.add(Long.parseLong(str));
-		OpenResultParamVo r = pcResCenterPeer.addSlave(list);
+		OpenResultParamVo r = pcResCenterPeer.addSlave(resCenterId,list);
 		ControllerUtils.returnJson(request, response, r);
 	}
 	

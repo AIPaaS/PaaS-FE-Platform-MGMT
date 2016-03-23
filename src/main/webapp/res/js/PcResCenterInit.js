@@ -208,12 +208,21 @@ function initResCenter(){
 }
 
 function addComputerInRes(){
+	var resId = "";
+	resId=$('#sel_resCenter :selected').val();
+	$("#div_appResUse").modal("hide");
+	$("#btn_add").attr("disabled",true);
 	var computerId = new Array();
 	$(":checkbox:checked").each(function(){
 		computerId.push($(this).val());
 	})
-	RS.ajax({url:"/res/resc/addSlave",ps:{computerId : computerId.join()},cb:function(r) {
-		
+	RS.ajax({url:"/res/resc/addSlave",ps:{resCenterId : resId,computerId : computerId.join()},cb:function(r) {
+		if(result.resultCode=="000000"){
+			clearInterval(intervalTime);
+			CC.showMsg({msg:"扩容成功"});
+		}else{
+			CC.showMsg({msg:"扩容失败"});
+		}
 	}});
 }
 

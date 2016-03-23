@@ -2,7 +2,6 @@ package com.aic.paas.console.res.peer.impl;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -18,11 +17,8 @@ import com.aic.paas.console.res.bean.PcResCenterInfo;
 import com.aic.paas.console.res.peer.PcResCenterPeer;
 import com.aic.paas.console.res.util.HttpClientUtil;
 import com.aic.paas.console.res.vo.OpenResultParamVo;
-import com.aic.paas.console.res.vo.ResDetailInfo;
 import com.aic.paas.console.rest.PcComputerSvc;
 import com.aic.paas.console.rest.PcResCenterSvc;
-import com.alibaba.dubbo.common.json.JSON;
-import com.alibaba.dubbo.common.json.JSONObject;
 import com.binary.core.util.BinaryUtils;
 import com.binary.framework.exception.ServiceException;
 import com.binary.jdbc.Page;
@@ -100,22 +96,26 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 
 	@Override
 	public OpenResultParamVo initResCenter(Long id ,Boolean useAgent,Boolean loadOnly) {
-		
 		//获取初始化参数
 		Map<String,Object> param = pcResCenterSvc.getInitParam(id, useAgent, loadOnly);
 		
 		Gson gson = new Gson();
 		logger.info("init resCenter param----"+gson.toJson(param));
 
-		String result = null;
-		try {
-			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
-			logger.info("the result of initResCenter is : "+ result);
-		} catch (IOException | URISyntaxException e) {
-			logger.error(e.getMessage());
-			throw new ServiceException(e.getMessage());
-		} 
-		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
+//		String result = null;
+//		try {
+//			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
+//			logger.info("the result of initResCenter is : "+ result);
+//		} catch (IOException | URISyntaxException e) {
+//			logger.error(e.getMessage());
+//			throw new ServiceException(e.getMessage());
+//		} 
+//		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
+		
+		OpenResultParamVo initResult = new OpenResultParamVo();
+		initResult.setResultCode("000000");
+		initResult.setResultMsg("chenxm test");
+		
 		return initResult;
 	}
 
@@ -124,7 +124,7 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		String logResult = null;
 		try {
 			logResult = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.getLog"), id.intValue()+"");
-		} catch (IOException | URISyntaxException e) {
+		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 		return logResult;
@@ -162,9 +162,20 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 	}
 
 	@Override
-	public OpenResultParamVo addSlave(List<Long> computerId) {
-		System.out.println(computerId.toString());
-		return null;
+	public OpenResultParamVo addSlave(Long resCenterId , List<Long> computerIdList) {
+		Map<String,Object> param = pcResCenterSvc.getAddSlaveParam(resCenterId, computerIdList, true);
+		
+		Gson gson = new Gson();
+		logger.info("addSlave param ----"+gson.toJson(param)); 
+		String result = null;
+		try {
+			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.addSlave"), gson.toJson(param));
+		} catch (IOException | URISyntaxException e) {
+			logger.error(e.getMessage());
+			throw new ServiceException(e.getMessage());
+		}
+		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
+		return initResult;
 	}
 	
 	

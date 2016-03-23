@@ -143,7 +143,7 @@ String ContextPath = request.getContextPath();
 					&nbsp;
 						<button type="submit"  id="btn_cancel" class="btn btn-success">注销</button>
 					&nbsp;
-						<button type="submit"  id="btn_add" class="btn btn-success">扩充</button>
+						<button type="submit"  id="btn_add" class="btn btn-success">扩容</button>
 					</div>
 				</div>
 				
