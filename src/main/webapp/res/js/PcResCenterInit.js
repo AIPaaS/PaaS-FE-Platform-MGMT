@@ -134,26 +134,26 @@ function cancelRes(){
 	if(resId==""||initStatus!=2) return ;
 	$('#div-log').show();
 	startGetLog();
-	$('#div-init-button').hide();
-	RS.ajax({url:"/res/resc/cancelResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
-		if(result.resultCode=="000000"){
-			
-			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:0},cb:function(r) {
-			}});
-			
-			clearInterval(intervalTime);
-			CC.showMsg({msg:"注销资源中心成功"});
-		}else{
-//			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
+//	$('#div-init-button').hide();
+//	RS.ajax({url:"/res/resc/cancelResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
+//		if(result.resultCode=="000000"){
+//			
+//			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:0},cb:function(r) {
 //			}});
-			
-			//停止查询日志
-			clearInterval(intervalTime);
-			$('#div-log').hide();
-			CC.showMsg({msg:"注销失败"});
-			$('#div-init-button').show();
-		}
-	}});
+//			
+//			clearInterval(intervalTime);
+//			CC.showMsg({msg:"注销资源中心成功"});
+//		}else{
+////			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
+////			}});
+//			
+//			//停止查询日志
+//			clearInterval(intervalTime);
+//			$('#div-log').hide();
+//			CC.showMsg({msg:"注销失败"});
+//			$('#div-init-button').show();
+//		}
+//	}});
 }
 
 function initResCenter(){
@@ -206,13 +206,15 @@ function startGetLog() {
 			queryLog();
 	}, 5000);
 }
+
 function queryLog() {
-	var resId = $('#sel_resCenter :selected').val();
-	RS.ajax({url:"/res/resc/getInitLog",ps:{resCenterId:resId},cb:function(msg) {
-		if(CU.isEmpty(msg)) return;
+	var resId = "";
+	resId = $('#sel_resCenter :selected').val();
+	RS.ajax({url:"/res/resc/getInitLogNew",ps:{resCenterId:resId},cb:function(msg) {
+		if(CU.isEmpty(msg.data)) return;
 		if (msg.length != 0) {
 			var str = '';
-			var d = msg;
+			var d = msg.data;
 			for (var i = 0; i < d.length; i++) {
 				str += d[i].finishTime + '  日志信息:   ' + d[i].desc+ '\n';
 			}

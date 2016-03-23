@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,8 +19,11 @@ import com.aic.paas.console.res.vo.LogResult;
 import com.aic.paas.console.res.vo.OpenResultParamVo;
 import com.aic.paas.frame.cross.bean.DropRecord;
 import com.aic.paas.frame.util.ComponentUtil;
+import com.binary.core.http.HttpClient;
+import com.binary.core.util.BinaryUtils;
 import com.binary.framework.util.ControllerUtils;
 import com.binary.jdbc.Page;
+import com.binary.json.JSON;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -32,6 +36,9 @@ public class PcResCenterMvc {
 	
 	@Autowired
 	PcComputerPeer pcComputerPeer;
+	
+	@Value("${project.task.root}")
+	String taskRoot;
 	
 	@RequestMapping("/getResCenterCodeList")
     public void getResCenterCodeList(HttpServletRequest request, HttpServletResponse response, Boolean addEmpty, Boolean addAttr ,Long dataCenterId) {
@@ -109,6 +116,15 @@ public class PcResCenterMvc {
 		List<LogResult> reslog = gson.fromJson(log, new TypeToken<List<LogResult>>() {
 		}.getType());;
 		ControllerUtils.returnJson(request, response, reslog);
+	}
+	
+	@RequestMapping("/getInitLogNew")
+	public void getInitLogNew(HttpServletRequest request, HttpServletResponse response, Long resCenterId) {
+		BinaryUtils.checkEmpty(resCenterId, "resId");
+		HttpClient client = HttpClient.getInstance(taskRoot);
+		String logs = client.request("/res/manage/queryLog?id=" + resCenterId);
+		
+		ControllerUtils.returnJson(request, response, JSON.toObject(logs));
 	}
 	
 }
