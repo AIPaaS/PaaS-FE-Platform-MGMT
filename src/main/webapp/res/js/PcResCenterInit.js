@@ -240,11 +240,11 @@ function startGetLog() {
 function queryLog() {
 	var resId = "";
 	resId = $('#sel_resCenter :selected').val();
-	RS.ajax({url:"/res/resc/getInitLogNew",ps:{resCenterId:resId},cb:function(msg) {
+	RS.ajax({url:"/res/resc/getInitLog",ps:{resCenterId:resId},cb:function(msg) {
 		if(CU.isEmpty(msg.data)) return;
 		if (msg.length != 0) {
 			var str = '';
-			var d = msg.data;
+			var d = msg;
 			for (var i = 0; i < d.length; i++) {
 				str += d[i].finishTime + '  日志信息:   ' + d[i].desc+ '\n';
 			}
