@@ -125,6 +125,7 @@ public class PcResCenterMvc {
 		System.out.println("==========getInitLogNew====resCenterId====" + resCenterId);
 		System.out.println("==========getInitLogNew====taskRoot====" + taskRoot);
 		HttpClient client = HttpClient.getInstance(taskRoot);
+		client.addRequestProperty("REQUEST_HEADER", "binary-http-client-header");
 		String logs = client.request("/res/manage/queryLog?id=" + resCenterId);
 		System.out.println("==========getInitLogNew========" + logs);
 		ControllerUtils.returnJson(request, response, JSON.toObject(logs));
