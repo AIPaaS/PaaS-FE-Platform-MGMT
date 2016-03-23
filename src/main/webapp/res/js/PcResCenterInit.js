@@ -193,7 +193,6 @@ function initResCenter(){
 				
 				clearInterval(intervalTime);
 				CC.showMsg({msg:"初始化资源中心成功！"});
-				window.location = ContextPath + "/dispatch/mc/0207";  
 			}else{
 				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
 				}});
