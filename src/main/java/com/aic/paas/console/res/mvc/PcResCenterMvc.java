@@ -123,8 +123,8 @@ public class PcResCenterMvc {
 	public void getInitLogNew(HttpServletRequest request, HttpServletResponse response, Long resCenterId) {
 		BinaryUtils.checkEmpty(resCenterId, "resId");
 		HttpClient client = HttpClient.getInstance(taskRoot);
+		client.setRequestMethod("GET");
 		client.addRequestProperty("REQUEST_HEADER", "binary-http-client-header");
-		client.addRequestProperty("x-requested-with", "XMLHttpRequest");
 		String logs = client.request("/res/manage/queryLog?id=" + resCenterId);
 		System.out.println("==========getInitLogNew========" + logs);
 		ControllerUtils.returnJson(request, response, JSON.toObject(logs));
