@@ -2,6 +2,7 @@ package com.aic.paas.console.res.bean;
 
 
 
+
 import com.binary.framework.bean.EntityBean;
 
 
@@ -214,6 +215,12 @@ public class PcComputer implements EntityBean {
 	 * mapping-field: 备用字段_6[CUSTOM_6]
 	 */
 	private String custom6;
+
+
+	/**
+	 * mapping-field: 使用状态[USE_STATUS]
+	 */
+	private Integer useStatus;
 
 
 	/**
@@ -500,6 +507,14 @@ public class PcComputer implements EntityBean {
 	}
 	public void setCustom6(String custom6) {
 		this.custom6 = custom6;
+	}
+
+
+	public Integer getUseStatus() {
+		return this.useStatus;
+	}
+	public void setUseStatus(Integer useStatus) {
+		this.useStatus = useStatus;
 	}
 
 

@@ -1,5 +1,6 @@
 package com.aic.paas.console.res.mvc;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -109,6 +110,20 @@ public class PcResCenterMvc {
 		List<LogResult> reslog = gson.fromJson(log, new TypeToken<List<LogResult>>() {
 		}.getType());;
 		ControllerUtils.returnJson(request, response, reslog);
+	}
+	
+	@RequestMapping("/initResCenterSuccess")
+	public void initResCenterSuccess(HttpServletRequest request, HttpServletResponse response,Long resCenterId){
+		pcResCenterPeer.initResCenterSuccess(resCenterId);
+	}	
+	
+	@RequestMapping("/addSlave")
+	public void addSlave(HttpServletRequest request, HttpServletResponse response,String computerId){
+		String[] id = computerId.split(",");
+		List<Long> list = new ArrayList<Long>();
+		for(String str : id) list.add(Long.parseLong(str));
+		OpenResultParamVo r = pcResCenterPeer.addSlave(list);
+		ControllerUtils.returnJson(request, response, r);
 	}
 	
 }

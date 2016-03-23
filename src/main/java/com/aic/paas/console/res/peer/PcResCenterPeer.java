@@ -131,4 +131,16 @@ public interface PcResCenterPeer {
 	 */
 	public String getInitLog(Long id);
 
+	/**
+	 * 初始化成功，修改服务器使用状态
+	 * @param id
+	 */
+	public void initResCenterSuccess(Long id);
+	
+	/**
+	 * 添加slave主机
+	 * @param computerId
+	 * @return
+	 */
+	public OpenResultParamVo addSlave(List<Long> computerId);
 }
