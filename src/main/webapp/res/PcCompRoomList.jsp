@@ -94,12 +94,48 @@ String ContextPath = request.getContextPath();
 	{{each(i,row) data}}
 		<tr>
 			<td class="text-center"><a href="<%=ContextPath%>/dispatch/mc/020101?id={{= row.id}}&pageNum={{= pageNum}}">{{= row.roomCode}}</a></td>
-			<td class="text-center">{{= row.roomName}}</td>
-			<td class="text-center">{{= row.roomAddr}}</td>
-			<td class="text-center">{{= row.contactName}}</td>
-			<td class="text-center">{{= row.contactPhone}}</td>
-			<td class="text-center">{{= row.contactPhone2}}</td>
-			<td class="text-center">{{= row.contactEmail}}</td>
+			<td class="text-center">
+				{{if row.roomName.length>10}}
+					{{= subStr(row.roomName)}}
+				{{else}}
+					{{= row.roomName}}
+				{{/if}}
+			</td>
+			<td class="text-center">
+				{{if row.roomAddr.length>10}}
+					{{= subStr(row.roomAddr)}}
+				{{else}}
+					{{= row.roomAddr}}
+				{{/if}}
+			</td>
+			<td class="text-center">
+				{{if row.contactName.length>10}}
+					{{= subStr(row.contactName)}}
+				{{else}}
+					{{= row.contactName}}
+				{{/if}}
+			</td>
+			<td class="text-center">
+				{{if row.contactPhone.length>10}}
+					{{= subStr(row.contactPhone)}}
+				{{else}}
+					{{= row.contactPhone}}
+				{{/if}}
+			</td>
+			<td class="text-center">
+				{{if row.contactPhone2.length>10}}
+					{{= subStr(row.contactPhone2)}}
+				{{else}}
+					{{= row.contactPhone2}}
+				{{/if}}
+			</td>
+			<td class="text-center">
+				{{if row.contactEmail.length>10}}
+					{{= subStr(row.contactEmail)}}
+				{{else}}
+					{{= row.contactEmail}}
+				{{/if}}
+			</td>
 			<td class="text-center">
 				{{if row.status==1}}
 					是
@@ -107,7 +143,13 @@ String ContextPath = request.getContextPath();
 					否
 				{{/if}}
 			</td>
-			<td class="text-center">{{= row.remark}}</td>
+			<td class="text-center">
+				{{if row.remark.length>10}}
+					{{= subStr(row.remark)}}
+				{{else}}
+					{{= row.remark}}
+				{{/if}}
+			</td>
 		</tr>
 {{/each}}
 </script>

@@ -75,3 +75,13 @@ function query(pageNum){
 	
 }
 
+function subStr(str){
+	if(CU.isEmpty(str)){
+		return "";
+	}
+	if(str.length>10){
+		return str.substring(0,10)+"...";
+	}
+	return str;
+}
+
