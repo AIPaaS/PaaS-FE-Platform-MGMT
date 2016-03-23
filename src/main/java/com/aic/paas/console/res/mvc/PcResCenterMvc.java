@@ -122,6 +122,8 @@ public class PcResCenterMvc {
 	@RequestMapping("/getInitLogNew")
 	public void getInitLogNew(HttpServletRequest request, HttpServletResponse response, Long resCenterId) {
 		BinaryUtils.checkEmpty(resCenterId, "resId");
+		System.out.println("==========getInitLogNew====resCenterId====" + resCenterId);
+		System.out.println("==========getInitLogNew====taskRoot====" + taskRoot);
 		HttpClient client = HttpClient.getInstance(taskRoot);
 		String logs = client.request("/res/manage/queryLog?id=" + resCenterId);
 		System.out.println("==========getInitLogNew========" + logs);
