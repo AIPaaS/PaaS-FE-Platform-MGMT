@@ -145,26 +145,26 @@ function cancelRes(){
 	if(resId==""||initStatus!=2) return ;
 	$('#div-log').show();
 	startGetLog();
-//	$('#div-init-button').hide();
-//	RS.ajax({url:"/res/resc/cancelResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
-//		if(result.resultCode=="000000"){
-//			
-//			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:0},cb:function(r) {
+	$('#div-init-button').hide();
+	RS.ajax({url:"/res/resc/cancelResCenter",ps:{resCenterId:resId,useAgent:true,loadOnly:true},cb:function(result) {
+		if(result.resultCode=="000000"){
+			
+			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:0},cb:function(r) {
+			}});
+			
+			clearInterval(intervalTime);
+			CC.showMsg({msg:"注销资源中心成功"});
+		}else{
+//			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
 //			}});
-//			
-//			clearInterval(intervalTime);
-//			CC.showMsg({msg:"注销资源中心成功"});
-//		}else{
-////			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
-////			}});
-//			
-//			//停止查询日志
-//			clearInterval(intervalTime);
-//			$('#div-log').hide();
-//			CC.showMsg({msg:"注销失败"});
-//			$('#div-init-button').show();
-//		}
-//	}});
+			
+			//停止查询日志
+			clearInterval(intervalTime);
+			$('#div-log').hide();
+			CC.showMsg({msg:"注销失败"});
+			$('#div-init-button').show();
+		}
+	}});
 }
 
 function initResCenter(){
