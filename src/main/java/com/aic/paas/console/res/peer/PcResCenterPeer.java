@@ -140,7 +140,8 @@ public interface PcResCenterPeer {
 	/**
 	 * 添加slave主机
 	 * @param computerId
+	 * @param resCenterId
 	 * @return
 	 */
-	public OpenResultParamVo addSlave(List<Long> computerId);
+	public OpenResultParamVo addSlave(Long resCenterId,List<Long> computerIdList);
 }

@@ -123,17 +123,29 @@ public interface PcResCenterSvc {
 	/**
 	 * 返回初始化参数
 	 * @param resCenterId
+	 * @param useAgent
+	 * @param loadOnly
+	 * @return
 	 */
 	public Map<String,Object> getInitParam(Long resCenterId,Boolean useAgent,Boolean loadOnly);
-
 
 
 	/**
 	 * 返回注销参数
 	 * @param resCenterId
+	 * @param useAgent
+	 * @param loadOnly
+	 * @return
 	 */
 	Map<String, Object> getCancelParam(Long resCenterId, Boolean useAgent,Boolean loadOnly);
 	
 	
-	
+	/**
+	 *  返回添加slave参数
+	 * @param resCenterId
+	 * @param computerIdList
+	 * @param useAgent
+	 * @return
+	 */
+	public Map<String, Object> getAddSlaveParam(Long resCenterId,List<Long> computerIdList,Boolean useAgent);
 }
