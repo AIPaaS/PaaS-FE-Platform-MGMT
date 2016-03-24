@@ -196,6 +196,8 @@ function initResCenter(){
 				alert("初始化资源中心成功！");
 				window.location = ContextPath + "/dispatch/mc/0207"; 
 			}else if(result.resultCode=="999998"){
+				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:2},cb:function(r) {
+				}});
 				clearInterval(intervalTime);
 				alert("clusterId为［"+resId+"］的资源中心,已初始化完成！");
 				window.location = ContextPath + "/dispatch/mc/0207"; 
