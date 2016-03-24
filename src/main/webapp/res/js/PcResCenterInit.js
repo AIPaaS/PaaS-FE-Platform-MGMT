@@ -153,7 +153,8 @@ function cancelRes(){
 			}});
 			
 			clearInterval(intervalTime);
-			CC.showMsg({msg:"注销资源中心成功"});
+			alert("注销资源中心成功！");
+			window.location = ContextPath + "/dispatch/mc/0207"; 
 		}else{
 //			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
 //			}});
