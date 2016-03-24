@@ -124,6 +124,8 @@ public class PcResCenterMvc {
 		BinaryUtils.checkEmpty(resCenterId, "resId");
 		HttpClient client = HttpClient.getInstance(taskRoot);
 		client.setRequestMethod("GET");
+		client.addRequestProperty("Content-Type", "application/json");
+
 		client.addRequestProperty("REQUEST_HEADER", "binary-http-client-header");
 		String logs = client.request("/res/manage/queryLog?id=" + resCenterId);
 		System.out.println("==========getInitLogNew========" + logs);
