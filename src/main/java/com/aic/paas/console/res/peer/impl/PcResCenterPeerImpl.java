@@ -102,19 +102,19 @@ public class PcResCenterPeerImpl implements PcResCenterPeer{
 		Gson gson = new Gson();
 		logger.info("init resCenter param----"+gson.toJson(param));
 
-//		String result = null;
-//		try {
-//			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
-//			logger.info("the result of initResCenter is : "+ result);
-//		} catch (IOException | URISyntaxException e) {
-//			logger.error(e.getMessage());
-//			throw new ServiceException(e.getMessage());
-//		} 
-//		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
+		String result = null;
+		try {
+			result = HttpClientUtil.sendPostRequest(propertiesPool.get("url.resCenter.init"),gson.toJson(param));
+			logger.info("the result of initResCenter is : "+ result);
+		} catch (IOException | URISyntaxException e) {
+			logger.error(e.getMessage());
+			throw new ServiceException(e.getMessage());
+		} 
+		OpenResultParamVo initResult = gson.fromJson(result, OpenResultParamVo.class);
 		
-		OpenResultParamVo initResult = new OpenResultParamVo();
-		initResult.setResultCode("000000");
-		initResult.setResultMsg("chenxm test");
+//		OpenResultParamVo initResult = new OpenResultParamVo();
+//		initResult.setResultCode("000000");
+//		initResult.setResultMsg("chenxm test");
 		
 		return initResult;
 	}
