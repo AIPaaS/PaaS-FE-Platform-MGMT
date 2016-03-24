@@ -60,7 +60,7 @@ String ContextPath = request.getContextPath();
 								<th class="text-center">硬盘大小</th>
 								<th class="text-center">操作系统</th>
 								<th class="text-center">是否有效</th>
-								<th class="text-center">命令窗</th>
+<!-- 								<th class="text-center">命令窗</th> -->
 							</tr>
 						</thead>
 						<tbody id="pcComputerTable">
@@ -143,7 +143,7 @@ String ContextPath = request.getContextPath();
 					&nbsp;
 						<button type="submit"  id="btn_cancel" class="btn btn-success">注销</button>
 					&nbsp;
-						<button type="submit"  id="btn_add" class="btn btn-success">扩容</button>
+<!-- 						<button type="submit"  id="btn_add" class="btn btn-success">扩容</button> -->
 					</div>
 				</div>
 				
@@ -189,14 +189,6 @@ String ContextPath = request.getContextPath();
 				{{else}}
 					否
 				{{/if}}
-			</td>
-			<td class="text-center">
-				<a id="a_comp_tags_{{= row.id}}" href="###" class="table-link" title="标签详情">
-					<span class="fa-stack">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-tags fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
 			</td>
 		</tr>
 {{/each}}
