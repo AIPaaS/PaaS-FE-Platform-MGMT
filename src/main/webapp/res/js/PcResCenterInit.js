@@ -241,7 +241,7 @@ function queryLog() {
 	var resId = "";
 	resId = $('#sel_resCenter :selected').val();
 	RS.ajax({url:"/res/resc/getInitLog",ps:{resCenterId:resId},cb:function(msg) {
-		if(CU.isEmpty(msg.data)) return;
+		if(CU.isEmpty(msg)) return;
 		if (msg.length != 0) {
 			var str = '';
 			var d = msg;
