@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,7 @@ import com.google.gson.reflect.TypeToken;
 @Controller
 @RequestMapping("/res/resc")
 public class PcResCenterMvc {
+	private static Logger logger = LoggerFactory.getLogger(PcResCenterMvc.class);
 	
 	@Autowired
 	PcResCenterPeer pcResCenterPeer;
@@ -121,9 +124,14 @@ public class PcResCenterMvc {
 	
 	@RequestMapping("/getInitLogNew")
 	public void getInitLogNew(HttpServletRequest request, HttpServletResponse response, Long resCenterId) {
+		logger.info("====== start getInitLogNew : =========================================== : " + resCenterId);
+		logger.info("===========taskRoot : " + taskRoot);
+		
 		BinaryUtils.checkEmpty(resCenterId, "resId");
 		HttpClient client = HttpClient.getInstance(taskRoot);
 		client.setRequestMethod("GET");
+		client.addRequestProperty("Content-Type", "application/json");
+
 		client.addRequestProperty("REQUEST_HEADER", "binary-http-client-header");
 		String logs = client.request("/res/manage/queryLog?id=" + resCenterId);
 		System.out.println("==========getInitLogNew========" + logs);
