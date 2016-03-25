@@ -86,6 +86,7 @@ function query(){
 	if(resId=="") return ;
 	RS.ajax({url:"/res/computer/queryByResCenter",ps:{resCenterId : resId},cb:function(result) {
 		initStatus = result.initStatus;
+		$('#div-init-button').show();
 		if(initStatus==1) {
 			$('#btn_init').attr("disabled",true);
 			$('#btn_init').addClass("disabled");
@@ -151,19 +152,14 @@ function cancelRes(){
 			
 			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:0},cb:function(r) {
 			}});
-			
-			clearInterval(intervalTime);
 			alert("注销资源中心成功！");
-			window.location = ContextPath + "/dispatch/mc/0207"; 
+			refresh();
 		}else{
 //			RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
 //			}});
 			
-			//停止查询日志
-			clearInterval(intervalTime);
-			$('#div-log').hide();
 			CC.showMsg({msg:"注销失败"});
-			$('#div-init-button').show();
+			refresh();
 		}
 	}});
 }
@@ -192,26 +188,29 @@ function initResCenter(){
 				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:2},cb:function(r) {
 				}});
 				
-				clearInterval(intervalTime);
-				alert("初始化资源中心成功！");
-				window.location = ContextPath + "/dispatch/mc/0207"; 
+				alert("初始化资源中心成功！");	
+				refresh();
 			}else if(result.resultCode=="999998"){
 				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:2},cb:function(r) {
 				}});
-				clearInterval(intervalTime);
 				alert("clusterId为［"+resId+"］的资源中心,已初始化完成！");
-				window.location = ContextPath + "/dispatch/mc/0207"; 
+				refresh();
 			}else{
 				RS.ajax({url:"/res/resc/saveOrUpdate",ps:{id:resId,initStatus:3},cb:function(r) {
 				}});
-				
-				//停止查询日志
-				clearInterval(intervalTime);
-				$('#div-log').hide();
 				CC.showMsg({msg:"初始化错误"});
-				$('#div-init-button').show();
+				refresh();
 			}
 		}});
+}
+
+function refresh(){
+	//停止查询日志
+	clearInterval(intervalTime);
+
+	$('#logWindow').html('');
+	$('#div-log').hide();
+	query();
 }
 
 function addComputerInRes(){
@@ -225,10 +224,11 @@ function addComputerInRes(){
 	})
 	RS.ajax({url:"/res/resc/addSlave",ps:{resCenterId : resId,computerId : computerId.join()},cb:function(r) {
 		if(result.resultCode=="000000"){
-			clearInterval(intervalTime);
 			CC.showMsg({msg:"扩容成功"});
+			refresh();
 		}else{
 			CC.showMsg({msg:"扩容失败"});
+			refresh();
 		}
 	}});
 }
